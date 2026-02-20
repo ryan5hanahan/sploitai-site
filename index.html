@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>sploit.ai — autonomous vulnerability assessment</title>
+    <meta
+      name="description"
+      content="sploit.ai is an AI-powered autonomous vulnerability assessment and penetration testing platform with multi-LLM agent orchestration, bug bounty integration, governance-enforced scope controls, and structured exploit reasoning."
+    />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="sploit.ai" />
+    <meta
+      property="og:description"
+      content="AI-powered autonomous vulnerability assessment and penetration testing with governance-enforced scope controls and structured exploit reasoning."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="assets/sploitai_glitch.svg" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="sploit.ai" />
+    <meta
+      name="twitter:description"
+      content="AI-powered autonomous vulnerability assessment and penetration testing."
+    />
+    <meta name="twitter:image" content="assets/sploitai_glitch.svg" />
+
+    <link rel="icon" type="image/svg+xml" href="assets/sploitai_glitch.svg" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <div class="fx" aria-hidden="true">
+      <div class="fx__noise"></div>
+      <div class="fx__scanlines"></div>
+      <div class="fx__vignette"></div>
+    </div>
+
+    <header class="site-header" role="banner">
+      <nav class="nav" aria-label="Primary">
+        <a class="nav__brand" href="#top" aria-label="sploit.ai">
+          <img
+            src="assets/sploitai_glitch.svg"
+            alt="sploit.ai"
+            class="nav__logo"
+            decoding="async"
+          />
+        </a>
+
+        <div class="nav__links">
+          <a href="#features">Features</a>
+          <a href="#how">How it works</a>
+          <a href="#waitlist" class="btn btn--ghost">Join waitlist</a>
+          <a
+            href="https://github.com/ryan5hanahan/sploitai"
+            target="_blank"
+            rel="noreferrer"
+            class="btn btn--primary"
+            >GitHub</a
+          >
+        </div>
+      </nav>
+    </header>
+
+    <main id="main" class="main" role="main">
+      <section id="top" class="hero" aria-label="Hero">
+        <div class="hero__grid">
+          <div class="hero__copy">
+            <p class="eyebrow">autonomous security • governed scope • structured reasoning</p>
+            <h1 class="hero__title">
+              <span class="glitch" data-text="sploit.ai">sploit.ai</span>
+            </h1>
+            <p class="hero__subtitle">
+              AI-powered autonomous vulnerability assessment and penetration testing platform
+              with multi-LLM agent orchestration, bug bounty integration, governance-enforced
+              scope controls, and structured exploit reasoning.
+            </p>
+
+            <div class="hero__cta">
+              <a class="btn btn--primary" href="#waitlist">Join waitlist</a>
+              <a
+                class="btn btn--ghost"
+                href="https://github.com/ryan5hanahan/sploitai"
+                target="_blank"
+                rel="noreferrer"
+                >View on GitHub</a
+              >
+            </div>
+
+            <div class="hero__badges" aria-label="Highlights">
+              <span class="badge">Multi-LLM agents</span>
+              <span class="badge">Bug bounty workflows</span>
+              <span class="badge">Scope governance</span>
+              <span class="badge">Exploit reasoning</span>
+            </div>
+          </div>
+
+          <div class="hero__mark" aria-hidden="true">
+            <div class="terminal">
+              <div class="terminal__top">
+                <span class="dot dot--r"></span>
+                <span class="dot dot--y"></span>
+                <span class="dot dot--g"></span>
+                <span class="terminal__title">sploit.ai</span>
+              </div>
+              <div class="terminal__body">
+                <div class="terminal__logo">
+                  <img src="assets/sploitai_glitch.svg" alt="" />
+                </div>
+                <pre class="terminal__code"><code><span class="muted">$</span> sploit scan --scope governed --target example.com
+
+<span class="ok">✔</span> discovered: 31 endpoints
+<span class="ok">✔</span> tests executed: auth, ssrf, sqli, xss, idor
+<span class="warn">!</span> finding: HIGH — SSRF via /fetch?url=...
+<span class="muted">→</span> reasoning: structured chain + reproduction steps
+</code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="features" class="section" aria-label="Features">
+        <div class="section__head">
+          <h2>Features</h2>
+          <p>Designed for responsible autonomous testing: powerful agents, explicit boundaries.</p>
+        </div>
+
+        <div class="cards">
+          <article class="card">
+            <h3>Multi-LLM agent orchestration</h3>
+            <p>
+              Route tasks to specialist agents (recon, fuzzing, exploit dev, reporting) and
+              keep context consistent across runs.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Bug bounty integration</h3>
+            <p>
+              Structure findings for submission workflows, with reproducible steps and
+              evidence capture.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Governance-enforced scope controls</h3>
+            <p>
+              Hard boundaries: targets, auth contexts, and allowed techniques are enforced
+              throughout the run.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Structured exploit reasoning</h3>
+            <p>
+              Make results auditable: clear assumptions, payload evolution, and validation.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="how" class="section" aria-label="How it works">
+        <div class="section__head">
+          <h2>How it works</h2>
+          <p>A minimal workflow that keeps autonomy aligned with scope and intent.</p>
+        </div>
+
+        <ol class="steps">
+          <li class="step">
+            <span class="step__num">01</span>
+            <div class="step__body">
+              <h3>Define scope & governance</h3>
+              <p>Targets, rules, and allowed actions are declared up front.</p>
+            </div>
+          </li>
+          <li class="step">
+            <span class="step__num">02</span>
+            <div class="step__body">
+              <h3>Run autonomous assessment</h3>
+              <p>Agents explore, test, and validate findings while respecting boundaries.</p>
+            </div>
+          </li>
+          <li class="step">
+            <span class="step__num">03</span>
+            <div class="step__body">
+              <h3>Review structured output</h3>
+              <p>Clear reproduction steps, evidence, and reasoning for each finding.</p>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <section id="waitlist" class="section section--accent" aria-label="Waitlist">
+        <div class="section__head">
+          <h2>Join the waitlist</h2>
+          <p>
+            Get early access updates. This form uses a Formspree placeholder endpoint —
+            replace it when you’re ready.
+          </p>
+        </div>
+
+        <form
+          class="waitlist"
+          id="waitlist-form"
+          action="https://formspree.io/f/xeellwgk"
+          method="POST"
+        >
+          <label class="field">
+            <span class="field__label">Email</span>
+            <input
+              class="field__input"
+              name="email"
+              type="email"
+              inputmode="email"
+              autocomplete="email"
+              placeholder="you@company.com"
+              required
+            />
+          </label>
+          <button class="btn btn--primary" type="submit">Request access</button>
+          <p class="form-msg" id="form-msg" role="status" aria-live="polite"></p>
+        </form>
+      </section>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+      <div class="footer__grid">
+        <div>
+          <img
+            src="assets/sploitai_dark.svg"
+            alt="sploit.ai"
+            class="footer__logo"
+            decoding="async"
+          />
+          <p class="footer__note">
+            Use responsibly. Always test only against systems you own or have explicit
+            permission to assess.
+          </p>
+        </div>
+        <div class="footer__links">
+          <a href="#features">Features</a>
+          <a href="#waitlist">Waitlist</a>
+          <a href="https://github.com/ryan5hanahan/sploitai" target="_blank" rel="noreferrer"
+            >GitHub</a
+          >
+        </div>
+      </div>
+
+      <p class="footer__meta">
+        <span>© <span id="year"></span> sploit.ai</span>
+      </p>
+    </footer>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>
