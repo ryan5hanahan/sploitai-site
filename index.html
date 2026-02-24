@@ -4,17 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>sploit.ai — autonomous vulnerability assessment</title>
+    <title>sploit.ai — autonomous security assessment</title>
     <meta
       name="description"
-      content="sploit.ai is an AI-powered autonomous vulnerability assessment and penetration testing platform with multi-LLM agent orchestration, bug bounty integration, governance-enforced scope controls, and structured exploit reasoning."
+      content="sploit.ai is an autonomous security assessment platform combining LLM reasoning with 50+ security tools in sandboxed Kali containers, multi-provider LLM routing, and governance-first architecture with immutable scope policies."
     />
 
     <!-- Open Graph -->
     <meta property="og:title" content="sploit.ai" />
     <meta
       property="og:description"
-      content="AI-powered autonomous vulnerability assessment and penetration testing with governance-enforced scope controls and structured exploit reasoning."
+      content="Autonomous security assessment platform with multi-provider LLM routing, sandboxed Kali execution, and governance-first architecture."
     />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="assets/sploitai_glitch.svg" />
@@ -24,7 +24,7 @@
     <meta name="twitter:title" content="sploit.ai" />
     <meta
       name="twitter:description"
-      content="AI-powered autonomous vulnerability assessment and penetration testing."
+      content="Autonomous security assessment with multi-provider LLM routing, sandboxed Kali execution, and governance-first architecture."
     />
     <meta name="twitter:image" content="assets/sploitai_glitch.svg" />
 
@@ -56,7 +56,7 @@
           <a href="#how">How it works</a>
           <a href="#waitlist" class="btn btn--ghost">Join waitlist</a>
           <a
-            href="https://github.com/ryan5hanahan/sploitai"
+            href="https://github.com/ryan5hanahan/SploitAgent"
             target="_blank"
             rel="noreferrer"
             class="btn btn--primary"
@@ -70,21 +70,21 @@
       <section id="top" class="hero" aria-label="Hero">
         <div class="hero__grid">
           <div class="hero__copy">
-            <p class="eyebrow">autonomous security • governed scope • structured reasoning</p>
+            <p class="eyebrow">autonomous assessment • sandboxed execution • governance-first</p>
             <h1 class="hero__title">
               <span class="glitch" data-text="sploit.ai">sploit.ai</span>
             </h1>
             <p class="hero__subtitle">
-              AI-powered autonomous vulnerability assessment and penetration testing platform
-              with multi-LLM agent orchestration, bug bounty integration, governance-enforced
-              scope controls, and structured exploit reasoning.
+              Autonomous security assessment agent combining LLM reasoning with 50+ security
+              tools running inside sandboxed Kali containers, governed by immutable scope
+              policies that prevent operation outside defined boundaries.
             </p>
 
             <div class="hero__cta">
               <a class="btn btn--primary" href="#waitlist">Join waitlist</a>
               <a
                 class="btn btn--ghost"
-                href="https://github.com/ryan5hanahan/sploitai"
+                href="https://github.com/ryan5hanahan/SploitAgent"
                 target="_blank"
                 rel="noreferrer"
                 >View on GitHub</a
@@ -92,10 +92,10 @@
             </div>
 
             <div class="hero__badges" aria-label="Highlights">
-              <span class="badge">Multi-LLM agents</span>
-              <span class="badge">Bug bounty workflows</span>
-              <span class="badge">Scope governance</span>
-              <span class="badge">Exploit reasoning</span>
+              <span class="badge">6 LLM providers</span>
+              <span class="badge">50+ security tools</span>
+              <span class="badge">Sandboxed Kali containers</span>
+              <span class="badge">874 tests, 92% coverage</span>
             </div>
           </div>
 
@@ -111,12 +111,16 @@
                 <div class="terminal__logo">
                   <img src="assets/sploitai_glitch.svg" alt="" />
                 </div>
-                <pre class="terminal__code"><code><span class="muted">$</span> sploit scan --scope governed --target example.com
+                <pre class="terminal__code"><code><span class="muted">$</span> sploitagent run \
+    --target http://localhost:3000 \
+    --objective "Find OWASP Top 10 vulns" \
+    --profile vuln_lab
 
-<span class="ok">✔</span> discovered: 31 endpoints
-<span class="ok">✔</span> tests executed: auth, ssrf, sqli, xss, idor
-<span class="warn">!</span> finding: HIGH — SSRF via /fetch?url=...
-<span class="muted">→</span> reasoning: structured chain + reproduction steps
+<span class="ok">✔</span> sandbox: kali container ready
+<span class="ok">✔</span> recon: 31 endpoints discovered
+<span class="ok">✔</span> testing: sqli, xss, ssrf, idor, auth
+<span class="warn">!</span> HIGH — SSRF via /fetch?url=...
+<span class="muted">→</span> report: structured findings + repro steps
 </code></pre>
               </div>
             </div>
@@ -127,35 +131,36 @@
       <section id="features" class="section" aria-label="Features">
         <div class="section__head">
           <h2>Features</h2>
-          <p>Designed for responsible autonomous testing: powerful agents, explicit boundaries.</p>
+          <p>Autonomous assessment with real security tooling, explicit governance, and multi-provider LLM routing.</p>
         </div>
 
         <div class="cards">
           <article class="card">
-            <h3>Multi-LLM agent orchestration</h3>
+            <h3>Multi-provider LLM routing</h3>
             <p>
-              Route tasks to specialist agents (recon, fuzzing, exploit dev, reporting) and
-              keep context consistent across runs.
+              Phase-aware 3-tier routing across 6 providers (Anthropic, OpenAI, Gemini, Bedrock,
+              Ollama, LM Studio). Mix and match vendors per assessment phase.
             </p>
           </article>
           <article class="card">
-            <h3>Bug bounty integration</h3>
+            <h3>Sandboxed Kali execution</h3>
             <p>
-              Structure findings for submission workflows, with reproducible steps and
-              evidence capture.
+              50+ security tools (nmap, sqlmap, nuclei, hydra, and more) execute inside
+              isolated Docker containers with automatic OPSEC defaults.
             </p>
           </article>
           <article class="card">
-            <h3>Governance-enforced scope controls</h3>
+            <h3>Immutable governance</h3>
             <p>
-              Hard boundaries: targets, auth contexts, and allowed techniques are enforced
-              throughout the run.
+              4-stage command validation pipeline with scope locking, pattern blocking,
+              risk classification, and 5 built-in scope profiles.
             </p>
           </article>
           <article class="card">
-            <h3>Structured exploit reasoning</h3>
+            <h3>OODA agent loop</h3>
             <p>
-              Make results auditable: clear assumptions, payload evolution, and validation.
+              Observe-Orient-Decide-Act cycle with vector memory, credential vault with
+              opaque references, and structured JSON + Markdown reporting.
             </p>
           </article>
         </div>
@@ -164,29 +169,29 @@
       <section id="how" class="section" aria-label="How it works">
         <div class="section__head">
           <h2>How it works</h2>
-          <p>A minimal workflow that keeps autonomy aligned with scope and intent.</p>
+          <p>CLI-driven lifecycle: configure, execute, report — all within governance boundaries.</p>
         </div>
 
         <ol class="steps">
           <li class="step">
             <span class="step__num">01</span>
             <div class="step__body">
-              <h3>Define scope & governance</h3>
-              <p>Targets, rules, and allowed actions are declared up front.</p>
+              <h3>Configure scope & target</h3>
+              <p>Select a scope profile (vuln_lab, bug_bounty, ctf, recon_only, full_auto), set your target, and choose LLM providers per tier.</p>
             </div>
           </li>
           <li class="step">
             <span class="step__num">02</span>
             <div class="step__body">
-              <h3>Run autonomous assessment</h3>
-              <p>Agents explore, test, and validate findings while respecting boundaries.</p>
+              <h3>Agent executes autonomously</h3>
+              <p>The OODA loop plans approach, dispatches tools in sandboxed containers, analyzes results, and pivots based on findings — all validated through the 4-stage command pipeline.</p>
             </div>
           </li>
           <li class="step">
             <span class="step__num">03</span>
             <div class="step__body">
-              <h3>Review structured output</h3>
-              <p>Clear reproduction steps, evidence, and reasoning for each finding.</p>
+              <h3>Review structured reports</h3>
+              <p>JSON and Markdown reports with findings, reproduction steps, evidence, and reasoning. Secrets are never exposed — credentials use opaque references throughout.</p>
             </div>
           </li>
         </ol>
@@ -239,7 +244,7 @@
         <div class="footer__links">
           <a href="#features">Features</a>
           <a href="#waitlist">Waitlist</a>
-          <a href="https://github.com/ryan5hanahan/sploitai" target="_blank" rel="noreferrer"
+          <a href="https://github.com/ryan5hanahan/SploitAgent" target="_blank" rel="noreferrer"
             >GitHub</a
           >
         </div>
