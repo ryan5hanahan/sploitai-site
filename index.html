@@ -7,7 +7,7 @@
     <title>sploit.ai — autonomous security assessment</title>
     <meta
       name="description"
-      content="sploit.ai is an autonomous security assessment platform combining LLM reasoning with 50+ security tools in sandboxed Kali containers, multi-provider LLM routing, and governance-first architecture with immutable scope policies."
+      content="sploit.ai is an autonomous security assessment platform combining LLM reasoning with 50+ security tools in sandboxed Kali containers. Payload mutation, false positive deduplication, multi-provider LLM routing, and governance-first architecture."
     />
 
     <!-- Open Graph -->
@@ -76,9 +76,9 @@
             </h1>
             <p class="hero__subtitle">
               Autonomous security assessment agent combining LLM reasoning with 50+ security
-              tools in sandboxed Kali containers. Cross-operation memory, confidence scoring,
-              and screenshot evidence — governed by immutable scope policies that prevent
-              operation outside defined boundaries.
+              tools in sandboxed Kali containers. Payload mutation engine, false positive
+              deduplication, cross-operation memory, and confidence scoring — governed by
+              immutable scope policies that prevent operation outside defined boundaries.
             </p>
 
             <div class="hero__cta">
@@ -97,7 +97,7 @@
               <span class="badge">50+ security tools</span>
               <span class="badge">Sandboxed Kali containers</span>
               <span class="badge">5 assessment plugins</span>
-              <span class="badge">1,040 tests, 92% coverage</span>
+              <span class="badge">1,130 tests, 92% coverage</span>
             </div>
           </div>
 
@@ -123,9 +123,11 @@
 <span class="ok">✔</span> memory: 3 prior findings recalled
 <span class="ok">✔</span> recon: 31 endpoints discovered
 <span class="ok">✔</span> testing: sqli, xss, ssrf, idor, auth
+<span class="ok">✔</span> mutation: 3 WAF bypasses generated
 <span class="warn">!</span> HIGH — SSRF via /fetch?url= <span class="muted">(confidence: 0.94)</span>
+<span class="ok">✔</span> dedup: 2 duplicate findings merged
 <span class="ok">✔</span> screenshot: evidence captured
-<span class="muted">→</span> report: structured findings + repro steps
+<span class="muted">→</span> report: deduplicated findings + repro steps
 </code></pre>
               </div>
             </div>
@@ -136,7 +138,7 @@
       <section id="features" class="section" aria-label="Features">
         <div class="section__head">
           <h2>Features</h2>
-          <p>Autonomous assessment with real security tooling, explicit governance, multi-provider LLM routing, and intelligence-driven scoring.</p>
+          <p>Autonomous assessment with real security tooling, explicit governance, multi-provider LLM routing, payload mutation, and intelligence-driven scoring.</p>
         </div>
 
         <div class="cards">
@@ -183,6 +185,21 @@
             </p>
           </article>
           <article class="card">
+            <h3>Payload mutation engine</h3>
+            <p>
+              Registry-based transform pipeline with ~35 mutations across encoding, syntax,
+              and evasion categories. Chainable transforms for WAF bypass with vuln-type-aware
+              techniques for SQLi, XSS, RCE, LFI, and SSTI.
+            </p>
+          </article>
+          <article class="card">
+            <h3>False positive reduction</h3>
+            <p>
+              Pairwise finding similarity scoring with greedy merge algorithm and contradiction
+              detection. Automatically deduplicates near-duplicate findings for cleaner reports.
+            </p>
+          </article>
+          <article class="card">
             <h3>Screenshot capture</h3>
             <p>
               Headless Chromium via Playwright captures visual evidence of vulnerabilities
@@ -217,14 +234,14 @@
             <span class="step__num">02</span>
             <div class="step__body">
               <h3>Agent executes autonomously</h3>
-              <p>The OODA loop plans approach, recalls prior findings, dispatches tools in sandboxed containers, captures screenshot evidence, and pivots based on results — all validated through the 4-stage command pipeline.</p>
+              <p>The OODA loop plans approach, recalls prior findings, dispatches tools in sandboxed containers, mutates payloads to bypass WAFs, captures screenshot evidence, and pivots based on results — all validated through the 4-stage command pipeline.</p>
             </div>
           </li>
           <li class="step">
             <span class="step__num">03</span>
             <div class="step__body">
               <h3>Review structured reports</h3>
-              <p>JSON and Markdown reports with confidence-scored findings, reproduction steps, screenshot evidence, and reasoning. Secrets are never exposed — credentials use opaque references throughout.</p>
+              <p>JSON and Markdown reports with confidence-scored, deduplicated findings, reproduction steps, screenshot evidence, and reasoning. Secrets are never exposed — credentials use opaque references throughout.</p>
             </div>
           </li>
         </ol>
