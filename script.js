@@ -17,13 +17,39 @@
     target.scrollIntoView({ behavior: "smooth", block: "start" });
   });
 
+  // Scroll-reveal animation
+  const prefersReduced = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches;
+
+  if (!prefersReduced) {
+    const revealTargets = document.querySelectorAll(
+      ".card, .step, .section__head, .hero__copy, .terminal"
+    );
+
+    revealTargets.forEach((el) => el.classList.add("reveal"));
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        }
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
+    );
+
+    revealTargets.forEach((el) => observer.observe(el));
+  }
+
   // Waitlist form progressive enhancement (AJAX submit + inline message)
   const form = document.getElementById("waitlist-form");
   const msg = document.getElementById("form-msg");
 
   if (form instanceof HTMLFormElement && msg) {
     form.addEventListener("submit", async (e) => {
-      // Allow normal form submission if fetch is not available
       if (typeof fetch !== "function") return;
       e.preventDefault();
 
@@ -45,7 +71,7 @@
 
         if (res.ok) {
           form.reset();
-          msg.textContent = "You’re on the list. Thanks — we’ll be in touch.";
+          msg.textContent = "You're on the list. Thanks — we'll be in touch.";
         } else {
           msg.textContent = "Something went wrong. Please try again in a moment.";
         }

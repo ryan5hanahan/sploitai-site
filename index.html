@@ -7,14 +7,14 @@
     <title>sploit.ai — autonomous security assessment</title>
     <meta
       name="description"
-      content="sploit.ai is an autonomous security assessment platform combining LLM reasoning with 50+ security tools in sandboxed Kali containers. Multi-pass orchestrator architecture, attack graph visualization, payload mutation, false positive deduplication, multi-provider LLM routing, and governance-first architecture."
+      content="sploit.ai is an autonomous security assessment agent combining LLM reasoning with 85+ security tools in sandboxed Kali containers. Multi-pass orchestrator with 27 MCP tools, 4-tier cross-run memory, OSINT intelligence, attack graph visualization, payload mutation, Claude Agent SDK integration, and governance-first architecture."
     />
 
     <!-- Open Graph -->
     <meta property="og:title" content="sploit.ai" />
     <meta
       property="og:description"
-      content="Autonomous security assessment platform with multi-provider LLM routing, sandboxed Kali execution, and governance-first architecture."
+      content="Autonomous security assessment agent with 85+ tools, 4-tier memory, OSINT intelligence, Claude Agent SDK integration, and governance-first architecture."
     />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="assets/sploitai_glitch.svg" />
@@ -24,7 +24,7 @@
     <meta name="twitter:title" content="sploit.ai" />
     <meta
       name="twitter:description"
-      content="Autonomous security assessment with multi-provider LLM routing, sandboxed Kali execution, and governance-first architecture."
+      content="Autonomous security assessment agent with 85+ tools, 4-tier memory, OSINT intelligence, Claude Agent SDK integration, and governance-first architecture."
     />
     <meta name="twitter:image" content="assets/sploitai_glitch.svg" />
 
@@ -70,16 +70,17 @@
       <section id="top" class="hero" aria-label="Hero">
         <div class="hero__grid">
           <div class="hero__copy">
-            <p class="eyebrow">autonomous assessment • multi-pass orchestrator • sandboxed execution • governance-first • attack-graph mapping</p>
+            <p class="eyebrow">autonomous assessment • 4-tier memory • OSINT intelligence • Claude Agent SDK • governance-first</p>
             <h1 class="hero__title">
               <span class="glitch" data-text="sploit.ai">sploit.ai</span>
             </h1>
             <p class="hero__subtitle">
-              Autonomous security assessment agent combining LLM reasoning with 50+ security
-              tools in sandboxed Kali containers. Multi-pass orchestrator architecture with
-              recursive sub-agent delegation, attack graph construction, payload mutation
-              engine, false positive deduplication, and confidence scoring — governed by
-              immutable scope policies that prevent operation outside defined boundaries.
+              Autonomous security assessment agent combining LLM reasoning with 85+ security
+              tools across 27 MCP endpoints in sandboxed Kali containers. 4-tier cross-run
+              memory, OSINT enrichment from 5 intelligence sources, deterministic recon sweeps,
+              attack graph construction, and payload mutation — orchestrated through the Claude
+              Agent SDK with immutable scope policies that prevent operation outside defined
+              boundaries.
             </p>
 
             <div class="hero__cta">
@@ -94,11 +95,12 @@
             </div>
 
             <div class="hero__badges" aria-label="Highlights">
+              <span class="badge">85+ security tools</span>
+              <span class="badge">27 MCP tools</span>
               <span class="badge">6 LLM providers</span>
-              <span class="badge">50+ security tools</span>
-              <span class="badge">Sandboxed Kali containers</span>
-              <span class="badge">5 assessment plugins</span>
-              <span class="badge">1,700+ tests, 92% coverage</span>
+              <span class="badge">5 OSINT sources</span>
+              <span class="badge">4-tier memory</span>
+              <span class="badge">2,100+ tests</span>
             </div>
           </div>
 
@@ -120,19 +122,20 @@
     --module general \
     --profile vuln_lab
 
-<span class="ok">✔</span> sandbox: kali container ready
-<span class="ok">✔</span> memory: 3 prior findings recalled
+<span class="ok">✔</span> sandbox: kali container ready (86 tools)
+<span class="ok">✔</span> memory: 4-tier recall — 3 proven payloads loaded
+<span class="ok">✔</span> osint: shodan + censys enrichment complete
+<span class="muted">→</span> recon sweep: ffuf + nuclei (pre-LLM)
+<span class="ok">✔</span> recon: 47 endpoints, 3 technologies found
 <span class="muted">→</span> pass 1/4: breadth discovery
-<span class="ok">✔</span> recon: 31 endpoints discovered
-<span class="ok">✔</span> testing: sqli, xss, ssrf, idor, auth
-<span class="ok">✔</span> mutation: 3 WAF bypasses generated
-<span class="warn">!</span> HIGH — SSRF via /fetch?url= <span class="muted">(confidence: 0.94)</span>
+<span class="ok">✔</span> testing: sqli, xss, ssrf, idor, auth, ssti
+<span class="ok">✔</span> mutation: 4 WAF bypasses (30 transforms)
+<span class="warn">!</span> HIGH — SSRF via /fetch?url= <span class="muted">(0.94)</span>
 <span class="muted">→</span> pass 2/4: gaps + exploitation
-<span class="ok">✔</span> orchestrator: 2 sub-agents delegated
-<span class="ok">✔</span> dedup: 2 duplicate findings merged
-<span class="ok">✔</span> graph: 12 nodes, 5 attack paths mapped
-<span class="ok">✔</span> screenshot: evidence captured
-<span class="muted">→</span> report: 19 findings + attack graph + repro steps
+<span class="ok">✔</span> sdk: 2 sub-agents delegated (sonnet)
+<span class="ok">✔</span> dedup: 3 findings merged, graph: 14 nodes
+<span class="ok">✔</span> memory: payload promoted → PROVEN
+<span class="muted">→</span> report: 22 findings + attack graph + evidence
 </code></pre>
               </div>
             </div>
@@ -143,88 +146,106 @@
       <section id="features" class="section" aria-label="Features">
         <div class="section__head">
           <h2>Features</h2>
-          <p>Multi-pass orchestrator with real security tooling, explicit governance, multi-provider LLM routing, payload mutation, attack graph mapping, and intelligence-driven scoring.</p>
+          <p>14 modules, 85+ tools, 27 MCP endpoints, 4-tier memory, OSINT enrichment, Claude Agent SDK orchestration, and governance-first architecture.</p>
         </div>
 
         <div class="cards">
           <article class="card">
-            <h3>Multi-provider LLM routing</h3>
+            <h3>Claude Agent SDK orchestration</h3>
             <p>
-              Phase-aware 3-tier routing across 6 providers (Anthropic, OpenAI, Gemini, Bedrock,
-              Ollama, LM Studio). Mix and match vendors per assessment phase.
+              Built on the Claude Agent SDK with per-phase model selection — Opus for
+              orchestration, Sonnet for assessment and exploitation, Haiku for recon and
+              reporting. Parallel sub-agent delegation with anti-stop nudges and adaptive
+              continuation.
             </p>
           </article>
           <article class="card">
-            <h3>Sandboxed Kali execution</h3>
+            <h3>85+ tools in Kali containers</h3>
             <p>
-              50+ security tools (nmap, sqlmap, nuclei, hydra, and more) execute inside
-              isolated Docker containers with automatic OPSEC defaults.
+              86 security tools across 10 categories (recon, web discovery, injection,
+              exploitation, and more) execute inside sandboxed Kali containers with dynamic
+              tool discovery on startup and automatic OPSEC defaults.
+            </p>
+          </article>
+          <article class="card">
+            <h3>27 MCP agent tools</h3>
+            <p>
+              Shell execution, HTTP requests, memory operations, credential management,
+              6 security scanner wrappers (nmap, nikto, sqlmap, nuclei, ffuf, multipart),
+              payload mutation, attack graph edges, sub-agent dispatch, and screenshot capture.
+            </p>
+          </article>
+          <article class="card">
+            <h3>4-tier cross-run memory</h3>
+            <p>
+              Working memory (current run), short-term (per-target), long-term (global playbooks),
+              and muscle memory (proven payloads with NEW → LEARNING → PROVEN promotion).
+              Docker volume persistence across runs with target fingerprinting.
+            </p>
+          </article>
+          <article class="card">
+            <h3>OSINT intelligence</h3>
+            <p>
+              Pre-assessment enrichment from 5 sources — Shodan (ports and services), Censys
+              (certificates), VirusTotal (reputation), NVD (CVE search), and BuiltWith
+              (technology profiling). Selective API key activation.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Deterministic recon sweep</h3>
+            <p>
+              Pre-LLM reconnaissance with ffuf and nuclei discovers endpoints and
+              technologies before the agent session begins. Smart SPA size filtering
+              eliminates false positives from single-page applications.
             </p>
           </article>
           <article class="card">
             <h3>Immutable governance</h3>
             <p>
-              5-stage command validation pipeline — allowlist, pattern blocking, scope check,
-              risk classification, and default injection — with 5 built-in scope profiles.
+              5-stage command validation — allowlist, pattern blocking, scope check,
+              risk classification, and default injection — with 5 scope profiles.
+              Frozen dataclasses, opaque credential references, and output sanitization
+              with 14+ secret pattern redaction.
             </p>
           </article>
           <article class="card">
             <h3>Multi-pass orchestrator</h3>
             <p>
-              4-pass assessment strategy — breadth discovery, gap analysis, exploitation,
-              reporting — with recursive sub-agent delegation, adaptive time reallocation,
-              and stagnation detection.
+              4-pass strategy — breadth discovery, gap analysis, exploitation, reporting —
+              with recursive sub-agent delegation, adaptive time reallocation, stagnation
+              detection, and coverage matrix tracking across vulnerability types.
             </p>
           </article>
           <article class="card">
-            <h3>Cross-operation memory</h3>
+            <h3>Multi-provider LLM routing</h3>
             <p>
-              Recall findings from previous operations with vector-similarity search.
-              Pluggable persistence backends let the agent build on prior assessments.
-            </p>
-          </article>
-          <article class="card">
-            <h3>Confidence scoring</h3>
-            <p>
-              Evidence-weighted scoring with tool-source weights, corroboration bonuses,
-              and exploitation-proof multipliers for high-signal findings.
+              Phase-aware 3-tier routing across 6 providers (Anthropic, OpenAI, Gemini,
+              Bedrock, Ollama, LM Studio) plus a proxy layer. Per-model token pricing
+              and cost budget enforcement.
             </p>
           </article>
           <article class="card">
             <h3>Payload mutation engine</h3>
             <p>
-              Registry-based transform pipeline with ~35 mutations across encoding, syntax,
-              and evasion categories. Chainable transforms for WAF bypass with vuln-type-aware
-              techniques for SQLi, XSS, RCE, LFI, and SSTI.
+              30 transforms across encoding, syntax, and evasion categories. Chainable
+              pipeline for WAF bypass with vuln-type-aware techniques for SQLi, XSS,
+              RCE, LFI, and SSTI. Proven payloads are promoted in muscle memory.
             </p>
           </article>
           <article class="card">
-            <h3>False positive reduction</h3>
+            <h3>Attack graph + deduplication</h3>
             <p>
-              Pairwise finding similarity scoring with greedy merge algorithm and contradiction
-              detection. Automatically deduplicates near-duplicate findings for cleaner reports.
+              Directed graphs of attack paths with Mermaid and JSON rendering, DFS path
+              enumeration, and LLM prompt injection. Pairwise similarity scoring with
+              greedy merge and contradiction detection for clean reports.
             </p>
           </article>
           <article class="card">
-            <h3>Attack graph construction</h3>
+            <h3>Plugin system + evidence capture</h3>
             <p>
-              Builds directed graphs of attack paths as the agent discovers relationships
-              between findings. Mermaid flowchart and JSON rendering with DFS path enumeration,
-              injected into LLM prompts and appended to final reports.
-            </p>
-          </article>
-          <article class="card">
-            <h3>Screenshot capture</h3>
-            <p>
-              Headless Chromium via Playwright captures visual evidence of vulnerabilities
-              and attaches screenshots directly to finding reports.
-            </p>
-          </article>
-          <article class="card">
-            <h3>Plugin system</h3>
-            <p>
-              TOML + Markdown-based plugins with dynamic tool loading. Ship assessment
-              modules for general, CTF, bug bounty, code security, and threat emulation.
+              5 TOML + Markdown plugins (general, CTF, bug bounty, code security, threat
+              emulation) with dynamic tool loading. Headless Chromium screenshots, artifact
+              collection, and structured JSON + Markdown reporting.
             </p>
           </article>
         </div>
@@ -233,7 +254,7 @@
       <section id="how" class="section" aria-label="How it works">
         <div class="section__head">
           <h2>How it works</h2>
-          <p>CLI-driven lifecycle: configure, execute, report — all within governance boundaries.</p>
+          <p>CLI-driven lifecycle: configure, enrich, execute, report — all within governance boundaries.</p>
         </div>
 
         <ol class="steps">
@@ -241,21 +262,28 @@
             <span class="step__num">01</span>
             <div class="step__body">
               <h3>Configure scope & target</h3>
-              <p>Select a scope profile (vuln_lab, bug_bounty, ctf, recon_only, full_auto), set your target, and choose LLM providers per tier.</p>
+              <p>Select a scope profile (vuln_lab, bug_bounty, ctf, recon_only, full_auto), set your target, choose LLM providers per tier, and optionally enable OSINT API keys for pre-assessment intelligence.</p>
             </div>
           </li>
           <li class="step">
             <span class="step__num">02</span>
             <div class="step__body">
-              <h3>Agent executes autonomously</h3>
-              <p>The orchestrator runs a 4-pass strategy — breadth discovery, gap analysis, exploitation, reporting — delegating to sub-agents that dispatch tools in sandboxed containers, mutate payloads to bypass WAFs, build attack graphs, and capture screenshot evidence. Adaptive time reallocation and stagnation detection keep passes efficient — all validated through the 5-stage command pipeline.</p>
+              <h3>Recon sweep & OSINT enrichment</h3>
+              <p>Before the LLM session begins, a deterministic recon sweep runs ffuf and nuclei to discover endpoints and technologies. OSINT sources (Shodan, Censys, VirusTotal, NVD, BuiltWith) enrich the target profile. 4-tier memory loads proven payloads and prior findings.</p>
             </div>
           </li>
           <li class="step">
             <span class="step__num">03</span>
             <div class="step__body">
+              <h3>Agent executes autonomously</h3>
+              <p>The Claude Agent SDK orchestrator runs a 4-pass strategy — breadth discovery, gap analysis, exploitation, reporting — delegating to sub-agents with per-phase model selection. Tools execute in sandboxed Kali containers, payloads mutate to bypass WAFs, attack graphs grow as findings connect, and coverage matrices track tested vulnerability types.</p>
+            </div>
+          </li>
+          <li class="step">
+            <span class="step__num">04</span>
+            <div class="step__body">
               <h3>Review structured reports</h3>
-              <p>JSON and Markdown reports with confidence-scored, deduplicated findings, attack graph visualization, reproduction steps, screenshot evidence, and reasoning. Secrets are never exposed — credentials use opaque references throughout.</p>
+              <p>JSON and Markdown reports with confidence-scored, deduplicated findings, attack graph visualization, reproduction steps, screenshot evidence, and cost tracking. Proven payloads are promoted in muscle memory for future runs.</p>
             </div>
           </li>
         </ol>
