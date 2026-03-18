@@ -7,14 +7,14 @@
     <title>sploit.ai — autonomous security assessment</title>
     <meta
       name="description"
-      content="sploit.ai is an autonomous security assessment agent combining LLM reasoning with 85+ security tools in sandboxed Kali containers. Multi-pass orchestrator with 27 MCP tools, 4-tier cross-run memory, OSINT intelligence, attack graph visualization, payload mutation, Claude Agent SDK integration, and governance-first architecture."
+      content="sploit.ai is an autonomous security assessment agent combining an Opus orchestrator with 86 security tools in sandboxed Kali containers. 37 MCP tools, 68 registered tools, 4-tier cross-run memory, smart recon sweep, OSINT intelligence, attack graph visualization, payload mutation, and governance-first architecture. 78 findings and 21 vulnerability types in a single run."
     />
 
     <!-- Open Graph -->
     <meta property="og:title" content="sploit.ai" />
     <meta
       property="og:description"
-      content="Autonomous security assessment agent with 85+ tools, 4-tier memory, OSINT intelligence, Claude Agent SDK integration, and governance-first architecture."
+      content="Autonomous security assessment agent — 78 findings in a single run, 21 vulnerability types, 86 tools in Kali containers, Opus orchestrator with sub-agent delegation."
     />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="assets/sploitai_glitch.svg" />
@@ -24,7 +24,7 @@
     <meta name="twitter:title" content="sploit.ai" />
     <meta
       name="twitter:description"
-      content="Autonomous security assessment agent with 85+ tools, 4-tier memory, OSINT intelligence, Claude Agent SDK integration, and governance-first architecture."
+      content="Autonomous security assessment agent — 78 findings in a single run, 21 vulnerability types, 86 tools in Kali containers, Opus orchestrator with sub-agent delegation."
     />
     <meta name="twitter:image" content="assets/sploitai_glitch.svg" />
 
@@ -53,6 +53,7 @@
 
         <div class="nav__links">
           <a href="#features">Features</a>
+          <a href="#results">Results</a>
           <a href="#how">How it works</a>
           <a href="#waitlist" class="btn btn--ghost">Join waitlist</a>
           <a
@@ -70,17 +71,18 @@
       <section id="top" class="hero" aria-label="Hero">
         <div class="hero__grid">
           <div class="hero__copy">
-            <p class="eyebrow">autonomous assessment • 4-tier memory • OSINT intelligence • Claude Agent SDK • governance-first</p>
+            <p class="eyebrow">Opus orchestrator · 78 findings record · 21 vuln types · 0.22 yield · governance-first</p>
             <h1 class="hero__title">
               <span class="glitch" data-text="sploit.ai">sploit.ai</span>
             </h1>
             <p class="hero__subtitle">
-              Autonomous security assessment agent combining LLM reasoning with 85+ security
-              tools across 27 MCP endpoints in sandboxed Kali containers. 4-tier cross-run
-              memory, OSINT enrichment from 5 intelligence sources, deterministic recon sweeps,
-              attack graph construction, and payload mutation — orchestrated through the Claude
-              Agent SDK with immutable scope policies that prevent operation outside defined
-              boundaries.
+              Autonomous security assessment agent with an Opus orchestrator dispatching
+              specialized sub-agents across 86 security tools and 68 registered tool endpoints
+              in sandboxed Kali containers. Smart recon sweep with fallback tool chains seeds
+              endpoints before the LLM session begins. 4-tier cross-run memory promotes proven
+              payloads, OSINT enrichment from 5 intelligence sources, and a payload mutation
+              engine bypasses WAFs — all governed by immutable scope policies. 78 confirmed
+              findings and 21 vulnerability types in a single assessment run.
             </p>
 
             <div class="hero__cta">
@@ -95,12 +97,12 @@
             </div>
 
             <div class="hero__badges" aria-label="Highlights">
-              <span class="badge">85+ security tools</span>
-              <span class="badge">27 MCP tools</span>
+              <span class="badge">86 security tools</span>
+              <span class="badge">37 MCP tools</span>
+              <span class="badge">78 findings record</span>
+              <span class="badge">21 vuln types</span>
               <span class="badge">6 LLM providers</span>
-              <span class="badge">5 OSINT sources</span>
-              <span class="badge">4-tier memory</span>
-              <span class="badge">2,100+ tests</span>
+              <span class="badge">2,690+ tests</span>
             </div>
           </div>
 
@@ -127,15 +129,14 @@
 <span class="ok">✔</span> osint: shodan + censys enrichment complete
 <span class="muted">→</span> recon sweep: ffuf + nuclei (pre-LLM)
 <span class="ok">✔</span> recon: 47 endpoints, 3 technologies found
-<span class="muted">→</span> pass 1/4: breadth discovery
-<span class="ok">✔</span> testing: sqli, xss, ssrf, idor, auth, ssti
-<span class="ok">✔</span> mutation: 4 WAF bypasses (30 transforms)
-<span class="warn">!</span> HIGH — SSRF via /fetch?url= <span class="muted">(0.94)</span>
-<span class="muted">→</span> pass 2/4: gaps + exploitation
-<span class="ok">✔</span> sdk: 2 sub-agents delegated (sonnet)
-<span class="ok">✔</span> dedup: 3 findings merged, graph: 14 nodes
+<span class="muted">→</span> opus orchestrator: dispatching sub-agents
+<span class="ok">✔</span> enumerator (haiku): surface mapped
+<span class="ok">✔</span> assessor (sonnet): sqli, xss, ssrf, idor, ssti
+<span class="ok">✔</span> exploiter (sonnet): 4 WAF bypasses (30 transforms)
+<span class="warn">!</span> CRIT — SQLi → credential dump → admin takeover <span class="muted">(0.97)</span>
+<span class="ok">✔</span> dedup: 3 findings merged, graph: 70 nodes
 <span class="ok">✔</span> memory: payload promoted → PROVEN
-<span class="muted">→</span> report: 22 findings + attack graph + evidence
+<span class="muted">→</span> report: 78 findings + attack graph + evidence
 </code></pre>
               </div>
             </div>
@@ -146,33 +147,43 @@
       <section id="features" class="section" aria-label="Features">
         <div class="section__head">
           <h2>Features</h2>
-          <p>14 modules, 85+ tools, 27 MCP endpoints, 4-tier memory, OSINT enrichment, Claude Agent SDK orchestration, and governance-first architecture.</p>
+          <p>Opus orchestrator with sub-agent delegation, 86 tools in Kali containers, 37 MCP endpoints, 68 registered tools, smart recon sweep with fallback chains, 4-tier memory, OSINT enrichment, and governance-first architecture.</p>
         </div>
 
         <div class="cards">
           <article class="card">
-            <h3>Claude Agent SDK orchestration</h3>
+            <h3>Opus orchestrator + sub-agents</h3>
             <p>
-              Built on the Claude Agent SDK with per-phase model selection — Opus for
-              orchestration, Sonnet for assessment and exploitation, Haiku for recon and
-              reporting. Parallel sub-agent delegation with anti-stop nudges and adaptive
-              continuation.
+              Built on the Claude Agent SDK with an Opus orchestrator dispatching specialized
+              sub-agents — enumerator (Haiku), assessor (Sonnet), exploiter (Sonnet), reporter
+              (Haiku). Parallel delegation with anti-stop nudges, severity escalation, and
+              adaptive continuation across coverage gaps.
             </p>
           </article>
           <article class="card">
-            <h3>85+ tools in Kali containers</h3>
+            <h3>86 tools in Kali containers</h3>
             <p>
-              86 security tools across 10 categories (recon, web discovery, injection,
-              exploitation, and more) execute inside sandboxed Kali containers with dynamic
-              tool discovery on startup and automatic OPSEC defaults.
+              86 security tools across 10 categories execute inside sandboxed Kali containers
+              built on kalilinux/kali-rolling. Dynamic tool discovery on startup with automatic
+              OPSEC defaults (rate limits, timeouts, random user-agents) injected per tool.
             </p>
           </article>
           <article class="card">
-            <h3>27 MCP agent tools</h3>
+            <h3>37 MCP agent tools</h3>
             <p>
               Shell execution, HTTP requests, memory operations, credential management,
               6 security scanner wrappers (nmap, nikto, sqlmap, nuclei, ffuf, multipart),
+              API discovery (OpenAPI, GraphQL introspection, CORS check, schema fuzz),
               payload mutation, attack graph edges, sub-agent dispatch, and screenshot capture.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Smart recon + fallback chains</h3>
+            <p>
+              Pre-LLM deterministic reconnaissance — baseline HTTP probe, ffuf endpoint
+              discovery with SPA size filtering, nuclei CVE scanning, and automatic fallback
+              chains when primary tools fail (nuclei → nikto, ffuf → parse_js, browser_probe →
+              parse_html). 5 output parsers normalize results across tools.
             </p>
           </article>
           <article class="card">
@@ -180,7 +191,7 @@
             <p>
               Working memory (current run), short-term (per-target), long-term (global playbooks),
               and muscle memory (proven payloads with NEW → LEARNING → PROVEN promotion).
-              Docker volume persistence across runs with target fingerprinting.
+              Docker volume persistence across runs with target fingerprinting and post-run extraction.
             </p>
           </article>
           <article class="card">
@@ -189,14 +200,6 @@
               Pre-assessment enrichment from 5 sources — Shodan (ports and services), Censys
               (certificates), VirusTotal (reputation), NVD (CVE search), and BuiltWith
               (technology profiling). Selective API key activation.
-            </p>
-          </article>
-          <article class="card">
-            <h3>Deterministic recon sweep</h3>
-            <p>
-              Pre-LLM reconnaissance with ffuf and nuclei discovers endpoints and
-              technologies before the agent session begins. Smart SPA size filtering
-              eliminates false positives from single-page applications.
             </p>
           </article>
           <article class="card">
@@ -209,11 +212,11 @@
             </p>
           </article>
           <article class="card">
-            <h3>Multi-pass orchestrator</h3>
+            <h3>Payload mutation engine</h3>
             <p>
-              4-pass strategy — breadth discovery, gap analysis, exploitation, reporting —
-              with recursive sub-agent delegation, adaptive time reallocation, stagnation
-              detection, and coverage matrix tracking across vulnerability types.
+              30 transforms across encoding, syntax, and evasion categories. Chainable
+              pipeline for WAF bypass with vuln-type-aware techniques for SQLi, XSS,
+              RCE, LFI, and SSTI. Proven payloads are promoted in muscle memory.
             </p>
           </article>
           <article class="card">
@@ -222,14 +225,6 @@
               Phase-aware 3-tier routing across 6 providers (Anthropic, OpenAI, Gemini,
               Bedrock, Ollama, LM Studio) plus a proxy layer. Per-model token pricing
               and cost budget enforcement.
-            </p>
-          </article>
-          <article class="card">
-            <h3>Payload mutation engine</h3>
-            <p>
-              30 transforms across encoding, syntax, and evasion categories. Chainable
-              pipeline for WAF bypass with vuln-type-aware techniques for SQLi, XSS,
-              RCE, LFI, and SSTI. Proven payloads are promoted in muscle memory.
             </p>
           </article>
           <article class="card">
@@ -248,13 +243,79 @@
               collection, and structured JSON + Markdown reporting.
             </p>
           </article>
+          <article class="card">
+            <h3>Confidence scoring + dedup</h3>
+            <p>
+              Bayesian confidence scoring with configurable weights. Finding deduplication
+              via pairwise similarity with greedy merge and contradiction detection. Type
+              normalization with 21 canonical vulnerability categories.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="results" class="section section--results" aria-label="Results">
+        <div class="section__head">
+          <h2>Assessment results</h2>
+          <p>Performance across 72+ SDK assessment runs against OWASP Juice Shop and custom targets, validated through standardized test harness with fallback tool chains.</p>
+        </div>
+
+        <div class="kpi-grid">
+          <div class="kpi">
+            <span class="kpi__value">78</span>
+            <span class="kpi__label">Findings (single run)</span>
+            <span class="kpi__detail">12 Critical, 40 High, 18 Medium, 8 Low</span>
+          </div>
+          <div class="kpi">
+            <span class="kpi__value">21</span>
+            <span class="kpi__label">Vulnerability types</span>
+            <span class="kpi__detail">Full canonical coverage achieved</span>
+          </div>
+          <div class="kpi">
+            <span class="kpi__value">0.22</span>
+            <span class="kpi__label">Best finding yield</span>
+            <span class="kpi__detail">66 findings from 303 steps in 28 min</span>
+          </div>
+          <div class="kpi">
+            <span class="kpi__value">72+</span>
+            <span class="kpi__label">SDK assessment runs</span>
+            <span class="kpi__detail">738 attack graph edges record</span>
+          </div>
+        </div>
+
+        <div class="results-detail">
+          <h3>Vulnerability coverage</h3>
+          <p class="results-detail__desc">21 canonical vulnerability types discovered autonomously across assessment runs.</p>
+          <div class="type-grid">
+            <span class="type-tag">SQLi</span>
+            <span class="type-tag">XSS</span>
+            <span class="type-tag">SSRF</span>
+            <span class="type-tag">IDOR</span>
+            <span class="type-tag">CSRF</span>
+            <span class="type-tag">SSTI</span>
+            <span class="type-tag">XXE</span>
+            <span class="type-tag">RCE</span>
+            <span class="type-tag">LFI</span>
+            <span class="type-tag">Auth bypass</span>
+            <span class="type-tag">Privilege escalation</span>
+            <span class="type-tag">Command injection</span>
+            <span class="type-tag">Deserialization</span>
+            <span class="type-tag">File upload</span>
+            <span class="type-tag">NoSQL injection</span>
+            <span class="type-tag">Open redirect</span>
+            <span class="type-tag">Path traversal</span>
+            <span class="type-tag">Cryptographic weakness</span>
+            <span class="type-tag">Security misconfiguration</span>
+            <span class="type-tag">Information disclosure</span>
+            <span class="type-tag">Authorization bypass</span>
+          </div>
         </div>
       </section>
 
       <section id="how" class="section" aria-label="How it works">
         <div class="section__head">
           <h2>How it works</h2>
-          <p>CLI-driven lifecycle: configure, enrich, execute, report — all within governance boundaries.</p>
+          <p>CLI-driven lifecycle: configure, recon, execute, report — all within governance boundaries.</p>
         </div>
 
         <ol class="steps">
@@ -269,14 +330,14 @@
             <span class="step__num">02</span>
             <div class="step__body">
               <h3>Recon sweep & OSINT enrichment</h3>
-              <p>Before the LLM session begins, a deterministic recon sweep runs ffuf and nuclei to discover endpoints and technologies. OSINT sources (Shodan, Censys, VirusTotal, NVD, BuiltWith) enrich the target profile. 4-tier memory loads proven payloads and prior findings.</p>
+              <p>Before the LLM session begins, a smart recon sweep runs ffuf (with SPA size filtering) and nuclei to discover endpoints and CVEs — with fallback tool chains (nuclei fails → nikto, ffuf fails → parse_js) for resilience. OSINT sources (Shodan, Censys, VirusTotal, NVD, BuiltWith) enrich the target profile. 4-tier memory loads proven payloads and prior findings.</p>
             </div>
           </li>
           <li class="step">
             <span class="step__num">03</span>
             <div class="step__body">
-              <h3>Agent executes autonomously</h3>
-              <p>The Claude Agent SDK orchestrator runs a 4-pass strategy — breadth discovery, gap analysis, exploitation, reporting — delegating to sub-agents with per-phase model selection. Tools execute in sandboxed Kali containers, payloads mutate to bypass WAFs, attack graphs grow as findings connect, and coverage matrices track tested vulnerability types.</p>
+              <h3>Opus orchestrator executes</h3>
+              <p>The Opus orchestrator dispatches specialized sub-agents — enumerator (Haiku), assessor (Sonnet), exploiter (Sonnet) — for parallel vulnerability coverage. Tools execute in sandboxed Kali containers, payloads mutate to bypass WAFs, attack graphs grow as findings chain into critical escalations, and coverage matrices track all 21 canonical vulnerability types.</p>
             </div>
           </li>
           <li class="step">
@@ -335,6 +396,7 @@
         </div>
         <div class="footer__links">
           <a href="#features">Features</a>
+          <a href="#results">Results</a>
           <a href="#waitlist">Waitlist</a>
           <a href="https://github.com/" target="_blank" rel="noreferrer"
             >GitHub</a
@@ -343,7 +405,7 @@
       </div>
 
       <p class="footer__meta">
-        <span>© <span id="year"></span> sploit.ai</span>
+        <span>&copy; <span id="year"></span> sploit.ai</span>
       </p>
     </footer>
 

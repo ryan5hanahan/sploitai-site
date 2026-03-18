@@ -24,7 +24,7 @@
 
   if (!prefersReduced) {
     const revealTargets = document.querySelectorAll(
-      ".card, .step, .section__head, .hero__copy, .terminal"
+      ".card, .step, .section__head, .hero__copy, .terminal, .kpi, .results-detail"
     );
 
     revealTargets.forEach((el) => el.classList.add("reveal"));
