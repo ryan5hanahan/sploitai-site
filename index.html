@@ -76,9 +76,9 @@
               <span class="glitch" data-text="sploit.ai">sploit.ai</span>
             </h1>
             <p class="hero__subtitle">
-              Autonomous agent that enumerates, tests, and exploits
-              vulnerabilities inside sandboxed Kali containers — governed by
-              immutable scope policies you define.
+              CLI-first agent that discovers and exploits vulnerabilities
+              autonomously — sandboxed in Kali containers, governed by
+              immutable scope policies.
             </p>
 
             <div class="hero__cta">
@@ -93,9 +93,10 @@
             </div>
 
             <div class="hero__badges" aria-label="Highlights">
-              <span class="badge">69 tools</span>
+              <span class="badge">69 registered tools</span>
               <span class="badge">6 LLM providers</span>
               <span class="badge">2,690+ tests</span>
+              <span class="badge">74 standardized runs</span>
             </div>
           </div>
 
@@ -144,19 +145,19 @@
           <article class="card">
             <h3>Orchestrator + sub-agents</h3>
             <p>
-              Opus orchestrator dispatches specialized sub-agents (enumerator,
-              assessor, exploiter, reporter) with phase-aware routing across
-              6 LLM providers. Coverage loops continue until attack surface
-              is exhausted or budget runs out.
+              Opus orchestrator dispatches specialized sub-agents
+              (enumerator, assessor, exploiter, reporter) across 6 LLM
+              providers. Coverage loops continue until attack surface is
+              exhausted or budget runs out.
             </p>
           </article>
           <article class="card">
             <h3>69 tools in Kali sandbox</h3>
             <p>
-              Recon, web discovery, vuln scanning, injection, and exploitation
-              tools execute inside containers with OPSEC defaults injected
-              automatically. Burp Suite Pro available for passive and active
-              scanning.
+              Nmap, sqlmap, nuclei, ffuf, Burp Suite Pro, and more — all
+              executing inside containers with OPSEC defaults injected
+              automatically. Fallback chains fire alternatives when primary
+              tools fail.
             </p>
           </article>
           <article class="card">
@@ -164,16 +165,16 @@
             <p>
               Allowlist, pattern blocking, scope check, risk classification,
               and default injection. Credentials isolated via opaque UUIDs.
-              Output sanitization redacts 14+ secret patterns before reaching
-              the LLM.
+              Output sanitization redacts 14+ secret patterns before the LLM
+              sees them.
             </p>
           </article>
           <article class="card">
             <h3>Recon pipeline + memory</h3>
             <p>
-              Deterministic recon before the LLM session — endpoint discovery,
-              JS bundle analysis, OSINT enrichment. Four-tier cross-run memory
-              promotes proven payloads so the agent improves over time.
+              Deterministic scanners and JS bundle analysis run before the
+              LLM session. Four-tier cross-run memory promotes proven payloads
+              so the agent improves over time.
             </p>
           </article>
         </div>
@@ -182,24 +183,63 @@
       <section id="results" class="section section--results" aria-label="Results">
         <div class="section__head">
           <h2>Progress</h2>
-          <p>Tested against OWASP Juice Shop across standardized runs.</p>
+          <p>74 standardized runs against OWASP Juice Shop. All numbers from actual test runs.</p>
         </div>
 
         <div class="kpi-grid">
           <div class="kpi">
-            <span class="kpi__value">69</span>
-            <span class="kpi__label">Registered tools</span>
-            <span class="kpi__detail">28 modules across recon, scanning, injection, exploitation</span>
+            <span class="kpi__value">78</span>
+            <span class="kpi__label">Best findings (single run)</span>
+            <span class="kpi__detail">sdk-v69 — 20 vuln types, 503 steps, 44 min</span>
           </div>
           <div class="kpi">
-            <span class="kpi__value">2,690+</span>
-            <span class="kpi__label">Tests</span>
-            <span class="kpi__detail">Unit, security, and integration across 135+ files</span>
+            <span class="kpi__value">21</span>
+            <span class="kpi__label">Vulnerability types covered</span>
+            <span class="kpi__detail">Reached in 4 separate runs (v64, v68, v71, v73)</span>
           </div>
           <div class="kpi">
-            <span class="kpi__value">4-tier</span>
-            <span class="kpi__label">Cross-run memory</span>
-            <span class="kpi__detail">Working, short-term, long-term, and muscle memory</span>
+            <span class="kpi__value">0.22</span>
+            <span class="kpi__label">Best yield (findings/step)</span>
+            <span class="kpi__detail">sdk-v72 — 66 findings in 303 steps, 28 min</span>
+          </div>
+        </div>
+
+        <div class="results-detail">
+          <h3>Recent run trajectory</h3>
+          <p class="results-detail__desc">Last 6 runs showing findings, vuln type coverage, and efficiency:</p>
+          <div class="run-table-wrap">
+            <table class="run-table">
+              <thead>
+                <tr>
+                  <th>Run</th>
+                  <th>Findings</th>
+                  <th>Types</th>
+                  <th>Steps</th>
+                  <th>Duration</th>
+                  <th>Yield</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>v74</td><td>54</td><td>20</td><td>374</td><td>44m</td><td>0.14</td>
+                </tr>
+                <tr>
+                  <td>v73</td><td>61</td><td class="highlight">21</td><td>594</td><td>50m</td><td>0.10</td>
+                </tr>
+                <tr class="run-table__best">
+                  <td>v72</td><td>66</td><td>20</td><td>303</td><td>28m</td><td class="highlight">0.22</td>
+                </tr>
+                <tr>
+                  <td>v71</td><td>53</td><td class="highlight">21</td><td>378</td><td>41m</td><td>0.14</td>
+                </tr>
+                <tr>
+                  <td>v70</td><td>32</td><td>17</td><td>318</td><td>37m</td><td>0.10</td>
+                </tr>
+                <tr class="run-table__best">
+                  <td>v69</td><td class="highlight">78</td><td>20</td><td>503</td><td>44m</td><td>0.16</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
 
@@ -219,6 +259,33 @@
             <span class="type-tag">Deserialization</span>
             <span class="type-tag">Path traversal</span>
             <span class="type-tag">NoSQL injection</span>
+            <span class="type-tag">CSRF</span>
+            <span class="type-tag">File upload</span>
+            <span class="type-tag">Open redirect</span>
+            <span class="type-tag">Privilege escalation</span>
+            <span class="type-tag">Crypto weakness</span>
+            <span class="type-tag">Security misconfig</span>
+            <span class="type-tag">Info disclosure</span>
+            <span class="type-tag">LFI</span>
+            <span class="type-tag">Broken access control</span>
+          </div>
+        </div>
+
+        <div class="results-detail">
+          <h3>Codebase</h3>
+          <div class="kpi-grid kpi-grid--compact">
+            <div class="kpi">
+              <span class="kpi__value">~12K</span>
+              <span class="kpi__label">Lines of code</span>
+            </div>
+            <div class="kpi">
+              <span class="kpi__value">2,690+</span>
+              <span class="kpi__label">Tests across 139 files</span>
+            </div>
+            <div class="kpi">
+              <span class="kpi__value">4-tier</span>
+              <span class="kpi__label">Cross-run memory</span>
+            </div>
           </div>
         </div>
       </section>
@@ -240,14 +307,14 @@
             <span class="step__num">02</span>
             <div class="step__body">
               <h3>Recon</h3>
-              <p>Deterministic scanners run before the LLM — endpoint discovery, JS bundle analysis, OSINT enrichment. Fast scanners block; deferred scanners (nuclei, Burp) run async and deliver results via callback.</p>
+              <p>Deterministic scanners run before the LLM — endpoint discovery, JS bundle analysis, OSINT enrichment. Fast scanners block; deferred scanners run async and deliver results via callback.</p>
             </div>
           </li>
           <li class="step">
             <span class="step__num">03</span>
             <div class="step__body">
               <h3>Agent execution</h3>
-              <p>Sub-agents test in parallel. Condition-based hooks fire reactive tools on findings — SQLi triggers sqlmap, XSS triggers browser probes. Coverage-aware dedup prevents duplicates while ensuring untested surface gets covered.</p>
+              <p>Sub-agents test in parallel. Auto-hooks fire reactive tools on findings — SQLi triggers sqlmap, XSS triggers browser probes. Fallback chains dispatch alternatives when tools fail. Coverage-aware dedup tracks tested surface.</p>
             </div>
           </li>
           <li class="step">
