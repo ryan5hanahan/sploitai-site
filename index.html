@@ -7,7 +7,7 @@
     <title>sploit.ai — autonomous security assessment</title>
     <meta
       name="description"
-      content="sploit.ai — autonomous security assessment agent. LLM orchestrator dispatches sub-agents across sandboxed Kali containers with 69 tools, governance-first architecture, and cross-run memory."
+      content="sploit.ai — autonomous security assessment agent. Orchestrator dispatches sub-agents across sandboxed Kali containers with governance-first architecture."
     />
 
     <!-- Open Graph -->
@@ -53,7 +53,7 @@
 
         <div class="nav__links">
           <a href="#features">Capabilities</a>
-          <a href="#results">Results</a>
+          <a href="#results">Progress</a>
           <a href="#how">How it works</a>
           <a href="#waitlist" class="btn btn--ghost">Join waitlist</a>
           <a
@@ -76,10 +76,9 @@
               <span class="glitch" data-text="sploit.ai">sploit.ai</span>
             </h1>
             <p class="hero__subtitle">
-              CLI-first agent that autonomously enumerates attack surface, tests
-              vulnerabilities, and exploits findings inside sandboxed Kali
-              containers. 69 tools, immutable scope policies, cross-run memory
-              — all within the boundaries you define.
+              Autonomous agent that enumerates, tests, and exploits
+              vulnerabilities inside sandboxed Kali containers — governed by
+              immutable scope policies you define.
             </p>
 
             <div class="hero__cta">
@@ -138,44 +137,43 @@
       <section id="features" class="section" aria-label="Features">
         <div class="section__head">
           <h2>Capabilities</h2>
-          <p>Sandboxed execution, immutable scope policies, and the agent never operates outside defined boundaries.</p>
+          <p>Sandboxed execution, immutable scope, governance at every layer.</p>
         </div>
 
         <div class="cards">
           <article class="card">
-            <h3>Orchestrator architecture</h3>
+            <h3>Orchestrator + sub-agents</h3>
             <p>
-              An orchestrator dispatches specialized sub-agents — enumerator,
-              assessor, exploiter, reporter — across 6 LLM providers with
-              phase-aware routing. Coverage loops keep testing until the attack
-              surface is exhausted or the budget runs out.
+              Opus orchestrator dispatches specialized sub-agents (enumerator,
+              assessor, exploiter, reporter) with phase-aware routing across
+              6 LLM providers. Coverage loops continue until attack surface
+              is exhausted or budget runs out.
             </p>
           </article>
           <article class="card">
-            <h3>69 sandboxed tools</h3>
+            <h3>69 tools in Kali sandbox</h3>
             <p>
-              Recon, web discovery, vuln scanning, injection testing, and
-              exploitation tools run inside Kali containers with OPSEC defaults
-              injected automatically. Optional Burp Suite Pro integration for
-              passive and active scanning.
+              Recon, web discovery, vuln scanning, injection, and exploitation
+              tools execute inside containers with OPSEC defaults injected
+              automatically. Burp Suite Pro available for passive and active
+              scanning.
             </p>
           </article>
           <article class="card">
-            <h3>Governance-first security</h3>
+            <h3>5-stage command validation</h3>
             <p>
-              5-stage command validation: allowlist, pattern blocking, scope
-              check, risk classification, default injection. Immutable scope
-              policies, credential isolation via opaque references, and output
-              sanitization that redacts 14+ secret patterns.
+              Allowlist, pattern blocking, scope check, risk classification,
+              and default injection. Credentials isolated via opaque UUIDs.
+              Output sanitization redacts 14+ secret patterns before reaching
+              the LLM.
             </p>
           </article>
           <article class="card">
-            <h3>Recon + cross-run memory</h3>
+            <h3>Recon pipeline + memory</h3>
             <p>
-              Deterministic recon runs before the LLM — endpoint discovery, CVE
-              scanning, JS bundle analysis, OSINT enrichment. Four-tier memory
-              promotes proven payloads across runs so the agent improves over
-              time.
+              Deterministic recon before the LLM session — endpoint discovery,
+              JS bundle analysis, OSINT enrichment. Four-tier cross-run memory
+              promotes proven payloads so the agent improves over time.
             </p>
           </article>
         </div>
@@ -183,31 +181,31 @@
 
       <section id="results" class="section section--results" aria-label="Results">
         <div class="section__head">
-          <h2>Assessment results</h2>
-          <p>Validated across 72+ runs against OWASP Juice Shop with standardized test harness.</p>
+          <h2>Progress</h2>
+          <p>Tested against OWASP Juice Shop across standardized runs.</p>
         </div>
 
         <div class="kpi-grid">
           <div class="kpi">
-            <span class="kpi__value">78</span>
-            <span class="kpi__label">Findings per run</span>
-            <span class="kpi__detail">12 Critical · 40 High · 18 Medium · 8 Low</span>
+            <span class="kpi__value">69</span>
+            <span class="kpi__label">Registered tools</span>
+            <span class="kpi__detail">28 modules across recon, scanning, injection, exploitation</span>
           </div>
           <div class="kpi">
-            <span class="kpi__value">21</span>
-            <span class="kpi__label">Vulnerability types</span>
-            <span class="kpi__detail">Autonomous coverage across OWASP Top 10+</span>
+            <span class="kpi__value">2,690+</span>
+            <span class="kpi__label">Tests</span>
+            <span class="kpi__detail">Unit, security, and integration across 135+ files</span>
           </div>
           <div class="kpi">
-            <span class="kpi__value">72+</span>
-            <span class="kpi__label">Assessment runs</span>
-            <span class="kpi__detail">Validated against OWASP Juice Shop</span>
+            <span class="kpi__value">4-tier</span>
+            <span class="kpi__label">Cross-run memory</span>
+            <span class="kpi__detail">Working, short-term, long-term, and muscle memory</span>
           </div>
         </div>
 
         <div class="results-detail">
-          <h3>Vulnerability coverage</h3>
-          <p class="results-detail__desc">21 vulnerability types discovered autonomously — including:</p>
+          <h3>Vulnerability types tested</h3>
+          <p class="results-detail__desc">Autonomous coverage across OWASP Top 10 and beyond:</p>
           <div class="type-grid">
             <span class="type-tag">SQLi</span>
             <span class="type-tag">XSS</span>
@@ -235,28 +233,28 @@
             <span class="step__num">01</span>
             <div class="step__body">
               <h3>Define scope</h3>
-              <p>Set your target, pick a scope profile, and choose LLM providers. The governance engine freezes the scope — it cannot be expanded mid-operation.</p>
+              <p>Set target, scope profile, and providers. The governance engine freezes scope — it cannot expand mid-operation.</p>
             </div>
           </li>
           <li class="step">
             <span class="step__num">02</span>
             <div class="step__body">
-              <h3>Automated recon</h3>
-              <p>Deterministic recon discovers endpoints, CVEs, and technologies before the LLM starts. JS bundle analysis finds hidden APIs. OSINT and cross-run memory load proven payloads.</p>
+              <h3>Recon</h3>
+              <p>Deterministic scanners run before the LLM — endpoint discovery, JS bundle analysis, OSINT enrichment. Fast scanners block; deferred scanners (nuclei, Burp) run async and deliver results via callback.</p>
             </div>
           </li>
           <li class="step">
             <span class="step__num">03</span>
             <div class="step__body">
               <h3>Agent execution</h3>
-              <p>Sub-agents test in parallel across sandboxed containers. Auto-hooks fire reactive tools on findings — SQLi triggers sqlmap, XSS triggers browser probes. Optional Burp Pro runs alongside for passive scanning.</p>
+              <p>Sub-agents test in parallel. Condition-based hooks fire reactive tools on findings — SQLi triggers sqlmap, XSS triggers browser probes. Coverage-aware dedup prevents duplicates while ensuring untested surface gets covered.</p>
             </div>
           </li>
           <li class="step">
             <span class="step__num">04</span>
             <div class="step__body">
-              <h3>Structured output</h3>
-              <p>JSON and Markdown reports with deduplicated findings, attack graph visualization, reproduction steps, and evidence. Proven payloads promote to muscle memory for future runs.</p>
+              <h3>Output</h3>
+              <p>JSON and Markdown reports with deduplicated findings, attack graph, and evidence. Proven payloads promote to muscle memory for future runs.</p>
             </div>
           </li>
         </ol>
@@ -308,7 +306,7 @@
         </div>
         <div class="footer__links">
           <a href="#features">Capabilities</a>
-          <a href="#results">Results</a>
+          <a href="#results">Progress</a>
           <a href="#waitlist">Waitlist</a>
           <a href="https://github.com/" target="_blank" rel="noreferrer"
             >GitHub</a
