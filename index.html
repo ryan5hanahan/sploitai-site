@@ -96,7 +96,7 @@
               <span class="badge">70 registered tools</span>
               <span class="badge">6 LLM providers</span>
               <span class="badge">2,961+ tests</span>
-              <span class="badge">80+ standardized runs</span>
+              <span class="badge">104 CTF benchmarks</span>
             </div>
           </div>
 
@@ -185,27 +185,32 @@
       <section id="results" class="section section--results" aria-label="Results">
         <div class="section__head">
           <h2>Progress</h2>
-          <p>80+ standardized runs. All numbers from actual test runs — no synthetic benchmarks.</p>
+          <p>All numbers from actual test runs — no synthetic benchmarks.</p>
         </div>
 
         <div class="results-detail">
           <h3>XBEN benchmark: 104 CTF challenges</h3>
-          <p class="results-detail__desc">Automated validation pipeline against purpose-built CTF challenges. Pass = flag captured + vuln type matched.</p>
+          <p class="results-detail__desc">Automated validation pipeline against purpose-built CTF challenges. Pass = flag captured + vuln type matched. Build failures excluded from adjusted rate.</p>
           <div class="kpi-grid">
             <div class="kpi">
               <span class="kpi__value">80%</span>
-              <span class="kpi__label">Adjusted pass rate</span>
-              <span class="kpi__detail">20/25 runnable benchmarks (Mar 23)</span>
+              <span class="kpi__label">Level 1 adjusted pass rate</span>
+              <span class="kpi__detail">20/25 runnable — up from 59% (+21pp, zero regressions)</span>
             </div>
             <div class="kpi">
-              <span class="kpi__value">+21pp</span>
-              <span class="kpi__label">Improvement vs prior run</span>
-              <span class="kpi__detail">Up from 59% — zero regressions</span>
+              <span class="kpi__value">67%</span>
+              <span class="kpi__label">Level 2 adjusted pass rate</span>
+              <span class="kpi__detail">12/18 runnable — first L2 run (Mar 23)</span>
             </div>
             <div class="kpi">
-              <span class="kpi__value">11</span>
+              <span class="kpi__value">74%</span>
+              <span class="kpi__label">Combined adjusted pass rate</span>
+              <span class="kpi__detail">32/43 runnable across both levels</span>
+            </div>
+            <div class="kpi">
+              <span class="kpi__value">15</span>
               <span class="kpi__label">Tag categories at 100%</span>
-              <span class="kpi__detail">IDOR, SSRF, SSTI, cmd injection, GraphQL, deserialization, business logic, priv esc, file upload, path traversal, JWT</span>
+              <span class="kpi__detail">IDOR, SSRF, SSTI, cmd injection, GraphQL, deserialization, business logic, priv esc, file upload, path traversal, JWT, crypto, brute force, default creds, info disclosure</span>
             </div>
           </div>
         </div>
@@ -262,14 +267,14 @@
             <span class="kpi__detail">sdk-v76 — 21 vuln types, 351 steps</span>
           </div>
           <div class="kpi">
-            <span class="kpi__value">21</span>
-            <span class="kpi__label">Vulnerability types covered</span>
-            <span class="kpi__detail">Full coverage in 8 runs (v64–v79)</span>
+            <span class="kpi__value">545</span>
+            <span class="kpi__label">Total findings (XBEN suite)</span>
+            <span class="kpi__detail">34 flags captured across 45 completed runs</span>
           </div>
           <div class="kpi">
-            <span class="kpi__value">0</span>
-            <span class="kpi__label">Shell errors (v80)</span>
-            <span class="kpi__detail">Down from 16 in v78 — bash fix validated</span>
+            <span class="kpi__value">31</span>
+            <span class="kpi__label">Distinct tools used</span>
+            <span class="kpi__detail">Autonomous tool selection across benchmark runs</span>
           </div>
         </div>
 
@@ -301,23 +306,6 @@
           </div>
         </div>
 
-        <div class="results-detail">
-          <h3>Codebase</h3>
-          <div class="kpi-grid kpi-grid--compact">
-            <div class="kpi">
-              <span class="kpi__value">2,961+</span>
-              <span class="kpi__label">Tests across 159 files</span>
-            </div>
-            <div class="kpi">
-              <span class="kpi__value">104</span>
-              <span class="kpi__label">XBEN CTF benchmarks</span>
-            </div>
-            <div class="kpi">
-              <span class="kpi__value">4-tier</span>
-              <span class="kpi__label">Cross-run memory</span>
-            </div>
-          </div>
-        </div>
       </section>
 
       <section id="how" class="section" aria-label="How it works">
