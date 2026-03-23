@@ -95,8 +95,8 @@
             <div class="hero__badges" aria-label="Highlights">
               <span class="badge">70 registered tools</span>
               <span class="badge">6 LLM providers</span>
-              <span class="badge">2,889+ tests</span>
-              <span class="badge">77 standardized runs</span>
+              <span class="badge">2,961+ tests</span>
+              <span class="badge">80+ standardized runs</span>
             </div>
           </div>
 
@@ -185,30 +185,34 @@
       <section id="results" class="section section--results" aria-label="Results">
         <div class="section__head">
           <h2>Progress</h2>
-          <p>77 standardized runs against OWASP Juice Shop. All numbers from actual test runs.</p>
+          <p>80+ standardized runs. All numbers from actual test runs — no synthetic benchmarks.</p>
         </div>
 
-        <div class="kpi-grid">
-          <div class="kpi">
-            <span class="kpi__value">87</span>
-            <span class="kpi__label">Best findings (single run)</span>
-            <span class="kpi__detail">sdk-v76 — 21 vuln types, 351 steps, 49 min</span>
-          </div>
-          <div class="kpi">
-            <span class="kpi__value">21</span>
-            <span class="kpi__label">Vulnerability types covered</span>
-            <span class="kpi__detail">Full coverage in 6 runs (v64, v68, v71, v73, v76, v77)</span>
-          </div>
-          <div class="kpi">
-            <span class="kpi__value">0.25</span>
-            <span class="kpi__label">Best yield (findings/step)</span>
-            <span class="kpi__detail">sdk-v76 — 87 findings in 351 steps</span>
+        <div class="results-detail">
+          <h3>XBEN benchmark: 104 CTF challenges</h3>
+          <p class="results-detail__desc">Automated validation pipeline against purpose-built CTF challenges. Pass = flag captured + vuln type matched.</p>
+          <div class="kpi-grid">
+            <div class="kpi">
+              <span class="kpi__value">80%</span>
+              <span class="kpi__label">Adjusted pass rate</span>
+              <span class="kpi__detail">20/25 runnable benchmarks (Mar 23)</span>
+            </div>
+            <div class="kpi">
+              <span class="kpi__value">+21pp</span>
+              <span class="kpi__label">Improvement vs prior run</span>
+              <span class="kpi__detail">Up from 59% — zero regressions</span>
+            </div>
+            <div class="kpi">
+              <span class="kpi__value">11</span>
+              <span class="kpi__label">Tag categories at 100%</span>
+              <span class="kpi__detail">IDOR, SSRF, SSTI, cmd injection, GraphQL, deserialization, business logic, priv esc, file upload, path traversal, JWT</span>
+            </div>
           </div>
         </div>
 
         <div class="results-detail">
-          <h3>Recent run trajectory</h3>
-          <p class="results-detail__desc">Last 6 runs showing findings, vuln type coverage, and efficiency:</p>
+          <h3>Juice Shop run trajectory</h3>
+          <p class="results-detail__desc">Last 8 runs showing findings, vuln type coverage, and efficiency:</p>
           <div class="run-table-wrap">
             <table class="run-table">
               <thead>
@@ -222,6 +226,15 @@
                 </tr>
               </thead>
               <tbody>
+                <tr>
+                  <td>v80</td><td>55</td><td>20</td><td>337</td><td>38m</td><td>0.16</td>
+                </tr>
+                <tr>
+                  <td>v79</td><td>52</td><td class="highlight">21</td><td>312</td><td>32m</td><td>0.17</td>
+                </tr>
+                <tr>
+                  <td>v78</td><td>57</td><td class="highlight">21</td><td>494</td><td>60m</td><td>0.12</td>
+                </tr>
                 <tr>
                   <td>v77</td><td>47</td><td class="highlight">21</td><td>319</td><td>26m</td><td>0.15</td>
                 </tr>
@@ -237,11 +250,26 @@
                 <tr>
                   <td>v72</td><td>66</td><td>20</td><td>303</td><td>28m</td><td>0.22</td>
                 </tr>
-                <tr>
-                  <td>v71</td><td>53</td><td class="highlight">21</td><td>378</td><td>41m</td><td>0.14</td>
-                </tr>
               </tbody>
             </table>
+          </div>
+        </div>
+
+        <div class="kpi-grid">
+          <div class="kpi">
+            <span class="kpi__value">87</span>
+            <span class="kpi__label">Best findings (single run)</span>
+            <span class="kpi__detail">sdk-v76 — 21 vuln types, 351 steps</span>
+          </div>
+          <div class="kpi">
+            <span class="kpi__value">21</span>
+            <span class="kpi__label">Vulnerability types covered</span>
+            <span class="kpi__detail">Full coverage in 8 runs (v64–v79)</span>
+          </div>
+          <div class="kpi">
+            <span class="kpi__value">0</span>
+            <span class="kpi__label">Shell errors (v80)</span>
+            <span class="kpi__detail">Down from 16 in v78 — bash fix validated</span>
           </div>
         </div>
 
@@ -277,12 +305,12 @@
           <h3>Codebase</h3>
           <div class="kpi-grid kpi-grid--compact">
             <div class="kpi">
-              <span class="kpi__value">~28K</span>
-              <span class="kpi__label">Lines of code</span>
+              <span class="kpi__value">2,961+</span>
+              <span class="kpi__label">Tests across 159 files</span>
             </div>
             <div class="kpi">
-              <span class="kpi__value">2,889+</span>
-              <span class="kpi__label">Tests across 155 files</span>
+              <span class="kpi__value">104</span>
+              <span class="kpi__label">XBEN CTF benchmarks</span>
             </div>
             <div class="kpi">
               <span class="kpi__value">4-tier</span>
