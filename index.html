@@ -7,14 +7,14 @@
     <title>sploit.ai — autonomous security assessment</title>
     <meta
       name="description"
-      content="sploit.ai — autonomous security assessment agent. 80% CTF pass rate, 87 findings in a single run, 21 vuln types. Sandboxed Kali containers, governance-first."
+      content="sploit.ai — autonomous security assessment agent. 74% CTF pass rate (104 challenges), 87 peak findings, 21 vuln types. Sandboxed Kali containers, governance-first."
     />
 
     <!-- Open Graph -->
     <meta property="og:title" content="sploit.ai" />
     <meta
       property="og:description"
-      content="Autonomous security assessment agent — 80% CTF pass rate, 87 findings in one run. Sandboxed Kali containers, governance-first."
+      content="Autonomous security assessment agent — 74% CTF pass rate across 104 challenges, 87 peak findings. Sandboxed Kali containers, governance-first."
     />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="assets/sploitai_glitch.svg" />
@@ -24,7 +24,7 @@
     <meta name="twitter:title" content="sploit.ai" />
     <meta
       name="twitter:description"
-      content="Autonomous security assessment agent — 80% CTF pass rate, 87 findings in one run. Sandboxed Kali containers, governance-first."
+      content="Autonomous security assessment agent — 74% CTF pass rate across 104 challenges, 87 peak findings. Sandboxed Kali containers, governance-first."
     />
     <meta name="twitter:image" content="assets/sploitai_glitch.svg" />
 
@@ -96,7 +96,7 @@
             <div class="hero__badges" aria-label="Highlights">
               <span class="badge">72 registered tools</span>
               <span class="badge">6 LLM providers</span>
-              <span class="badge">3,220+ tests</span>
+              <span class="badge">3,300+ tests</span>
               <span class="badge">104 CTF benchmarks</span>
             </div>
           </div>
@@ -188,21 +188,49 @@
           <p>From autonomous runs against real targets — no human in the loop.</p>
         </div>
 
-        <div class="kpi-grid">
+        <div class="kpi-grid kpi-grid--4">
           <div class="kpi">
             <span class="kpi__value">80%</span>
-            <span class="kpi__label">CTF pass rate</span>
-            <span class="kpi__detail">XBEN L1 — 20/25 challenges solved</span>
+            <span class="kpi__label">L1 CTF pass rate</span>
+            <span class="kpi__detail">20/25 challenges — up from 59% (+21pp)</span>
+          </div>
+          <div class="kpi">
+            <span class="kpi__value">74%</span>
+            <span class="kpi__label">Combined XBEN pass rate</span>
+            <span class="kpi__detail">32/43 runnable across L1 + L2</span>
           </div>
           <div class="kpi">
             <span class="kpi__value">87</span>
-            <span class="kpi__label">Findings in one run</span>
+            <span class="kpi__label">Peak findings (one run)</span>
             <span class="kpi__detail">21 vuln types, 49 minutes</span>
           </div>
           <div class="kpi">
-            <span class="kpi__value">21</span>
-            <span class="kpi__label">Vulnerability types</span>
-            <span class="kpi__detail">SQLi to SSRF to deserialization</span>
+            <span class="kpi__value">15</span>
+            <span class="kpi__label">Vuln categories at 100%</span>
+            <span class="kpi__detail">IDOR, SSRF, SSTI, cmd injection, deserialization, GraphQL, JWT, and more</span>
+          </div>
+        </div>
+
+        <div class="section__head" style="margin-top: 28px">
+          <h3>Progress repo impact</h3>
+          <p>Git-backed intent tracking — first validated run (v20260325 vs v20260324).</p>
+        </div>
+
+        <div class="kpi-grid">
+          <div class="kpi">
+            <span class="kpi__value">+89%</span>
+            <span class="kpi__label">Findings increase</span>
+            <span class="kpi__detail">35 &rarr; 66 findings</span>
+          </div>
+          <div class="kpi">
+            <span class="kpi__value">+75%</span>
+            <span class="kpi__label">Tool diversity</span>
+            <span class="kpi__detail">12 &rarr; 21 tools used</span>
+          </div>
+          <div class="kpi">
+            <span class="kpi__value">-15%</span>
+            <span class="kpi__label">Duration</span>
+            <span class="kpi__detail">48min &rarr; 41min</span>
           </div>
         </div>
 

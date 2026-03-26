@@ -52,7 +52,7 @@
         <div class="nav__links">
           <a href="index.html#features">Capabilities</a>
           <a href="index.html#results">Results</a>
-          <a href="index.html#how">How it works</a>
+          <a href="#executive">Executive</a>
           <a href="benchmarks.html" class="nav__active">Benchmarks</a>
           <a href="index.html#waitlist" class="btn btn--ghost"
             >Join waitlist</a
@@ -79,6 +79,75 @@
           agent versions. All numbers from actual autonomous runs.
         </p>
       </div>
+
+      <section
+        id="executive"
+        class="section section--flush"
+        aria-label="Executive summary"
+      >
+        <div class="section__head">
+          <h2>Executive summary</h2>
+          <p>All-time records across Juice Shop and XBEN benchmark suites.</p>
+        </div>
+        <div class="changelog-wrap">
+          <div class="run-table-wrap">
+            <table class="run-table">
+              <thead>
+                <tr>
+                  <th>Metric</th>
+                  <th>Record</th>
+                  <th>Run</th>
+                  <th>Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Findings</td>
+                  <td class="highlight">87</td>
+                  <td>sdk-v76</td>
+                  <td>2026-03-20</td>
+                </tr>
+                <tr>
+                  <td>Critical severity</td>
+                  <td class="highlight">21</td>
+                  <td>sdk-v20260325</td>
+                  <td>2026-03-25</td>
+                </tr>
+                <tr>
+                  <td>Vulnerability types</td>
+                  <td class="highlight">21</td>
+                  <td>sdk-v76–v79</td>
+                  <td>2026-03-21</td>
+                </tr>
+                <tr>
+                  <td>Tool diversity</td>
+                  <td class="highlight">21</td>
+                  <td>sdk-v20260325</td>
+                  <td>2026-03-25</td>
+                </tr>
+                <tr>
+                  <td>XBEN L1 pass rate</td>
+                  <td class="highlight">80%</td>
+                  <td>xben-2026-03-23</td>
+                  <td>2026-03-23</td>
+                </tr>
+                <tr>
+                  <td>XBEN L2 pass rate</td>
+                  <td class="highlight">67%</td>
+                  <td>xben-2026-03-23</td>
+                  <td>2026-03-23</td>
+                </tr>
+                <tr>
+                  <td>Finding yield</td>
+                  <td class="highlight">0.56</td>
+                  <td>sdk-v45</td>
+                  <td>2026-02-28</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
 
       <section
         id="methodology"
@@ -225,6 +294,93 @@
             <span class="kpi__value">-15%</span>
             <span class="kpi__label">Duration</span>
             <span class="kpi__detail">48min &rarr; 41min</span>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="latest-run"
+        class="section section--flush"
+        aria-label="Latest run breakdown"
+      >
+        <div class="section__head">
+          <h2>Latest run breakdown</h2>
+          <p>sdk-v20260325 — Juice Shop, fully autonomous, 41 minutes.</p>
+        </div>
+        <div class="kpi-grid kpi-grid--4">
+          <div class="kpi">
+            <span class="kpi__value">66</span>
+            <span class="kpi__label">Findings</span>
+            <span class="kpi__detail">+89% over previous run</span>
+          </div>
+          <div class="kpi">
+            <span class="kpi__value">21</span>
+            <span class="kpi__label">Critical</span>
+            <span class="kpi__detail">All-time record</span>
+          </div>
+          <div class="kpi">
+            <span class="kpi__value">22</span>
+            <span class="kpi__label">High</span>
+            <span class="kpi__detail">+9 over previous</span>
+          </div>
+          <div class="kpi">
+            <span class="kpi__value">20</span>
+            <span class="kpi__label">Vuln types</span>
+            <span class="kpi__detail">17 medium, 5 low, 1 info</span>
+          </div>
+        </div>
+
+        <div class="changelog-wrap" style="margin-top: 18px">
+          <h3>Run comparison — v20260324 vs v20260325</h3>
+          <div class="run-table-wrap">
+            <table class="run-table">
+              <thead>
+                <tr>
+                  <th>Metric</th>
+                  <th>v20260324</th>
+                  <th>v20260325</th>
+                  <th>Delta</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Findings</td>
+                  <td>35</td>
+                  <td class="highlight">66</td>
+                  <td class="highlight">+31 (+89%)</td>
+                </tr>
+                <tr>
+                  <td>Vuln types</td>
+                  <td>18</td>
+                  <td class="highlight">20</td>
+                  <td>+2</td>
+                </tr>
+                <tr>
+                  <td>Critical</td>
+                  <td>10</td>
+                  <td class="highlight">21</td>
+                  <td class="highlight">+11</td>
+                </tr>
+                <tr>
+                  <td>High</td>
+                  <td>13</td>
+                  <td class="highlight">22</td>
+                  <td>+9</td>
+                </tr>
+                <tr>
+                  <td>Tools used</td>
+                  <td>12</td>
+                  <td class="highlight">21</td>
+                  <td>+9</td>
+                </tr>
+                <tr>
+                  <td>Duration</td>
+                  <td>48min</td>
+                  <td class="highlight">41min</td>
+                  <td>-7min</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </section>
