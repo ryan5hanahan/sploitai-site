@@ -51,8 +51,9 @@
 
         <div class="nav__links">
           <a href="index.html#features">Capabilities</a>
-          <a href="benchmarks.html" class="nav__active">Benchmarks</a>
+          <a href="index.html#results">Results</a>
           <a href="index.html#how">How it works</a>
+          <a href="benchmarks.html" class="nav__active">Benchmarks</a>
           <a href="index.html#waitlist" class="btn btn--ghost"
             >Join waitlist</a
           >
@@ -197,6 +198,34 @@
           <span class="type-tag">Info disclosure</span>
           <span class="type-tag">LFI</span>
           <span class="type-tag">Broken access control</span>
+        </div>
+      </section>
+
+      <section
+        id="progress-repo"
+        class="section section--flush"
+        aria-label="Progress repo impact"
+      >
+        <div class="section__head">
+          <h2>Progress repo impact</h2>
+          <p>Git-native intent tracking records every (endpoint, method, vuln_type, technique) tuple. First validated run with <code>read_progress</code> tool — sdk-v20260325 vs sdk-v20260324.</p>
+        </div>
+        <div class="kpi-grid">
+          <div class="kpi">
+            <span class="kpi__value">+89%</span>
+            <span class="kpi__label">Findings increase</span>
+            <span class="kpi__detail">35 &rarr; 66 findings</span>
+          </div>
+          <div class="kpi">
+            <span class="kpi__value">+75%</span>
+            <span class="kpi__label">Tool diversity</span>
+            <span class="kpi__detail">12 &rarr; 21 tools used</span>
+          </div>
+          <div class="kpi">
+            <span class="kpi__value">-15%</span>
+            <span class="kpi__label">Duration</span>
+            <span class="kpi__detail">48min &rarr; 41min</span>
+          </div>
         </div>
       </section>
 
@@ -368,6 +397,7 @@
         </div>
         <div class="footer__links">
           <a href="index.html#features">Capabilities</a>
+          <a href="index.html#results">Results</a>
           <a href="benchmarks.html">Benchmarks</a>
           <a href="index.html#waitlist">Waitlist</a>
           <a href="https://github.com/" target="_blank" rel="noreferrer"
