@@ -855,6 +855,150 @@ code {
   opacity: 0.6;
 }
 
+/* Benchmarks page */
+.page-hero {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 64px 18px 32px;
+}
+
+.page-hero__title {
+  margin: 0;
+  font-size: clamp(1.8rem, 4vw, 2.2rem);
+  color: var(--green);
+  text-shadow: 0 0 18px rgba(0, 255, 136, 0.2);
+}
+
+.page-hero__subtitle {
+  margin: 10px 0 0;
+  color: var(--muted);
+  line-height: 1.6;
+  max-width: 70ch;
+}
+
+.breadcrumb {
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin: 0 0 12px;
+}
+
+.breadcrumb a {
+  color: var(--cyan);
+}
+
+.nav__active {
+  color: var(--cyan);
+}
+
+.section--flush {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 18px 56px;
+}
+
+.method-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.method-item {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: var(--radius);
+  padding: 18px;
+}
+
+.method-item h3 {
+  margin: 0 0 8px;
+  font-size: 0.95rem;
+  color: var(--green);
+}
+
+.method-item p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.6;
+  font-size: 0.88rem;
+}
+
+.chart-wrap {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: var(--radius);
+  padding: 28px 24px;
+  margin-bottom: 28px;
+  overflow-x: auto;
+}
+
+.kpi-grid--4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.changelog-wrap {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: var(--radius);
+  padding: 22px;
+  overflow-x: auto;
+}
+
+.changelog-wrap h3 {
+  margin: 0 0 14px;
+  font-size: 1.05rem;
+}
+
+.changelog {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+}
+
+.changelog th {
+  text-align: left;
+  padding: 8px 12px;
+  color: var(--muted);
+  font-weight: 600;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  white-space: nowrap;
+}
+
+.changelog td {
+  padding: 8px 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.changelog__commit {
+  color: var(--cyan);
+  font-size: 0.82rem;
+}
+
+.changelog__impact {
+  color: var(--green);
+}
+
+@media (max-width: 1100px) {
+  .method-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 940px) {
+  .method-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .kpi-grid--4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .kpi-grid--4 {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .fx__scanlines,
   .glitch::before,

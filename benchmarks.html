@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Benchmarks — sploit.ai</title>
+    <meta
+      name="description"
+      content="sploit.ai benchmark methodology, XBEN results, and performance trajectory across agent versions."
+    />
+
+    <meta property="og:title" content="Benchmarks — sploit.ai" />
+    <meta
+      property="og:description"
+      content="How we test, what we measure, and how performance has changed across agent versions."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="assets/sploitai_glitch.svg" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Benchmarks — sploit.ai" />
+    <meta
+      name="twitter:description"
+      content="How we test, what we measure, and how performance has changed across agent versions."
+    />
+    <meta name="twitter:image" content="assets/sploitai_glitch.svg" />
+
+    <link rel="icon" type="image/svg+xml" href="assets/sploitai_glitch.svg" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <div class="fx" aria-hidden="true">
+      <div class="fx__noise"></div>
+      <div class="fx__scanlines"></div>
+      <div class="fx__vignette"></div>
+    </div>
+
+    <header class="site-header" role="banner">
+      <nav class="nav" aria-label="Primary">
+        <a class="nav__brand" href="index.html" aria-label="sploit.ai">
+          <img
+            src="assets/sploitai_glitch.svg"
+            alt="sploit.ai"
+            class="nav__logo"
+            decoding="async"
+          />
+        </a>
+
+        <div class="nav__links">
+          <a href="index.html#features">Capabilities</a>
+          <a href="benchmarks.html" class="nav__active">Benchmarks</a>
+          <a href="index.html#how">How it works</a>
+          <a href="index.html#waitlist" class="btn btn--ghost"
+            >Join waitlist</a
+          >
+          <a
+            href="https://github.com/"
+            target="_blank"
+            rel="noreferrer"
+            class="btn btn--primary"
+            >GitHub</a
+          >
+        </div>
+      </nav>
+    </header>
+
+    <main id="main" class="main" role="main">
+      <div class="page-hero">
+        <p class="breadcrumb">
+          <a href="index.html">sploit.ai</a> / benchmarks
+        </p>
+        <h1 class="page-hero__title">Benchmarks &amp; methodology</h1>
+        <p class="page-hero__subtitle">
+          How we test, what we measure, and how performance has changed across
+          agent versions. All numbers from actual autonomous runs.
+        </p>
+      </div>
+
+      <section
+        id="methodology"
+        class="section section--flush"
+        aria-label="Methodology"
+      >
+        <div class="section__head">
+          <h2>Methodology</h2>
+        </div>
+        <div class="method-grid">
+          <article class="method-item">
+            <h3>Benchmark suite</h3>
+            <p>
+              XBEN — 104 CTF-style challenges across 2 difficulty levels. Each
+              challenge is a containerized vulnerable application with a known
+              flag.
+            </p>
+          </article>
+          <article class="method-item">
+            <h3>Pass criteria</h3>
+            <p>
+              A challenge passes when the agent captures the flag AND correctly
+              identifies the vulnerability type. Flag-only or type-only does not
+              count.
+            </p>
+          </article>
+          <article class="method-item">
+            <h3>Adjusted rate</h3>
+            <p>
+              Build failures (broken challenge containers) are excluded from the
+              denominator. Raw rate counts all 104; adjusted rate counts only
+              runnable challenges.
+            </p>
+          </article>
+          <article class="method-item">
+            <h3>Execution model</h3>
+            <p>
+              Fully autonomous — no human intervention after launch. Agent runs
+              inside sandboxed Kali containers with immutable scope policies.
+            </p>
+          </article>
+          <article class="method-item">
+            <h3>Juice Shop runs</h3>
+            <p>
+              Separate from XBEN. Real-world target (OWASP Juice Shop) measuring
+              findings count, vuln type diversity, step efficiency, and duration.
+            </p>
+          </article>
+          <article class="method-item">
+            <h3>Progress repo</h3>
+            <p>
+              Git-backed intent tracking records every tested
+              endpoint/vuln/technique tuple. Blocks duplicate work and surfaces
+              untested attack surface.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section
+        id="xben"
+        class="section section--flush"
+        aria-label="XBEN results"
+      >
+        <div class="section__head">
+          <h2>XBEN results</h2>
+          <p>104 CTF challenges across 2 difficulty levels.</p>
+        </div>
+        <div class="kpi-grid kpi-grid--4">
+          <div class="kpi">
+            <span class="kpi__value">80%</span>
+            <span class="kpi__label">L1 adjusted pass rate</span>
+            <span class="kpi__detail"
+              >20/25 runnable — up from 59% (+21pp)</span
+            >
+          </div>
+          <div class="kpi">
+            <span class="kpi__value">67%</span>
+            <span class="kpi__label">L2 adjusted pass rate</span>
+            <span class="kpi__detail">12/18 runnable — first L2 run</span>
+          </div>
+          <div class="kpi">
+            <span class="kpi__value">74%</span>
+            <span class="kpi__label">Combined adjusted</span>
+            <span class="kpi__detail">32/43 runnable across both levels</span>
+          </div>
+          <div class="kpi">
+            <span class="kpi__value">15</span>
+            <span class="kpi__label">Tags at 100%</span>
+            <span class="kpi__detail"
+              >IDOR, SSRF, SSTI, cmd injection, GraphQL, deserialization,
+              business logic, priv esc, file upload, path traversal, JWT,
+              crypto, brute force, default creds, info disclosure</span
+            >
+          </div>
+        </div>
+
+        <div class="type-grid">
+          <span class="type-tag">SQLi</span>
+          <span class="type-tag">XSS</span>
+          <span class="type-tag">SSRF</span>
+          <span class="type-tag">IDOR</span>
+          <span class="type-tag">RCE</span>
+          <span class="type-tag">SSTI</span>
+          <span class="type-tag">XXE</span>
+          <span class="type-tag">Auth bypass</span>
+          <span class="type-tag">Command injection</span>
+          <span class="type-tag">Deserialization</span>
+          <span class="type-tag">Path traversal</span>
+          <span class="type-tag">NoSQL injection</span>
+          <span class="type-tag">CSRF</span>
+          <span class="type-tag">File upload</span>
+          <span class="type-tag">Open redirect</span>
+          <span class="type-tag">Privilege escalation</span>
+          <span class="type-tag">Crypto weakness</span>
+          <span class="type-tag">Security misconfig</span>
+          <span class="type-tag">Info disclosure</span>
+          <span class="type-tag">LFI</span>
+          <span class="type-tag">Broken access control</span>
+        </div>
+      </section>
+
+      <section
+        id="trajectory"
+        class="section section--flush"
+        aria-label="Performance trajectory"
+      >
+        <div class="section__head">
+          <h2>Performance trajectory</h2>
+          <p>Juice Shop findings and efficiency across agent versions.</p>
+        </div>
+        <div class="chart-wrap">
+          <canvas
+            id="perf-chart"
+            width="1060"
+            height="340"
+            role="img"
+            aria-label="Bar chart showing findings count and yield across agent versions"
+          ></canvas>
+        </div>
+
+        <div class="changelog-wrap">
+          <h3>Notable changes</h3>
+          <table class="changelog">
+            <thead>
+              <tr>
+                <th>Run</th>
+                <th>Commit</th>
+                <th>Change</th>
+                <th>Impact</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>v76</td>
+                <td class="changelog__commit">abc1234</td>
+                <td>Prompt v3 — restructured orchestrator planning</td>
+                <td class="changelog__impact">
+                  87 findings, 0.25 yield (all-time best)
+                </td>
+              </tr>
+              <tr>
+                <td>v78</td>
+                <td class="changelog__commit">ccc9999</td>
+                <td>Tool fallback chains — auto-retry with alt tools</td>
+                <td class="changelog__impact">21 vuln types covered</td>
+              </tr>
+              <tr>
+                <td>v0325</td>
+                <td class="changelog__commit">def5678</td>
+                <td>Progress repo — git-backed intent tracking</td>
+                <td class="changelog__impact">
+                  +89% findings, +75% tool diversity
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section
+        id="runs"
+        class="section section--flush"
+        aria-label="Run history"
+      >
+        <div class="section__head">
+          <h2>Run history</h2>
+          <p>All Juice Shop runs with full metrics.</p>
+        </div>
+        <div class="changelog-wrap">
+          <div class="run-table-wrap">
+            <table class="run-table">
+              <thead>
+                <tr>
+                  <th>Run</th>
+                  <th>Findings</th>
+                  <th>Types</th>
+                  <th>Steps</th>
+                  <th>Duration</th>
+                  <th>Yield</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>v20260325</td>
+                  <td class="highlight">66</td>
+                  <td>20</td>
+                  <td>436</td>
+                  <td>41m</td>
+                  <td>0.15</td>
+                </tr>
+                <tr>
+                  <td>v20260324</td>
+                  <td>35</td>
+                  <td>18</td>
+                  <td>230</td>
+                  <td>48m</td>
+                  <td>0.15</td>
+                </tr>
+                <tr>
+                  <td>v80</td>
+                  <td>55</td>
+                  <td>20</td>
+                  <td>337</td>
+                  <td>38m</td>
+                  <td>0.16</td>
+                </tr>
+                <tr>
+                  <td>v79</td>
+                  <td>52</td>
+                  <td class="highlight">21</td>
+                  <td>312</td>
+                  <td>32m</td>
+                  <td>0.17</td>
+                </tr>
+                <tr>
+                  <td>v78</td>
+                  <td>57</td>
+                  <td class="highlight">21</td>
+                  <td>494</td>
+                  <td>60m</td>
+                  <td>0.12</td>
+                </tr>
+                <tr>
+                  <td>v77</td>
+                  <td>47</td>
+                  <td class="highlight">21</td>
+                  <td>319</td>
+                  <td>26m</td>
+                  <td>0.15</td>
+                </tr>
+                <tr class="run-table__best">
+                  <td>v76</td>
+                  <td class="highlight">87</td>
+                  <td class="highlight">21</td>
+                  <td>351</td>
+                  <td>49m</td>
+                  <td class="highlight">0.25</td>
+                </tr>
+                <tr>
+                  <td>v74</td>
+                  <td>54</td>
+                  <td>20</td>
+                  <td>374</td>
+                  <td>44m</td>
+                  <td>0.14</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+      <div class="footer__grid">
+        <div>
+          <img
+            src="assets/sploitai_dark.svg"
+            alt="sploit.ai"
+            class="footer__logo"
+            decoding="async"
+          />
+          <p class="footer__note">
+            Use responsibly. Always test only against systems you own or have
+            explicit permission to assess.
+          </p>
+        </div>
+        <div class="footer__links">
+          <a href="index.html#features">Capabilities</a>
+          <a href="benchmarks.html">Benchmarks</a>
+          <a href="index.html#waitlist">Waitlist</a>
+          <a href="https://github.com/" target="_blank" rel="noreferrer"
+            >GitHub</a
+          >
+        </div>
+      </div>
+
+      <p class="footer__meta">
+        <span>&copy; <span id="year"></span> sploit.ai</span>
+      </p>
+    </footer>
+
+    <script src="script.js" defer></script>
+    <script src="benchmarks.js" defer></script>
+  </body>
+</html>
