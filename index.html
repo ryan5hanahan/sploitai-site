@@ -93,9 +93,9 @@
             </div>
 
             <div class="hero__badges" aria-label="Highlights">
-              <span class="badge">70 registered tools</span>
+              <span class="badge">72 registered tools</span>
               <span class="badge">6 LLM providers</span>
-              <span class="badge">2,961+ tests</span>
+              <span class="badge">3,232+ tests</span>
               <span class="badge">104 CTF benchmarks</span>
             </div>
           </div>
@@ -148,35 +148,35 @@
             <p>
               Opus orchestrator dispatches specialized sub-agents
               (enumerator, assessor, exploiter, reporter) across 6 LLM
-              providers. 8 auto-hooks fire reactively — JWT decode, JS
+              providers. Auto-hooks fire reactively — JWT decode, JS
               parsing, API discovery, CORS checks — without LLM involvement.
             </p>
           </article>
           <article class="card">
-            <h3>70 tools in Kali sandbox</h3>
+            <h3>72 tools in Kali sandbox</h3>
             <p>
-              Nmap, sqlmap, nuclei, ffuf, Burp Suite Pro, and more — all
-              executing inside containers with OPSEC defaults injected
-              automatically. Fallback chains dispatch alternatives when
-              primary tools fail or return empty results.
+              Nmap, sqlmap, nuclei, ffuf, Burp Suite Pro, and 67 more — all
+              inside containers with OPSEC defaults injected automatically.
+              Condition-based dispatch fires reactive tools on findings.
+              Fallback chains handle tool failures.
             </p>
           </article>
           <article class="card">
-            <h3>Governance + loot collection</h3>
+            <h3>Governance + progress tracking</h3>
             <p>
               Immutable scope, 5-stage command validation, credential
-              isolation via opaque UUIDs. Output sanitization redacts 14+
-              secret patterns. Loot ledger auto-extracts credentials, flags,
-              and secrets from tool output.
+              isolation. Git-backed progress repo tracks every tested
+              endpoint/vuln/technique tuple — blocking duplicates before
+              they consume budget and surfacing untested attack surface.
             </p>
           </article>
           <article class="card">
             <h3>Recon pipeline + memory</h3>
             <p>
               Deterministic scanners and JS bundle analysis run before the
-              LLM session. Deferred scanners deliver results async via
-              callback. Four-tier cross-run memory promotes proven payloads
-              so the agent improves over time.
+              LLM session. Deferred scanners deliver results async.
+              Three-tier cross-run memory promotes proven payloads so the
+              agent improves over time.
             </p>
           </article>
         </div>
@@ -185,12 +185,12 @@
       <section id="results" class="section section--results" aria-label="Results">
         <div class="section__head">
           <h2>Progress</h2>
-          <p>All numbers from actual test runs — no synthetic benchmarks.</p>
+          <p>All numbers from actual runs — no synthetic benchmarks.</p>
         </div>
 
         <div class="results-detail">
           <h3>XBEN benchmark: 104 CTF challenges</h3>
-          <p class="results-detail__desc">Automated validation pipeline against purpose-built CTF challenges. Pass = flag captured + vuln type matched. Build failures excluded from adjusted rate.</p>
+          <p class="results-detail__desc">Flag captured + vuln type matched = pass. Build failures excluded from adjusted rate.</p>
           <div class="kpi-grid">
             <div class="kpi">
               <span class="kpi__value">80%</span>
@@ -200,7 +200,7 @@
             <div class="kpi">
               <span class="kpi__value">67%</span>
               <span class="kpi__label">Level 2 adjusted pass rate</span>
-              <span class="kpi__detail">12/18 runnable — first L2 run (Mar 23)</span>
+              <span class="kpi__detail">12/18 runnable — first L2 run</span>
             </div>
             <div class="kpi">
               <span class="kpi__value">74%</span>
@@ -216,8 +216,30 @@
         </div>
 
         <div class="results-detail">
+          <h3>Progress repo impact</h3>
+          <p class="results-detail__desc">Git-backed intent tracking blocks duplicate work and surfaces untested attack surface. First validated run (sdk-v20260325 vs prior):</p>
+          <div class="kpi-grid">
+            <div class="kpi">
+              <span class="kpi__value">+89%</span>
+              <span class="kpi__label">Finding increase</span>
+              <span class="kpi__detail">35 &rarr; 66 findings with read_progress</span>
+            </div>
+            <div class="kpi">
+              <span class="kpi__value">+75%</span>
+              <span class="kpi__label">Tool diversity increase</span>
+              <span class="kpi__detail">12 &rarr; 21 distinct tools used</span>
+            </div>
+            <div class="kpi">
+              <span class="kpi__value">-15%</span>
+              <span class="kpi__label">Duration reduction</span>
+              <span class="kpi__detail">48min &rarr; 41min — faster with more coverage</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="results-detail">
           <h3>Juice Shop run trajectory</h3>
-          <p class="results-detail__desc">Last 8 runs showing findings, vuln type coverage, and efficiency:</p>
+          <p class="results-detail__desc">Recent runs showing findings, vuln types, and efficiency:</p>
           <div class="run-table-wrap">
             <table class="run-table">
               <thead>
@@ -231,6 +253,12 @@
                 </tr>
               </thead>
               <tbody>
+                <tr>
+                  <td>v20260325</td><td class="highlight">66</td><td>20</td><td>436</td><td>41m</td><td>0.15</td>
+                </tr>
+                <tr>
+                  <td>v20260324</td><td>35</td><td>18</td><td>230</td><td>48m</td><td>0.15</td>
+                </tr>
                 <tr>
                   <td>v80</td><td>55</td><td>20</td><td>337</td><td>38m</td><td>0.16</td>
                 </tr>
@@ -249,12 +277,6 @@
                 <tr>
                   <td>v74</td><td>54</td><td>20</td><td>374</td><td>44m</td><td>0.14</td>
                 </tr>
-                <tr>
-                  <td>v73</td><td>61</td><td class="highlight">21</td><td>594</td><td>50m</td><td>0.10</td>
-                </tr>
-                <tr>
-                  <td>v72</td><td>66</td><td>20</td><td>303</td><td>28m</td><td>0.22</td>
-                </tr>
               </tbody>
             </table>
           </div>
@@ -264,23 +286,23 @@
           <div class="kpi">
             <span class="kpi__value">87</span>
             <span class="kpi__label">Best findings (single run)</span>
-            <span class="kpi__detail">sdk-v76 — 21 vuln types, 351 steps</span>
+            <span class="kpi__detail">sdk-v76 — 21 vuln types, 0.25 yield</span>
           </div>
           <div class="kpi">
-            <span class="kpi__value">545</span>
-            <span class="kpi__label">Total findings (XBEN suite)</span>
-            <span class="kpi__detail">34 flags captured across 45 completed runs</span>
+            <span class="kpi__value">21</span>
+            <span class="kpi__label">Critical severity record</span>
+            <span class="kpi__detail">sdk-v20260325 — new all-time record</span>
           </div>
           <div class="kpi">
             <span class="kpi__value">31</span>
             <span class="kpi__label">Distinct tools used</span>
-            <span class="kpi__detail">Autonomous tool selection across benchmark runs</span>
+            <span class="kpi__detail">Autonomous selection across 45 XBEN runs</span>
           </div>
         </div>
 
         <div class="results-detail">
           <h3>Vulnerability types tested</h3>
-          <p class="results-detail__desc">Autonomous coverage across OWASP Top 10 and beyond:</p>
+          <p class="results-detail__desc">21 distinct types covered autonomously across OWASP Top 10 and beyond:</p>
           <div class="type-grid">
             <span class="type-tag">SQLi</span>
             <span class="type-tag">XSS</span>
@@ -332,14 +354,14 @@
             <span class="step__num">03</span>
             <div class="step__body">
               <h3>Agent execution</h3>
-              <p>Sub-agents test in parallel. Auto-hooks fire reactive tools on findings — SQLi triggers sqlmap, XSS triggers browser probes. Fallback chains dispatch alternatives when tools fail. Coverage-aware dedup tracks tested surface.</p>
+              <p>Sub-agents test in parallel. Auto-hooks fire reactive tools on findings. Git-backed progress repo tracks every tested tuple, blocks duplicates, and surfaces untested attack surface via read_progress.</p>
             </div>
           </li>
           <li class="step">
             <span class="step__num">04</span>
             <div class="step__body">
               <h3>Output</h3>
-              <p>JSON and Markdown reports with deduplicated findings, attack graph, evidence, and loot ledger. Proven payloads promote to muscle memory for future runs.</p>
+              <p>JSON and Markdown reports with deduplicated findings, attack graph, and evidence. Proven payloads promote to muscle memory for future runs.</p>
             </div>
           </li>
         </ol>
