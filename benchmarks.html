@@ -7,13 +7,13 @@
     <title>Benchmarks — sploit.ai</title>
     <meta
       name="description"
-      content="sploit.ai benchmark methodology, XBEN results, and performance trajectory across agent versions."
+      content="sploit.ai benchmark results — 80% L1 pass rate, 67% L2, 87 peak findings. Methodology, XBEN results, and performance trajectory."
     />
 
     <meta property="og:title" content="Benchmarks — sploit.ai" />
     <meta
       property="og:description"
-      content="How we test, what we measure, and how performance has changed across agent versions."
+      content="80% L1 CTF pass rate, 67% L2, 87 peak findings. How we test and how performance has changed across agent versions."
     />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="assets/sploitai_glitch.svg" />
@@ -22,7 +22,7 @@
     <meta name="twitter:title" content="Benchmarks — sploit.ai" />
     <meta
       name="twitter:description"
-      content="How we test, what we measure, and how performance has changed across agent versions."
+      content="80% L1 CTF pass rate, 67% L2, 87 peak findings. How we test and how performance has changed across agent versions."
     />
     <meta name="twitter:image" content="assets/sploitai_glitch.svg" />
 
@@ -52,7 +52,7 @@
         <div class="nav__links">
           <a href="index.html#features">Capabilities</a>
           <a href="index.html#results">Results</a>
-          <a href="#executive">Executive</a>
+          <a href="#methodology">Methodology</a>
           <a href="benchmarks.html" class="nav__active">Benchmarks</a>
           <a href="index.html#waitlist" class="btn btn--ghost"
             >Join waitlist</a
@@ -73,234 +73,43 @@
         <p class="breadcrumb">
           <a href="index.html">sploit.ai</a> / benchmarks
         </p>
-        <h1 class="page-hero__title">Benchmarks &amp; methodology</h1>
+        <h1 class="page-hero__title">Benchmarks</h1>
         <p class="page-hero__subtitle">
-          How we test, what we measure, and how performance has changed across
-          agent versions. All numbers from actual autonomous runs.
+          All numbers from fully autonomous runs — no human intervention
+          after launch. Two benchmark suites: XBEN (104 CTF challenges)
+          and OWASP Juice Shop (real-world target).
         </p>
       </div>
 
       <section
-        id="executive"
+        id="records"
         class="section section--flush"
-        aria-label="Executive summary"
+        aria-label="All-time records"
       >
         <div class="section__head">
-          <h2>Executive summary</h2>
-          <p>All-time records across Juice Shop and XBEN benchmark suites.</p>
+          <h2>All-time records</h2>
         </div>
-        <div class="changelog-wrap">
-          <div class="run-table-wrap">
-            <table class="run-table">
-              <thead>
-                <tr>
-                  <th>Metric</th>
-                  <th>Record</th>
-                  <th>Run</th>
-                  <th>Date</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Findings</td>
-                  <td class="highlight">87</td>
-                  <td>sdk-v76</td>
-                  <td>2026-03-20</td>
-                </tr>
-                <tr>
-                  <td>Critical severity</td>
-                  <td class="highlight">21</td>
-                  <td>sdk-v20260325</td>
-                  <td>2026-03-25</td>
-                </tr>
-                <tr>
-                  <td>Vulnerability types</td>
-                  <td class="highlight">21</td>
-                  <td>sdk-v64 &ndash; v79</td>
-                  <td>2026-03-21</td>
-                </tr>
-                <tr>
-                  <td>Tool diversity</td>
-                  <td class="highlight">21</td>
-                  <td>sdk-v20260325</td>
-                  <td>2026-03-25</td>
-                </tr>
-                <tr>
-                  <td>XBEN L1 pass rate</td>
-                  <td class="highlight">80%</td>
-                  <td>xben-2026-03-23</td>
-                  <td>2026-03-23</td>
-                </tr>
-                <tr>
-                  <td>XBEN L2 pass rate</td>
-                  <td class="highlight">67%</td>
-                  <td>xben-2026-03-23</td>
-                  <td>2026-03-23</td>
-                </tr>
-                <tr>
-                  <td>Graph edges</td>
-                  <td class="highlight">738</td>
-                  <td>sdk-v59</td>
-                  <td>2026-03-09</td>
-                </tr>
-                <tr>
-                  <td>Finding yield</td>
-                  <td class="highlight">0.56</td>
-                  <td>sdk-v45</td>
-                  <td>2026-02-28</td>
-                </tr>
-              </tbody>
-            </table>
+        <div class="kpi-grid kpi-grid--4">
+          <div class="kpi">
+            <span class="kpi__value">87</span>
+            <span class="kpi__label">Peak findings</span>
+            <span class="kpi__detail">sdk-v76 — single Juice Shop run</span>
           </div>
-        </div>
-      </section>
-
-      <section
-        id="highlights"
-        class="section section--flush"
-        aria-label="What's working"
-      >
-        <div class="section__head">
-          <h2>What's working</h2>
-          <p>Key wins from recent runs and development.</p>
-        </div>
-        <div class="method-grid">
-          <article class="method-item">
-            <h3>Progress repo validated</h3>
-            <p>
-              Git-backed intent tracking delivered +89% findings, +75% tool
-              diversity, and -15% duration on first validated run.
-              <code>read_progress</code> successfully guides the orchestrator
-              to untested attack surface.
-            </p>
-          </article>
-          <article class="method-item">
-            <h3>15 vuln categories at 100%</h3>
-            <p>
-              IDOR, SSRF, SSTI, command injection, GraphQL, deserialization,
-              business logic, privilege escalation, file upload, path traversal,
-              JWT, crypto, brute force, default creds, and info disclosure.
-            </p>
-          </article>
-          <article class="method-item">
-            <h3>31 tools across 45 XBEN runs</h3>
-            <p>
-              Agent selects from the full toolset based on context — 21
-              distinct tools in a single Juice Shop run. Condition-based
-              dispatch and fallback chains handle tool selection automatically.
-            </p>
-          </article>
-          <article class="method-item">
-            <h3>Deep exploitation chains</h3>
-            <p>
-              XBEN-075: 12 findings via YAML deserialization to RCE.
-              XBEN-080: 8 findings via SSTI to RCE to flag extraction.
-              Agent chains discoveries into multi-step exploitation paths.
-            </p>
-          </article>
-        </div>
-      </section>
-
-      <section
-        id="shipped"
-        class="section section--flush"
-        aria-label="Recently shipped"
-      >
-        <div class="section__head">
-          <h2>Recently shipped</h2>
-          <p>Improvements validated in the latest runs.</p>
-        </div>
-        <div class="method-grid">
-          <article class="method-item">
-            <h3>Intent-aware dedup</h3>
-            <p>
-              Exploit chain dedup now accepts distinct stages (discovery,
-              exfiltration, escalation) on the same endpoint instead of
-              collapsing them.
-            </p>
-          </article>
-          <article class="method-item">
-            <h3>Dispatch fixes</h3>
-            <p>
-              nuclei_scan, ffuf_fuzz, and hydra_brute dispatch failures fixed —
-              wrong params and missing FUZZ keywords resolved. multipart_upload
-              now returns HTTP errors so the agent can adapt.
-            </p>
-          </article>
-          <article class="method-item">
-            <h3>Shell improvements</h3>
-            <p>
-              Shell keywords return actionable <code>python3 -c</code> hints
-              instead of generic errors. <code>seq</code> added to allowlist.
-              Zero shell syntax errors since v80.
-            </p>
-          </article>
-          <article class="method-item">
-            <h3>L1 +21pp improvement</h3>
-            <p>
-              XBEN Level 1 pass rate improved from 59% to 80% with zero
-              regressions. Broad tag matching and CTF prompt tuning drove
-              the gains.
-            </p>
-          </article>
-        </div>
-      </section>
-
-      <section
-        id="methodology"
-        class="section section--flush"
-        aria-label="Methodology"
-      >
-        <div class="section__head">
-          <h2>Methodology</h2>
-        </div>
-        <div class="method-grid">
-          <article class="method-item">
-            <h3>Benchmark suite</h3>
-            <p>
-              XBEN — 104 CTF-style challenges across 2 difficulty levels. Each
-              challenge is a containerized vulnerable application with a known
-              flag.
-            </p>
-          </article>
-          <article class="method-item">
-            <h3>Pass criteria</h3>
-            <p>
-              A challenge passes when the agent captures the flag AND correctly
-              identifies the vulnerability type. Flag-only or type-only does not
-              count.
-            </p>
-          </article>
-          <article class="method-item">
-            <h3>Adjusted rate</h3>
-            <p>
-              Build failures (broken challenge containers) are excluded from the
-              denominator. Raw rate counts all 104; adjusted rate counts only
-              runnable challenges.
-            </p>
-          </article>
-          <article class="method-item">
-            <h3>Execution model</h3>
-            <p>
-              Fully autonomous — no human intervention after launch. Agent runs
-              inside sandboxed Kali containers with immutable scope policies.
-            </p>
-          </article>
-          <article class="method-item">
-            <h3>Juice Shop runs</h3>
-            <p>
-              Separate from XBEN. Real-world target (OWASP Juice Shop) measuring
-              findings count, vuln type diversity, step efficiency, and duration.
-            </p>
-          </article>
-          <article class="method-item">
-            <h3>Progress repo</h3>
-            <p>
-              Git-backed intent tracking records every tested
-              endpoint/vuln/technique tuple. Blocks duplicate work and surfaces
-              untested attack surface.
-            </p>
-          </article>
+          <div class="kpi">
+            <span class="kpi__value">21</span>
+            <span class="kpi__label">Critical severity</span>
+            <span class="kpi__detail">sdk-v20260325 — all-time record</span>
+          </div>
+          <div class="kpi">
+            <span class="kpi__value">21</span>
+            <span class="kpi__label">Vuln types covered</span>
+            <span class="kpi__detail">Held across 8 consecutive runs</span>
+          </div>
+          <div class="kpi">
+            <span class="kpi__value">21</span>
+            <span class="kpi__label">Tools in one run</span>
+            <span class="kpi__detail">sdk-v20260325 — all-time record</span>
+          </div>
         </div>
       </section>
 
@@ -310,8 +119,8 @@
         aria-label="XBEN results"
       >
         <div class="section__head">
-          <h2>XBEN results</h2>
-          <p>104 CTF challenges across 2 difficulty levels. 545 total findings, 34 flags captured, 5.8h total compute across 45 completed runs.</p>
+          <h2>XBEN CTF results</h2>
+          <p>104 challenges across 3 difficulty levels. 545 total findings, 34 flags captured, 5.8h total compute across 45 completed runs.</p>
         </div>
         <div class="kpi-grid kpi-grid--4">
           <div class="kpi">
@@ -329,7 +138,7 @@
           <div class="kpi">
             <span class="kpi__value">74%</span>
             <span class="kpi__label">Combined adjusted</span>
-            <span class="kpi__detail">32/43 runnable across both levels</span>
+            <span class="kpi__detail">32/43 runnable across L1 + L2</span>
           </div>
           <div class="kpi">
             <span class="kpi__value">15</span>
@@ -368,117 +177,48 @@
       </section>
 
       <section
-        id="progress-repo"
+        id="progress"
         class="section section--flush"
-        aria-label="Progress repo impact"
+        aria-label="Recent progress"
       >
         <div class="section__head">
-          <h2>Progress repo impact</h2>
-          <p>Git-native intent tracking records every (endpoint, method, vuln_type, technique) tuple. First validated run with <code>read_progress</code> tool — sdk-v20260325 vs sdk-v20260324.</p>
+          <h2>Recent progress</h2>
+          <p>Key wins from the latest development cycle.</p>
         </div>
-        <div class="kpi-grid">
-          <div class="kpi">
-            <span class="kpi__value">+89%</span>
-            <span class="kpi__label">Findings increase</span>
-            <span class="kpi__detail">35 &rarr; 66 findings</span>
-          </div>
-          <div class="kpi">
-            <span class="kpi__value">+75%</span>
-            <span class="kpi__label">Tool diversity</span>
-            <span class="kpi__detail">12 &rarr; 21 tools used</span>
-          </div>
-          <div class="kpi">
-            <span class="kpi__value">-15%</span>
-            <span class="kpi__label">Duration</span>
-            <span class="kpi__detail">48min &rarr; 41min</span>
-          </div>
-        </div>
-      </section>
-
-      <section
-        id="latest-run"
-        class="section section--flush"
-        aria-label="Latest run breakdown"
-      >
-        <div class="section__head">
-          <h2>Latest run breakdown</h2>
-          <p>sdk-v20260325 — Juice Shop, fully autonomous, 41 minutes.</p>
-        </div>
-        <div class="kpi-grid kpi-grid--4">
-          <div class="kpi">
-            <span class="kpi__value">66</span>
-            <span class="kpi__label">Findings</span>
-            <span class="kpi__detail">+89% over previous run</span>
-          </div>
-          <div class="kpi">
-            <span class="kpi__value">21</span>
-            <span class="kpi__label">Critical</span>
-            <span class="kpi__detail">All-time record</span>
-          </div>
-          <div class="kpi">
-            <span class="kpi__value">22</span>
-            <span class="kpi__label">High</span>
-            <span class="kpi__detail">+9 over previous</span>
-          </div>
-          <div class="kpi">
-            <span class="kpi__value">20</span>
-            <span class="kpi__label">Vuln types</span>
-            <span class="kpi__detail">17 medium, 5 low, 1 info</span>
-          </div>
-        </div>
-
-        <div class="changelog-wrap" style="margin-top: 18px">
-          <h3>Run comparison — v20260324 vs v20260325</h3>
-          <div class="run-table-wrap">
-            <table class="run-table">
-              <thead>
-                <tr>
-                  <th>Metric</th>
-                  <th>v20260324</th>
-                  <th>v20260325</th>
-                  <th>Delta</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Findings</td>
-                  <td>35</td>
-                  <td class="highlight">66</td>
-                  <td class="highlight">+31 (+89%)</td>
-                </tr>
-                <tr>
-                  <td>Vuln types</td>
-                  <td>18</td>
-                  <td class="highlight">20</td>
-                  <td>+2</td>
-                </tr>
-                <tr>
-                  <td>Critical</td>
-                  <td>10</td>
-                  <td class="highlight">21</td>
-                  <td class="highlight">+11</td>
-                </tr>
-                <tr>
-                  <td>High</td>
-                  <td>13</td>
-                  <td class="highlight">22</td>
-                  <td>+9</td>
-                </tr>
-                <tr>
-                  <td>Tools used</td>
-                  <td>12</td>
-                  <td class="highlight">21</td>
-                  <td>+9</td>
-                </tr>
-                <tr>
-                  <td>Duration</td>
-                  <td>48min</td>
-                  <td class="highlight">41min</td>
-                  <td>-7min</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+        <div class="method-grid">
+          <article class="method-item">
+            <h3>Progress repo: +89% findings</h3>
+            <p>
+              Git-backed intent tracking delivered +89% findings (35 &rarr; 66),
+              +75% tool diversity (12 &rarr; 21 tools), and -15% duration
+              (48 &rarr; 41min). The orchestrator uses <code>read_progress</code>
+              to target untested attack surface.
+            </p>
+          </article>
+          <article class="method-item">
+            <h3>L1 pass rate: 59% &rarr; 80%</h3>
+            <p>
+              +21pp improvement with zero regressions. Broad tag matching
+              and CTF prompt tuning drove the gains. 15 vulnerability
+              categories now at 100% pass rate across both levels.
+            </p>
+          </article>
+          <article class="method-item">
+            <h3>Deep exploitation chains</h3>
+            <p>
+              XBEN-075: 12 findings via YAML deserialization to RCE.
+              XBEN-080: 8 findings via SSTI to RCE to flag extraction.
+              The agent chains discoveries into multi-step exploitation paths.
+            </p>
+          </article>
+          <article class="method-item">
+            <h3>Intent-aware dedup</h3>
+            <p>
+              Exploit chain dedup now accepts distinct stages (discovery,
+              exfiltration, escalation) on the same endpoint. Dispatch
+              fixes for nuclei, ffuf, and hydra resolved param mismatches.
+            </p>
+          </article>
         </div>
       </section>
 
@@ -557,7 +297,7 @@
       >
         <div class="section__head">
           <h2>Run history</h2>
-          <p>All Juice Shop runs with full metrics.</p>
+          <p>Juice Shop runs — fully autonomous, no human intervention.</p>
         </div>
         <div class="changelog-wrap">
           <div class="run-table-wrap">
@@ -640,6 +380,51 @@
               </tbody>
             </table>
           </div>
+        </div>
+      </section>
+
+      <section
+        id="methodology"
+        class="section section--flush"
+        aria-label="Methodology"
+      >
+        <div class="section__head">
+          <h2>Methodology</h2>
+        </div>
+        <div class="method-grid">
+          <article class="method-item">
+            <h3>XBEN suite</h3>
+            <p>
+              104 CTF-style challenges across 3 difficulty levels. Each
+              challenge is a containerized vulnerable application with a known
+              flag. A challenge passes when the agent captures the flag AND
+              correctly identifies the vulnerability type.
+            </p>
+          </article>
+          <article class="method-item">
+            <h3>Adjusted rate</h3>
+            <p>
+              Build failures (broken challenge containers) are excluded from the
+              denominator. Raw rate counts all 104; adjusted rate counts only
+              runnable challenges. 53% of the suite currently fails to build
+              due to stale base images.
+            </p>
+          </article>
+          <article class="method-item">
+            <h3>Juice Shop runs</h3>
+            <p>
+              Separate from XBEN. Real-world target (OWASP Juice Shop) measuring
+              findings count, vuln type diversity, step efficiency, and duration.
+            </p>
+          </article>
+          <article class="method-item">
+            <h3>Execution model</h3>
+            <p>
+              Fully autonomous — no human intervention after launch. Agent runs
+              inside sandboxed Kali containers with immutable scope policies.
+              All runs use the same codebase and configuration.
+            </p>
+          </article>
         </div>
       </section>
     </main>

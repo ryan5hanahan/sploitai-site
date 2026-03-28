@@ -77,9 +77,9 @@
               <span class="glitch" data-text="sploit.ai">sploit.ai</span>
             </h1>
             <p class="hero__subtitle">
-              CLI-first agent that discovers and exploits vulnerabilities
-              autonomously — sandboxed in Kali containers, governed by
-              immutable scope policies, improving across runs.
+              Point it at a target. It discovers, tests, and exploits
+              vulnerabilities autonomously — sandboxed in Kali containers,
+              governed by immutable scope policies, improving across every run.
             </p>
 
             <div class="hero__cta">
@@ -95,7 +95,7 @@
 
             <div class="hero__badges" aria-label="Highlights">
               <span class="badge">72 registered tools</span>
-              <span class="badge">6 LLM providers</span>
+              <span class="badge">7 LLM providers</span>
               <span class="badge">3,300+ tests</span>
               <span class="badge">104 CTF benchmarks</span>
             </div>
@@ -118,17 +118,17 @@
     --objective "Find OWASP Top 10 vulns" \
     --profile vuln_lab
 
-<span class="ok">✔</span> sandbox ready
-<span class="ok">✔</span> tradecraft — 3 proven payloads loaded
-<span class="ok">✔</span> recon: 47 endpoints, 3 technologies
-<span class="muted">→</span> dispatching sub-agents
-<span class="ok">✔</span> enumerator: surface mapped
-<span class="ok">✔</span> assessor: sqli, xss, ssrf, idor, ssti
-<span class="ok">✔</span> exploiter: 4 WAF bypasses
-<span class="warn">!</span> CRIT — SQLi → cred dump → admin takeover
-<span class="ok">✔</span> progress: 66 findings, 20 vuln types
-<span class="ok">✔</span> dedup: 3 merged, graph: 70 nodes
-<span class="muted">→</span> report: findings + attack graph + evidence
+<span class="ok">&#10004;</span> sandbox ready
+<span class="ok">&#10004;</span> tradecraft — 3 proven payloads loaded
+<span class="ok">&#10004;</span> recon: 47 endpoints, 3 technologies
+<span class="muted">&#8594;</span> dispatching sub-agents
+<span class="ok">&#10004;</span> enumerator: surface mapped
+<span class="ok">&#10004;</span> assessor: sqli, xss, ssrf, idor, ssti
+<span class="ok">&#10004;</span> exploiter: 4 WAF bypasses
+<span class="warn">!</span> CRIT — SQLi &#8594; cred dump &#8594; admin takeover
+<span class="ok">&#10004;</span> progress: 66 findings, 20 vuln types
+<span class="ok">&#10004;</span> dedup: 3 merged, graph: 70 nodes
+<span class="muted">&#8594;</span> report: findings + attack graph + evidence
 </code></pre>
               </div>
             </div>
@@ -147,7 +147,7 @@
             <h3>Orchestrator + sub-agents</h3>
             <p>
               Opus orchestrator dispatches specialized sub-agents
-              (enumerator, assessor, exploiter, reporter) across 6 LLM
+              (enumerator, assessor, exploiter, reporter) across 7 LLM
               providers. Auto-hooks fire reactively — JWT decode, JS
               parsing, API discovery, CORS checks — without LLM involvement.
             </p>
@@ -171,12 +171,12 @@
             </p>
           </article>
           <article class="card">
-            <h3>Recon pipeline + tradecraft</h3>
+            <h3>Learns across runs</h3>
             <p>
-              Deterministic scanners and JS bundle analysis run before the
-              LLM session. Deferred scanners deliver results async.
-              Three-tier cross-run memory promotes proven payloads so the
-              agent improves over time.
+              Three-tier cross-run memory promotes proven payloads from
+              NEW to LEARNING to PROVEN. Deterministic scanners and JS
+              bundle analysis run before the LLM session. The agent gets
+              better at every target it sees.
             </p>
           </article>
         </div>
@@ -195,14 +195,14 @@
             <span class="kpi__detail">20/25 challenges — up from 59% (+21pp)</span>
           </div>
           <div class="kpi">
-            <span class="kpi__value">74%</span>
-            <span class="kpi__label">Combined XBEN pass rate</span>
-            <span class="kpi__detail">32/43 runnable across L1 + L2</span>
-          </div>
-          <div class="kpi">
             <span class="kpi__value">87</span>
             <span class="kpi__label">Peak findings (one run)</span>
-            <span class="kpi__detail">21 vuln types, 49 minutes</span>
+            <span class="kpi__detail">21 vuln types, 21 critical severity</span>
+          </div>
+          <div class="kpi">
+            <span class="kpi__value">+89%</span>
+            <span class="kpi__label">Findings with progress repo</span>
+            <span class="kpi__detail">35 &rarr; 66 findings, +75% tool diversity</span>
           </div>
           <div class="kpi">
             <span class="kpi__value">15</span>
@@ -233,7 +233,7 @@
             <span class="step__num">02</span>
             <div class="step__body">
               <h3>Recon</h3>
-              <p>Fast scanners (ffuf, whatweb) block and feed conditions into the orchestrator. Deferred scanners (nuclei, Burp) run async and deliver results via callback. JS bundles are analyzed for hidden endpoints and secrets.</p>
+              <p>Fast scanners block and feed conditions into the orchestrator. Deferred scanners (nuclei, Burp) run async. JS bundles are analyzed for hidden endpoints and secrets.</p>
             </div>
           </li>
           <li class="step">
@@ -247,7 +247,7 @@
             <span class="step__num">04</span>
             <div class="step__body">
               <h3>Output</h3>
-              <p>JSON and Markdown reports with deduplicated findings, attack graph, and evidence. Proven payloads promote to tradecraft memory for future runs.</p>
+              <p>Deduplicated findings with attack graphs and evidence. Proven payloads promote to tradecraft memory for future runs.</p>
             </div>
           </li>
         </ol>
