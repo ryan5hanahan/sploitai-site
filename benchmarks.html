@@ -116,7 +116,7 @@
                 <tr>
                   <td>Vulnerability types</td>
                   <td class="highlight">21</td>
-                  <td>sdk-v76–v79</td>
+                  <td>sdk-v64 &ndash; v79</td>
                   <td>2026-03-21</td>
                 </tr>
                 <tr>
@@ -138,6 +138,12 @@
                   <td>2026-03-23</td>
                 </tr>
                 <tr>
+                  <td>Graph edges</td>
+                  <td class="highlight">738</td>
+                  <td>sdk-v59</td>
+                  <td>2026-03-09</td>
+                </tr>
+                <tr>
                   <td>Finding yield</td>
                   <td class="highlight">0.56</td>
                   <td>sdk-v45</td>
@@ -146,6 +152,97 @@
               </tbody>
             </table>
           </div>
+        </div>
+      </section>
+
+      <section
+        id="highlights"
+        class="section section--flush"
+        aria-label="What's working"
+      >
+        <div class="section__head">
+          <h2>What's working</h2>
+          <p>Key wins from recent runs and development.</p>
+        </div>
+        <div class="method-grid">
+          <article class="method-item">
+            <h3>Progress repo validated</h3>
+            <p>
+              Git-backed intent tracking delivered +89% findings, +75% tool
+              diversity, and -15% duration on first validated run.
+              <code>read_progress</code> successfully guides the orchestrator
+              to untested attack surface.
+            </p>
+          </article>
+          <article class="method-item">
+            <h3>15 vuln categories at 100%</h3>
+            <p>
+              IDOR, SSRF, SSTI, command injection, GraphQL, deserialization,
+              business logic, privilege escalation, file upload, path traversal,
+              JWT, crypto, brute force, default creds, and info disclosure.
+            </p>
+          </article>
+          <article class="method-item">
+            <h3>31 tools across 45 XBEN runs</h3>
+            <p>
+              Agent selects from the full toolset based on context — 21
+              distinct tools in a single Juice Shop run. Condition-based
+              dispatch and fallback chains handle tool selection automatically.
+            </p>
+          </article>
+          <article class="method-item">
+            <h3>Deep exploitation chains</h3>
+            <p>
+              XBEN-075: 12 findings via YAML deserialization to RCE.
+              XBEN-080: 8 findings via SSTI to RCE to flag extraction.
+              Agent chains discoveries into multi-step exploitation paths.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section
+        id="shipped"
+        class="section section--flush"
+        aria-label="Recently shipped"
+      >
+        <div class="section__head">
+          <h2>Recently shipped</h2>
+          <p>Improvements validated in the latest runs.</p>
+        </div>
+        <div class="method-grid">
+          <article class="method-item">
+            <h3>Intent-aware dedup</h3>
+            <p>
+              Exploit chain dedup now accepts distinct stages (discovery,
+              exfiltration, escalation) on the same endpoint instead of
+              collapsing them.
+            </p>
+          </article>
+          <article class="method-item">
+            <h3>Dispatch fixes</h3>
+            <p>
+              nuclei_scan, ffuf_fuzz, and hydra_brute dispatch failures fixed —
+              wrong params and missing FUZZ keywords resolved. multipart_upload
+              now returns HTTP errors so the agent can adapt.
+            </p>
+          </article>
+          <article class="method-item">
+            <h3>Shell improvements</h3>
+            <p>
+              Shell keywords return actionable <code>python3 -c</code> hints
+              instead of generic errors. <code>seq</code> added to allowlist.
+              Zero shell syntax errors since v80.
+            </p>
+          </article>
+          <article class="method-item">
+            <h3>L1 +21pp improvement</h3>
+            <p>
+              XBEN Level 1 pass rate improved from 59% to 80% with zero
+              regressions. Broad tag matching and CTF prompt tuning drove
+              the gains.
+            </p>
+          </article>
         </div>
       </section>
 
@@ -214,7 +311,7 @@
       >
         <div class="section__head">
           <h2>XBEN results</h2>
-          <p>104 CTF challenges across 2 difficulty levels.</p>
+          <p>104 CTF challenges across 2 difficulty levels. 545 total findings, 34 flags captured, 5.8h total compute across 45 completed runs.</p>
         </div>
         <div class="kpi-grid kpi-grid--4">
           <div class="kpi">
@@ -410,7 +507,6 @@
             <thead>
               <tr>
                 <th>Run</th>
-                <th>Commit</th>
                 <th>Change</th>
                 <th>Impact</th>
               </tr>
@@ -418,24 +514,35 @@
             <tbody>
               <tr>
                 <td>v76</td>
-                <td class="changelog__commit">abc1234</td>
                 <td>Prompt v3 — restructured orchestrator planning</td>
                 <td class="changelog__impact">
                   87 findings, 0.25 yield (all-time best)
                 </td>
               </tr>
               <tr>
+                <td>v77</td>
+                <td>Blocker fixes — multipart auth, env sentinel</td>
+                <td class="changelog__impact">
+                  26min to full type coverage (fastest ever)
+                </td>
+              </tr>
+              <tr>
                 <td>v78</td>
-                <td class="changelog__commit">ccc9999</td>
-                <td>Tool fallback chains — auto-retry with alt tools</td>
-                <td class="changelog__impact">21 vuln types covered</td>
+                <td>Continuation loops — halt + depth pass</td>
+                <td class="changelog__impact">21 vuln types, +9 from continuation</td>
+              </tr>
+              <tr>
+                <td>v80</td>
+                <td>Bash fix + stagnation detection</td>
+                <td class="changelog__impact">
+                  Zero shell errors, stagnation guard validated
+                </td>
               </tr>
               <tr>
                 <td>v0325</td>
-                <td class="changelog__commit">def5678</td>
                 <td>Progress repo — git-backed intent tracking</td>
                 <td class="changelog__impact">
-                  +89% findings, +75% tool diversity
+                  +89% findings, +75% tool diversity, -15% duration
                 </td>
               </tr>
             </tbody>

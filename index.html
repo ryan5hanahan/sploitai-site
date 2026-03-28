@@ -7,14 +7,14 @@
     <title>sploit.ai — autonomous security assessment</title>
     <meta
       name="description"
-      content="sploit.ai — autonomous security assessment agent. 74% CTF pass rate (104 challenges), 87 peak findings, 21 vuln types. Sandboxed Kali containers, governance-first."
+      content="sploit.ai — autonomous security assessment agent. 80% L1 CTF pass rate, 87 peak findings, 21 vuln types. Sandboxed Kali containers, governance-first."
     />
 
     <!-- Open Graph -->
     <meta property="og:title" content="sploit.ai" />
     <meta
       property="og:description"
-      content="Autonomous security assessment agent — 74% CTF pass rate across 104 challenges, 87 peak findings. Sandboxed Kali containers, governance-first."
+      content="Autonomous security assessment agent — 80% L1 CTF pass rate, 87 peak findings across 104 challenges. Sandboxed Kali, governance-first."
     />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="assets/sploitai_glitch.svg" />
@@ -24,7 +24,7 @@
     <meta name="twitter:title" content="sploit.ai" />
     <meta
       name="twitter:description"
-      content="Autonomous security assessment agent — 74% CTF pass rate across 104 challenges, 87 peak findings. Sandboxed Kali containers, governance-first."
+      content="Autonomous security assessment agent — 80% L1 CTF pass rate, 87 peak findings across 104 challenges. Sandboxed Kali, governance-first."
     />
     <meta name="twitter:image" content="assets/sploitai_glitch.svg" />
 
@@ -79,7 +79,7 @@
             <p class="hero__subtitle">
               CLI-first agent that discovers and exploits vulnerabilities
               autonomously — sandboxed in Kali containers, governed by
-              immutable scope policies.
+              immutable scope policies, improving across runs.
             </p>
 
             <div class="hero__cta">
@@ -119,7 +119,7 @@
     --profile vuln_lab
 
 <span class="ok">✔</span> sandbox ready
-<span class="ok">✔</span> muscle memory — 3 proven payloads loaded
+<span class="ok">✔</span> tradecraft — 3 proven payloads loaded
 <span class="ok">✔</span> recon: 47 endpoints, 3 technologies
 <span class="muted">→</span> dispatching sub-agents
 <span class="ok">✔</span> enumerator: surface mapped
@@ -149,29 +149,29 @@
               Opus orchestrator dispatches specialized sub-agents
               (enumerator, assessor, exploiter, reporter) across 6 LLM
               providers. Auto-hooks fire reactively — JWT decode, JS
-              parsing, API discovery, CORS checks — no LLM involvement.
+              parsing, API discovery, CORS checks — without LLM involvement.
             </p>
           </article>
           <article class="card">
             <h3>72 tools in Kali sandbox</h3>
             <p>
               Nmap, sqlmap, nuclei, ffuf, Burp Suite Pro, and 67 more —
-              all inside containers with OPSEC defaults injected
-              automatically. Condition-based dispatch and fallback chains
-              handle tool selection and failures.
+              all inside containers with OPSEC defaults. Condition-based
+              dispatch fires reactive tools on findings. 30 payload
+              mutation transforms for WAF/filter evasion.
             </p>
           </article>
           <article class="card">
             <h3>Governance + coordination</h3>
             <p>
               Immutable scope, 5-stage command validation, credential
-              isolation. Git-native progress repo tracks every tested
+              isolation. Git-backed progress repo tracks every tested
               intent — hard-blocking duplicates and surfacing untested
               attack surface across parallel agents.
             </p>
           </article>
           <article class="card">
-            <h3>Recon pipeline + memory</h3>
+            <h3>Recon pipeline + tradecraft</h3>
             <p>
               Deterministic scanners and JS bundle analysis run before the
               LLM session. Deferred scanners deliver results async.
@@ -211,29 +211,6 @@
           </div>
         </div>
 
-        <div class="section__head" style="margin-top: 28px">
-          <h3>Progress repo impact</h3>
-          <p>Git-backed intent tracking — first validated run (v20260325 vs v20260324).</p>
-        </div>
-
-        <div class="kpi-grid">
-          <div class="kpi">
-            <span class="kpi__value">+89%</span>
-            <span class="kpi__label">Findings increase</span>
-            <span class="kpi__detail">35 &rarr; 66 findings</span>
-          </div>
-          <div class="kpi">
-            <span class="kpi__value">+75%</span>
-            <span class="kpi__label">Tool diversity</span>
-            <span class="kpi__detail">12 &rarr; 21 tools used</span>
-          </div>
-          <div class="kpi">
-            <span class="kpi__value">-15%</span>
-            <span class="kpi__label">Duration</span>
-            <span class="kpi__detail">48min &rarr; 41min</span>
-          </div>
-        </div>
-
         <p class="results-cta">
           <a href="benchmarks.html" class="btn btn--ghost">Full benchmarks &amp; methodology &rarr;</a>
         </p>
@@ -256,7 +233,7 @@
             <span class="step__num">02</span>
             <div class="step__body">
               <h3>Recon</h3>
-              <p>Deterministic scanners run before the LLM — endpoint discovery, JS bundle analysis, OSINT enrichment. Fast scanners block; deferred scanners run async and deliver results via callback.</p>
+              <p>Fast scanners (ffuf, whatweb) block and feed conditions into the orchestrator. Deferred scanners (nuclei, Burp) run async and deliver results via callback. JS bundles are analyzed for hidden endpoints and secrets.</p>
             </div>
           </li>
           <li class="step">
@@ -270,7 +247,7 @@
             <span class="step__num">04</span>
             <div class="step__body">
               <h3>Output</h3>
-              <p>JSON and Markdown reports with deduplicated findings, attack graph, and evidence. Proven payloads promote to muscle memory for future runs.</p>
+              <p>JSON and Markdown reports with deduplicated findings, attack graph, and evidence. Proven payloads promote to tradecraft memory for future runs.</p>
             </div>
           </li>
         </ol>
