@@ -7,13 +7,13 @@
     <title>Benchmarks — sploit.ai</title>
     <meta
       name="description"
-      content="sploit.ai benchmark results — 80% L1 pass rate, 67% L2, 87 peak findings. Methodology, XBEN results, and performance trajectory."
+      content="sploit.ai benchmark results — 80% L1, 67% L2, first L3 pass. 87 peak findings, 21 vuln types. XBEN results, Juice Shop trajectory, methodology."
     />
 
     <meta property="og:title" content="Benchmarks — sploit.ai" />
     <meta
       property="og:description"
-      content="80% L1 CTF pass rate, 67% L2, 87 peak findings. How we test and how performance has changed across agent versions."
+      content="80% L1, 67% L2, first L3 pass. 87 peak findings, 21 vuln types. How we test and how performance evolves."
     />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="assets/sploitai_glitch.svg" />
@@ -22,7 +22,7 @@
     <meta name="twitter:title" content="Benchmarks — sploit.ai" />
     <meta
       name="twitter:description"
-      content="80% L1 CTF pass rate, 67% L2, 87 peak findings. How we test and how performance has changed across agent versions."
+      content="80% L1, 67% L2, first L3 pass. 87 peak findings, 21 vuln types. How we test and how performance evolves."
     />
     <meta name="twitter:image" content="assets/sploitai_glitch.svg" />
 
@@ -76,8 +76,8 @@
         <h1 class="page-hero__title">Benchmarks</h1>
         <p class="page-hero__subtitle">
           All numbers from fully autonomous runs — no human intervention
-          after launch. Two benchmark suites: XBEN (104 CTF challenges)
-          and OWASP Juice Shop (real-world target).
+          after launch. Two benchmark suites: XBEN (104 CTF challenges
+          across 3 difficulty levels) and OWASP Juice Shop (real-world target).
         </p>
       </div>
 
@@ -136,9 +136,9 @@
             <span class="kpi__detail">12/18 runnable — first L2 run</span>
           </div>
           <div class="kpi">
-            <span class="kpi__value">74%</span>
-            <span class="kpi__label">Combined adjusted</span>
-            <span class="kpi__detail">32/43 runnable across L1 + L2</span>
+            <span class="kpi__value">L3</span>
+            <span class="kpi__label">First L3 pass</span>
+            <span class="kpi__detail">XBEN-057 — insecure deserialization</span>
           </div>
           <div class="kpi">
             <span class="kpi__value">15</span>
@@ -187,36 +187,51 @@
         </div>
         <div class="method-grid">
           <article class="method-item">
+            <h3>First L3 pass</h3>
+            <p>
+              XBEN-057 passed at the hardest difficulty tier via insecure
+              deserialization. The agent now solves challenges across all
+              three XBEN levels.
+            </p>
+          </article>
+          <article class="method-item">
             <h3>Progress repo: +89% findings</h3>
             <p>
               Git-backed intent tracking delivered +89% findings (35 &rarr; 66),
               +75% tool diversity (12 &rarr; 21 tools), and -15% duration
-              (48 &rarr; 41min). The orchestrator uses <code>read_progress</code>
-              to target untested attack surface.
+              (48 &rarr; 41min). Sub-agents share coverage state in real time.
+            </p>
+          </article>
+          <article class="method-item">
+            <h3>ATT&CK / OWASP taxonomy</h3>
+            <p>
+              Bidirectional mapping across 23 canonical vulnerability types.
+              Every finding is enriched with ATT&CK technique IDs and OWASP
+              categories automatically.
+            </p>
+          </article>
+          <article class="method-item">
+            <h3>Tradecraft playbooks</h3>
+            <p>
+              A fingerprint &rarr; extract &rarr; merge pipeline learns
+              techniques across runs. Proven payloads are dispatched
+              deterministically — the agent remembers what worked.
             </p>
           </article>
           <article class="method-item">
             <h3>L1 pass rate: 59% &rarr; 80%</h3>
             <p>
-              +21pp improvement with zero regressions. Broad tag matching
-              and CTF prompt tuning drove the gains. 15 vulnerability
-              categories now at 100% pass rate across both levels.
+              +21pp improvement with zero regressions. 15 vulnerability
+              categories at 100% pass rate across both levels. 31 distinct
+              tools used across 45 XBEN runs.
             </p>
           </article>
           <article class="method-item">
             <h3>Deep exploitation chains</h3>
             <p>
               XBEN-075: 12 findings via YAML deserialization to RCE.
-              XBEN-080: 8 findings via SSTI to RCE to flag extraction.
-              The agent chains discoveries into multi-step exploitation paths.
-            </p>
-          </article>
-          <article class="method-item">
-            <h3>Intent-aware dedup</h3>
-            <p>
-              Exploit chain dedup now accepts distinct stages (discovery,
-              exfiltration, escalation) on the same endpoint. Dispatch
-              fixes for nuclei, ffuf, and hydra resolved param mismatches.
+              XBEN-080: 8 findings via SSTI &rarr; RCE &rarr; flag extraction.
+              Multi-step exploitation paths, fully autonomous.
             </p>
           </article>
         </div>
@@ -283,6 +298,13 @@
                 <td>Progress repo — git-backed intent tracking</td>
                 <td class="changelog__impact">
                   +89% findings, +75% tool diversity, -15% duration
+                </td>
+              </tr>
+              <tr>
+                <td>v0328</td>
+                <td>Taxonomy alignment + tradecraft playbooks</td>
+                <td class="changelog__impact">
+                  ATT&CK/OWASP mapping, cross-run technique learning, first L3 pass
                 </td>
               </tr>
             </tbody>

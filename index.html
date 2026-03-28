@@ -7,14 +7,14 @@
     <title>sploit.ai — autonomous security assessment</title>
     <meta
       name="description"
-      content="sploit.ai — autonomous security assessment agent. 80% L1 CTF pass rate, 87 peak findings, 21 vuln types. Sandboxed Kali containers, governance-first."
+      content="sploit.ai — autonomous security assessment agent. 80% L1 CTF pass rate, 87 peak findings, 21 vuln types, first L3 pass. Sandboxed Kali, governance-first."
     />
 
     <!-- Open Graph -->
     <meta property="og:title" content="sploit.ai" />
     <meta
       property="og:description"
-      content="Autonomous security assessment agent — 80% L1 CTF pass rate, 87 peak findings across 104 challenges. Sandboxed Kali, governance-first."
+      content="Autonomous security assessment agent — 80% L1 pass rate, 67% L2, first L3 pass. 87 peak findings, 21 vuln types. Sandboxed Kali, governance-first."
     />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="assets/sploitai_glitch.svg" />
@@ -24,7 +24,7 @@
     <meta name="twitter:title" content="sploit.ai" />
     <meta
       name="twitter:description"
-      content="Autonomous security assessment agent — 80% L1 CTF pass rate, 87 peak findings across 104 challenges. Sandboxed Kali, governance-first."
+      content="Autonomous security assessment agent — 80% L1 pass rate, 67% L2, first L3 pass. 87 peak findings, 21 vuln types. Sandboxed Kali, governance-first."
     />
     <meta name="twitter:image" content="assets/sploitai_glitch.svg" />
 
@@ -78,8 +78,8 @@
             </h1>
             <p class="hero__subtitle">
               Point it at a target. It discovers, tests, and exploits
-              vulnerabilities autonomously — sandboxed in Kali containers,
-              governed by immutable scope policies, improving across every run.
+              vulnerabilities autonomously — then learns from every run.
+              Sandboxed in Kali containers, governed by immutable scope policies.
             </p>
 
             <div class="hero__cta">
@@ -96,7 +96,7 @@
             <div class="hero__badges" aria-label="Highlights">
               <span class="badge">72 registered tools</span>
               <span class="badge">7 LLM providers</span>
-              <span class="badge">3,300+ tests</span>
+              <span class="badge">3,200+ tests</span>
               <span class="badge">104 CTF benchmarks</span>
             </div>
           </div>
@@ -146,37 +146,38 @@
           <article class="card">
             <h3>Orchestrator + sub-agents</h3>
             <p>
-              Opus orchestrator dispatches specialized sub-agents
+              An Opus orchestrator dispatches specialized sub-agents
               (enumerator, assessor, exploiter, reporter) across 7 LLM
-              providers. Auto-hooks fire reactively — JWT decode, JS
-              parsing, API discovery, CORS checks — without LLM involvement.
+              providers. Auto-hooks fire reactively on findings — no LLM
+              call needed for JWT decode, JS parsing, API discovery, or
+              CORS checks.
             </p>
           </article>
           <article class="card">
             <h3>72 tools in Kali sandbox</h3>
             <p>
               Nmap, sqlmap, nuclei, ffuf, Burp Suite Pro, and 67 more —
-              all inside containers with OPSEC defaults. Condition-based
-              dispatch fires reactive tools on findings. 30 payload
-              mutation transforms for WAF/filter evasion.
+              all inside containers with OPSEC defaults. 30 payload
+              mutation transforms for WAF/filter evasion. Findings map to
+              ATT&CK and OWASP taxonomies automatically.
             </p>
           </article>
           <article class="card">
             <h3>Governance + coordination</h3>
             <p>
               Immutable scope, 5-stage command validation, credential
-              isolation. Git-backed progress repo tracks every tested
-              intent — hard-blocking duplicates and surfacing untested
-              attack surface across parallel agents.
+              isolation. A git-backed progress repo tracks every tested
+              intent — blocking duplicates and surfacing untested attack
+              surface across parallel agents.
             </p>
           </article>
           <article class="card">
             <h3>Learns across runs</h3>
             <p>
-              Three-tier cross-run memory promotes proven payloads from
-              NEW to LEARNING to PROVEN. Deterministic scanners and JS
-              bundle analysis run before the LLM session. The agent gets
-              better at every target it sees.
+              Tradecraft playbooks promote proven payloads from NEW to
+              LEARNING to PROVEN. Deterministic scanners and JS bundle
+              analysis run before the LLM session. Each run makes the
+              next one faster and deeper.
             </p>
           </article>
         </div>
@@ -195,19 +196,19 @@
             <span class="kpi__detail">20/25 challenges — up from 59% (+21pp)</span>
           </div>
           <div class="kpi">
+            <span class="kpi__value">67%</span>
+            <span class="kpi__label">L2 CTF pass rate</span>
+            <span class="kpi__detail">12/18 challenges — first L2 run</span>
+          </div>
+          <div class="kpi">
             <span class="kpi__value">87</span>
             <span class="kpi__label">Peak findings (one run)</span>
             <span class="kpi__detail">21 vuln types, 21 critical severity</span>
           </div>
           <div class="kpi">
-            <span class="kpi__value">+89%</span>
-            <span class="kpi__label">Findings with progress repo</span>
-            <span class="kpi__detail">35 &rarr; 66 findings, +75% tool diversity</span>
-          </div>
-          <div class="kpi">
-            <span class="kpi__value">15</span>
-            <span class="kpi__label">Vuln categories at 100%</span>
-            <span class="kpi__detail">IDOR, SSRF, SSTI, cmd injection, deserialization, GraphQL, JWT, and more</span>
+            <span class="kpi__value">L3</span>
+            <span class="kpi__label">First L3 pass</span>
+            <span class="kpi__detail">Insecure deserialization &mdash; hardest difficulty tier</span>
           </div>
         </div>
 
@@ -226,28 +227,28 @@
             <span class="step__num">01</span>
             <div class="step__body">
               <h3>Define scope</h3>
-              <p>Set target, scope profile, and providers. The governance engine freezes scope — it cannot expand mid-operation.</p>
+              <p>Set target, objective, and scope profile. The governance engine freezes scope — it cannot expand mid-operation.</p>
             </div>
           </li>
           <li class="step">
             <span class="step__num">02</span>
             <div class="step__body">
               <h3>Recon</h3>
-              <p>Fast scanners block and feed conditions into the orchestrator. Deferred scanners (nuclei, Burp) run async. JS bundles are analyzed for hidden endpoints and secrets.</p>
+              <p>Fast scanners map the surface while deferred scanners (nuclei, Burp) run async. JS bundles are analyzed for hidden endpoints and secrets.</p>
             </div>
           </li>
           <li class="step">
             <span class="step__num">03</span>
             <div class="step__body">
-              <h3>Agent execution</h3>
-              <p>Sub-agents test in parallel. The progress repo tracks every intent and hard-blocks duplicates. Auto-hooks fire reactive tools on findings. Continuation loops keep testing when coverage gaps remain.</p>
+              <h3>Test + exploit</h3>
+              <p>Sub-agents test in parallel. A progress repo tracks every intent, blocks duplicates, and surfaces untested attack surface. Continuation loops keep testing until coverage gaps close.</p>
             </div>
           </li>
           <li class="step">
             <span class="step__num">04</span>
             <div class="step__body">
-              <h3>Output</h3>
-              <p>Deduplicated findings with attack graphs and evidence. Proven payloads promote to tradecraft memory for future runs.</p>
+              <h3>Report + learn</h3>
+              <p>Deduplicated findings with ATT&CK/OWASP mapping, attack graphs, and evidence. Proven payloads promote to tradecraft memory for future runs.</p>
             </div>
           </li>
         </ol>
