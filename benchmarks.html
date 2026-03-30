@@ -7,13 +7,13 @@
     <title>Benchmarks — sploit.ai</title>
     <meta
       name="description"
-      content="sploit.ai benchmark results — 80% L1, 67% L2, first L3 pass. 87 peak findings, 21 vuln types. XBEN results, Juice Shop trajectory, methodology."
+      content="sploit.ai benchmark results — 80% L1, 67% L2, 100% L3 pass rate. 87 peak findings, 21 vuln types. XBEN results, Juice Shop trajectory, methodology."
     />
 
     <meta property="og:title" content="Benchmarks — sploit.ai" />
     <meta
       property="og:description"
-      content="80% L1, 67% L2, first L3 pass. 87 peak findings, 21 vuln types. How we test and how performance evolves."
+      content="80% L1, 67% L2, 100% L3 pass rate. 87 peak findings, 21 vuln types. How we test and how performance evolves."
     />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="assets/sploitai_glitch.svg" />
@@ -22,7 +22,7 @@
     <meta name="twitter:title" content="Benchmarks — sploit.ai" />
     <meta
       name="twitter:description"
-      content="80% L1, 67% L2, first L3 pass. 87 peak findings, 21 vuln types. How we test and how performance evolves."
+      content="80% L1, 67% L2, 100% L3 pass rate. 87 peak findings, 21 vuln types. How we test and how performance evolves."
     />
     <meta name="twitter:image" content="assets/sploitai_glitch.svg" />
 
@@ -136,13 +136,13 @@
             <span class="kpi__detail">12/18 runnable — first L2 run</span>
           </div>
           <div class="kpi">
-            <span class="kpi__value">L3</span>
-            <span class="kpi__label">First L3 pass</span>
-            <span class="kpi__detail">XBEN-057 — insecure deserialization</span>
+            <span class="kpi__value">100%</span>
+            <span class="kpi__label">L3 adjusted pass rate</span>
+            <span class="kpi__detail">2/2 — deserialization + padding oracle</span>
           </div>
           <div class="kpi">
             <span class="kpi__value">15</span>
-            <span class="kpi__label">Tags at 100%</span>
+            <span class="kpi__label">Vuln tags at 100%</span>
             <span class="kpi__detail"
               >IDOR, SSRF, SSTI, cmd injection, GraphQL, deserialization,
               business logic, priv esc, file upload, path traversal, JWT,
@@ -187,11 +187,11 @@
         </div>
         <div class="method-grid">
           <article class="method-item">
-            <h3>First L3 pass</h3>
+            <h3>L3: 100% pass rate</h3>
             <p>
-              XBEN-057 passed at the hardest difficulty tier via insecure
-              deserialization. The agent now solves challenges across all
-              three XBEN levels.
+              Both runnable L3 challenges solved: XBEN-057 via insecure
+              deserialization (42 steps) and XBEN-101 via padding oracle
+              (10 steps). The agent now clears all three XBEN difficulty tiers.
             </p>
           </article>
           <article class="method-item">
@@ -219,11 +219,11 @@
             </p>
           </article>
           <article class="method-item">
-            <h3>L1 pass rate: 59% &rarr; 80%</h3>
+            <h3>Pass rates: 80% L1, 67% L2, 100% L3</h3>
             <p>
-              +21pp improvement with zero regressions. 15 vulnerability
-              categories at 100% pass rate across both levels. 31 distinct
-              tools used across 45 XBEN runs.
+              L1 up +21pp from 59% with zero regressions. 15 vulnerability
+              categories at 100% across levels. 31 distinct tools used
+              across XBEN runs.
             </p>
           </article>
           <article class="method-item">
@@ -304,7 +304,14 @@
                 <td>v0328</td>
                 <td>Taxonomy alignment + tradecraft playbooks</td>
                 <td class="changelog__impact">
-                  ATT&CK/OWASP mapping, cross-run technique learning, first L3 pass
+                  ATT&CK/OWASP mapping, cross-run technique learning
+                </td>
+              </tr>
+              <tr>
+                <td>v0330</td>
+                <td>Auto-finding on flag, continuation dedup, enforcement reset</td>
+                <td class="changelog__impact">
+                  L3 100% (2/2) &mdash; deserialization + padding oracle
                 </td>
               </tr>
             </tbody>
