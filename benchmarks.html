@@ -120,7 +120,7 @@
       >
         <div class="section__head">
           <h2>XBEN CTF results</h2>
-          <p>104 challenges across 3 difficulty levels. 545 total findings, 34 flags captured, 5.8h total compute across 45 completed runs.</p>
+          <p>104 challenges across 3 difficulty levels. 545 total findings, 34 flags captured, 5.8h total compute across 45+ completed runs.</p>
         </div>
         <div class="kpi-grid kpi-grid--4">
           <div class="kpi">
@@ -174,6 +174,57 @@
           <span class="type-tag">LFI</span>
           <span class="type-tag">Broken access control</span>
         </div>
+
+        <div class="changelog-wrap">
+          <h3>L1 trajectory — full 34-challenge set</h3>
+          <p style="margin-top: 0.5em">
+            The all-time records above were set on a 25-challenge runnable
+            subset. Since 2026-04 we run the broader 34-challenge L1 set on
+            every release. Recovery from a post-SDK-migration regression has
+            been steady, with each shipped capability lifting the rate.
+          </p>
+          <table class="changelog">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Run</th>
+                <th>L1 pass</th>
+                <th>Rate</th>
+                <th>Driver</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>04-01</td>
+                <td>xben full L1</td>
+                <td>6/27</td>
+                <td>22%</td>
+                <td>Baseline after SDK migration</td>
+              </tr>
+              <tr>
+                <td>04-06</td>
+                <td>xben L1</td>
+                <td>6/15</td>
+                <td>40%</td>
+                <td>Auto-background + prompt bloat fix</td>
+              </tr>
+              <tr>
+                <td>04-08</td>
+                <td>xben L1 full</td>
+                <td>14/34</td>
+                <td>41%</td>
+                <td>Context-aware prompts + stagnation fix</td>
+              </tr>
+              <tr class="run-table__best">
+                <td>04-09</td>
+                <td>xben L1 spot</td>
+                <td>4/9</td>
+                <td>44%</td>
+                <td>Pre-finding flow engine deployed</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </section>
 
       <section
@@ -187,11 +238,55 @@
         </div>
         <div class="method-grid">
           <article class="method-item">
+            <h3>Pre-finding flow engine</h3>
+            <p>
+              Deterministic register &rarr; login &rarr; discover &rarr;
+              exploit chains run inline before vuln type is confirmed.
+              Three triggers — recon conditions, 401/403 heuristics, and
+              LLM-requested. Credential rotation across 6 sets, preflight
+              vault check, login&harr;register fallback. <strong>Result:</strong>
+              XBEN-024 (SSRF behind auth) passes for the first time.
+            </p>
+          </article>
+          <article class="method-item">
+            <h3>Multi-step attack chaining</h3>
+            <p>
+              Five deterministic kill chains restructured as phased
+              ATT&CK paths: SSTI &rarr; RCE, SSRF &rarr; localhost
+              pivot, SQLi &rarr; creds &rarr; auth bypass, file
+              upload &rarr; webshell, IDOR &rarr; enumeration &rarr;
+              privesc. Adaptive thinking on the orchestrator; chain
+              phase tracking injected into continuation prompts.
+            </p>
+          </article>
+          <article class="method-item">
+            <h3>Narration-loop defense in depth</h3>
+            <p>
+              StreamOutcome classifier detects when the orchestrator
+              narrates without calling tools. Three recovery tiers
+              escalate from prompt nudge to client rotation to forced
+              pivot. Eliminated the 14-continuation narration dead-zone
+              from issue #311.
+            </p>
+          </article>
+          <article class="method-item">
+            <h3>Coverage-aware enforcement</h3>
+            <p>
+              <code>intent_index</code> wired into gap selection so
+              saturated <code>(endpoint, vuln_type)</code> pairs drop
+              from the candidate pool. Finer multipart-upload
+              fingerprints prevent legitimate variants from collapsing
+              to one key. Closes the 69-continuation dead zone from
+              issue #313.
+            </p>
+          </article>
+          <article class="method-item">
             <h3>L3: 100% pass rate</h3>
             <p>
               Both runnable L3 challenges solved: XBEN-057 via insecure
               deserialization (42 steps) and XBEN-101 via padding oracle
-              (10 steps). The agent now clears all three XBEN difficulty tiers.
+              (10 steps). The agent now clears all three XBEN difficulty
+              tiers.
             </p>
           </article>
           <article class="method-item">
@@ -216,14 +311,6 @@
               A fingerprint &rarr; extract &rarr; merge pipeline learns
               techniques across runs. Proven payloads are dispatched
               deterministically — the agent remembers what worked.
-            </p>
-          </article>
-          <article class="method-item">
-            <h3>Pass rates: 80% L1, 67% L2, 100% L3</h3>
-            <p>
-              L1 up +21pp from 59% with zero regressions. 15 vulnerability
-              categories at 100% across levels. 31 distinct tools used
-              across XBEN runs.
             </p>
           </article>
           <article class="method-item">
@@ -312,6 +399,41 @@
                 <td>Auto-finding on flag, continuation dedup, enforcement reset</td>
                 <td class="changelog__impact">
                   L3 100% (2/2) &mdash; deserialization + padding oracle
+                </td>
+              </tr>
+              <tr>
+                <td>v0406</td>
+                <td>Auto-background slow tools + prompt size cap (~20K)</td>
+                <td class="changelog__impact">
+                  6/15 L1 (40%) &mdash; recovered from 0% regression
+                </td>
+              </tr>
+              <tr>
+                <td>v0408</td>
+                <td>Context-aware prompts + stagnation tolerance</td>
+                <td class="changelog__impact">
+                  14/34 L1 (41.2%) on full suite &mdash; new high water
+                </td>
+              </tr>
+              <tr>
+                <td>v0409</td>
+                <td>Multi-step attack chaining + pre-finding flow engine</td>
+                <td class="changelog__impact">
+                  XBEN-024 (SSRF behind auth) passes for the first time
+                </td>
+              </tr>
+              <tr>
+                <td>v0411</td>
+                <td>Narration-loop defense in depth (issue #311)</td>
+                <td class="changelog__impact">
+                  StreamOutcome classifier + 3 recovery tiers
+                </td>
+              </tr>
+              <tr>
+                <td>v0412</td>
+                <td>intent_index wired into gap selection (issue #313)</td>
+                <td class="changelog__impact">
+                  Closed 69-continuation enforcement dead zone
                 </td>
               </tr>
             </tbody>

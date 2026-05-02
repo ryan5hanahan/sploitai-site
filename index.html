@@ -7,14 +7,14 @@
     <title>sploit.ai — autonomous security assessment</title>
     <meta
       name="description"
-      content="sploit.ai — autonomous security assessment agent. 80% L1 CTF pass rate, 100% L3, 87 peak findings, 21 vuln types. Sandboxed Kali, governance-first."
+      content="sploit.ai — autonomous security assessment agent. Pre-finding flow engine, multi-step attack chaining, 87 peak findings, 21 vuln types. Sandboxed Kali, governance-first."
     />
 
     <!-- Open Graph -->
     <meta property="og:title" content="sploit.ai" />
     <meta
       property="og:description"
-      content="Autonomous security assessment agent — 80% L1, 67% L2, 100% L3 pass rate. 87 peak findings, 21 vuln types. Sandboxed Kali, governance-first."
+      content="Autonomous security assessment agent. Pre-finding flow engine, multi-step attack chaining, 87 peak findings, 21 vuln types. Sandboxed Kali, governance-first."
     />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="assets/sploitai_glitch.svg" />
@@ -24,7 +24,7 @@
     <meta name="twitter:title" content="sploit.ai" />
     <meta
       name="twitter:description"
-      content="Autonomous security assessment agent — 80% L1, 67% L2, 100% L3 pass rate. 87 peak findings, 21 vuln types. Sandboxed Kali, governance-first."
+      content="Autonomous security assessment agent. Pre-finding flow engine, multi-step attack chaining, 87 peak findings, 21 vuln types. Sandboxed Kali, governance-first."
     />
     <meta name="twitter:image" content="assets/sploitai_glitch.svg" />
 
@@ -95,8 +95,8 @@
 
             <div class="hero__badges" aria-label="Highlights">
               <span class="badge">72 registered tools</span>
-              <span class="badge">7 LLM providers</span>
-              <span class="badge">3,500+ tests</span>
+              <span class="badge">6 LLM providers</span>
+              <span class="badge">3,800+ tests</span>
               <span class="badge">104 CTF benchmarks</span>
             </div>
           </div>
@@ -121,10 +121,11 @@
 <span class="ok">&#10004;</span> sandbox ready
 <span class="ok">&#10004;</span> tradecraft — 3 proven payloads loaded
 <span class="ok">&#10004;</span> recon: 47 endpoints, 3 technologies
+<span class="ok">&#10004;</span> flow: register &#8594; login &#8594; auth ok
 <span class="muted">&#8594;</span> dispatching sub-agents
 <span class="ok">&#10004;</span> enumerator: surface mapped
 <span class="ok">&#10004;</span> assessor: sqli, xss, ssrf, idor, ssti
-<span class="ok">&#10004;</span> exploiter: 4 WAF bypasses
+<span class="ok">&#10004;</span> chain: SSTI &#8594; RCE &#8594; flag captured
 <span class="warn">!</span> CRIT — SQLi &#8594; cred dump &#8594; admin takeover
 <span class="ok">&#10004;</span> progress: 66 findings, 20 vuln types
 <span class="ok">&#10004;</span> dedup: 3 merged, graph: 70 nodes
@@ -147,10 +148,32 @@
             <h3>Orchestrator + sub-agents</h3>
             <p>
               An Opus orchestrator dispatches specialized sub-agents
-              (enumerator, assessor, exploiter, reporter) across 7 LLM
+              (enumerator, assessor, exploiter, reporter) across 6 LLM
               providers. Auto-hooks fire reactively on findings — no LLM
               call needed for JWT decode, JS parsing, API discovery, or
               CORS checks.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Pre-finding flow engine</h3>
+            <p>
+              Deterministic register → login → discover → exploit chains
+              run inline before vuln type is even confirmed. Three
+              triggers — recon conditions, 401/403 heuristics, and
+              LLM-requested. Credential rotation across 6 sets, CSRF
+              extraction, and registration fallback. Unlocks
+              vulnerabilities hidden behind auth.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Multi-step attack chaining</h3>
+            <p>
+              Five deterministic kill chains restructured as phased
+              ATT&CK paths: SSTI → RCE, SSRF → localhost pivot,
+              SQLi → creds → auth bypass, file upload → webshell,
+              IDOR → enumeration → privesc. Adaptive thinking on the
+              orchestrator; chain phase tracking injected into every
+              continuation prompt.
             </p>
           </article>
           <article class="card">
@@ -167,17 +190,19 @@
             <p>
               Immutable scope, 5-stage command validation, credential
               isolation. A git-backed progress repo tracks every tested
-              intent — blocking duplicates and surfacing untested attack
-              surface across parallel agents.
+              <code>(endpoint, method, vuln_type, technique)</code>
+              intent — blocking duplicates at 3 attempts, surfacing
+              coverage gaps to orchestrator and sub-agents alike.
             </p>
           </article>
           <article class="card">
             <h3>Learns across runs</h3>
             <p>
-              Tradecraft playbooks promote proven payloads from NEW to
-              LEARNING to PROVEN. Deterministic scanners and JS bundle
-              analysis run before the LLM session. Each run makes the
-              next one faster and deeper.
+              Three memory tiers — working, tradecraft, muscle — promote
+              payloads from NEW to LEARNING to PROVEN across runs.
+              Deterministic scanners and JS bundle analysis run before
+              the LLM session. Each run makes the next one faster and
+              deeper.
             </p>
           </article>
         </div>
@@ -233,15 +258,15 @@
           <li class="step">
             <span class="step__num">02</span>
             <div class="step__body">
-              <h3>Recon</h3>
-              <p>Fast scanners map the surface while deferred scanners (nuclei, Burp) run async. JS bundles are analyzed for hidden endpoints and secrets.</p>
+              <h3>Recon + auth</h3>
+              <p>Fast scanners map the surface while deferred scanners (nuclei, Burp) run async. JS bundles are analyzed for hidden endpoints and secrets. The pre-finding flow engine handles register/login/CSRF inline so authenticated surface is reachable before the orchestrator starts.</p>
             </div>
           </li>
           <li class="step">
             <span class="step__num">03</span>
             <div class="step__body">
-              <h3>Test + exploit</h3>
-              <p>Sub-agents test in parallel. A progress repo tracks every intent, blocks duplicates, and surfaces untested attack surface. Continuation loops keep testing until coverage gaps close.</p>
+              <h3>Test, chain, exploit</h3>
+              <p>Sub-agents test in parallel. Five deterministic kill chains fire on confirmed findings (SSTI→RCE, SSRF→pivot, SQLi→creds, file upload→shell, IDOR→privesc). A progress repo blocks duplicate intents and surfaces coverage gaps.</p>
             </div>
           </li>
           <li class="step">
