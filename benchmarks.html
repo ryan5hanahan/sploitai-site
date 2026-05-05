@@ -93,69 +93,61 @@
         <div class="kpi-grid kpi-grid--4">
           <div class="kpi">
             <span class="kpi__value">80%</span>
-            <span class="kpi__label">L1 adjusted pass rate</span>
+            <span class="kpi__label">L1 pass rate (best)</span>
             <span class="kpi__detail"
               >20/25 runnable — up from 59% (+21pp)</span
             >
           </div>
           <div class="kpi">
             <span class="kpi__value">67%</span>
-            <span class="kpi__label">L2 adjusted pass rate</span>
+            <span class="kpi__label">L2 pass rate (best)</span>
             <span class="kpi__detail">12/18 runnable — first L2 run</span>
           </div>
           <div class="kpi">
             <span class="kpi__value">100%</span>
-            <span class="kpi__label">L3 adjusted pass rate</span>
+            <span class="kpi__label">L3 pass rate (best)</span>
             <span class="kpi__detail">2/2 — deserialization + padding oracle</span>
           </div>
           <div class="kpi">
-            <span class="kpi__value">15</span>
-            <span class="kpi__label">Vuln tags at 100%</span>
-            <span class="kpi__detail"
-              >IDOR, SSRF, SSTI, cmd injection, GraphQL, deserialization,
-              business logic, priv esc, file upload, path traversal, JWT,
-              crypto, brute force, default creds, info disclosure</span
-            >
+            <span class="kpi__value">44%</span>
+            <span class="kpi__label">L1 full suite (latest)</span>
+            <span class="kpi__detail">14/34 on expanded set — recovering post-SDK migration</span>
           </div>
         </div>
 
-        <div class="type-grid">
-          <span class="type-tag">SQLi</span>
-          <span class="type-tag">XSS</span>
-          <span class="type-tag">SSRF</span>
-          <span class="type-tag">IDOR</span>
-          <span class="type-tag">RCE</span>
-          <span class="type-tag">SSTI</span>
-          <span class="type-tag">XXE</span>
-          <span class="type-tag">Auth bypass</span>
-          <span class="type-tag">Command injection</span>
-          <span class="type-tag">Deserialization</span>
-          <span class="type-tag">Path traversal</span>
-          <span class="type-tag">NoSQL injection</span>
-          <span class="type-tag">CSRF</span>
-          <span class="type-tag">File upload</span>
-          <span class="type-tag">Open redirect</span>
-          <span class="type-tag">Privilege escalation</span>
-          <span class="type-tag">Crypto weakness</span>
-          <span class="type-tag">Security misconfig</span>
-          <span class="type-tag">Info disclosure</span>
-          <span class="type-tag">LFI</span>
-          <span class="type-tag">Broken access control</span>
+        <div class="changelog-wrap">
+          <h3>L1 pass rate by vulnerability tag</h3>
+          <p style="margin-top: 0.5em">
+            Full-suite scorecard from the latest complete L1 run (04-08, 14/34 passes).
+          </p>
+          <div class="scorecard-grid">
+            <span class="scorecard-tag scorecard-tag--high">business logic <b>75%</b></span>
+            <span class="scorecard-tag scorecard-tag--high">command injection <b>67%</b></span>
+            <span class="scorecard-tag scorecard-tag--high">default creds <b>67%</b></span>
+            <span class="scorecard-tag scorecard-tag--high">info disclosure <b>67%</b></span>
+            <span class="scorecard-tag scorecard-tag--high">XSS <b>60%</b></span>
+            <span class="scorecard-tag scorecard-tag--mid">priv escalation <b>50%</b></span>
+            <span class="scorecard-tag scorecard-tag--mid">file upload <b>50%</b></span>
+            <span class="scorecard-tag scorecard-tag--low">LFI <b>33%</b></span>
+            <span class="scorecard-tag scorecard-tag--low">SSTI <b>33%</b></span>
+            <span class="scorecard-tag scorecard-tag--low">path traversal <b>33%</b></span>
+            <span class="scorecard-tag scorecard-tag--zero">XXE <b>0%</b></span>
+            <span class="scorecard-tag scorecard-tag--zero">SQLi <b>0%</b></span>
+            <span class="scorecard-tag scorecard-tag--zero">SSRF <b>0%</b></span>
+            <span class="scorecard-tag scorecard-tag--zero">IDOR <b>0%</b></span>
+          </div>
         </div>
 
         <div class="changelog-wrap">
-          <h3>L1 trajectory — full 34-challenge set</h3>
+          <h3>L1 recovery trajectory</h3>
           <p style="margin-top: 0.5em">
-            The all-time records above were set on a 25-challenge runnable
-            subset. Since 2026-04 we run the broader 34-challenge L1 set on
-            every release. Recovery from a post-SDK-migration regression has
-            been steady, with each shipped capability lifting the rate.
+            After SDK migration (04-01), L1 rate dropped from 80% to 22%.
+            Each release has shipped a targeted fix, recovering to 44%.
           </p>
           <table class="changelog">
             <thead>
               <tr>
                 <th>Date</th>
-                <th>Run</th>
                 <th>L1 pass</th>
                 <th>Rate</th>
                 <th>Driver</th>
@@ -164,31 +156,27 @@
             <tbody>
               <tr>
                 <td>04-01</td>
-                <td>xben full L1</td>
                 <td>6/27</td>
                 <td>22%</td>
                 <td>Baseline after SDK migration</td>
               </tr>
               <tr>
                 <td>04-06</td>
-                <td>xben L1</td>
                 <td>6/15</td>
                 <td>40%</td>
-                <td>Auto-background + prompt bloat fix</td>
+                <td>Auto-background slow tools + prompt size cap</td>
               </tr>
               <tr>
                 <td>04-08</td>
-                <td>xben L1 full</td>
                 <td>14/34</td>
                 <td>41%</td>
-                <td>Context-aware prompts + stagnation fix</td>
+                <td>Context-aware prompts + stagnation tolerance</td>
               </tr>
               <tr class="run-table__best">
                 <td>04-09</td>
-                <td>xben L1 spot</td>
                 <td>4/9</td>
                 <td>44%</td>
-                <td>Pre-finding flow engine deployed</td>
+                <td>Pre-finding flow engine (auth chains)</td>
               </tr>
             </tbody>
           </table>

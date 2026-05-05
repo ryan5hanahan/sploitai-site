@@ -602,6 +602,48 @@ code {
   background: rgba(0, 209, 255, 0.1);
 }
 
+.scorecard-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.scorecard-tag {
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  border: 1px solid;
+}
+
+.scorecard-tag b {
+  margin-left: 4px;
+}
+
+.scorecard-tag--high {
+  border-color: rgba(0, 255, 136, 0.3);
+  background: rgba(0, 255, 136, 0.08);
+  color: rgba(0, 255, 136, 0.9);
+}
+
+.scorecard-tag--mid {
+  border-color: rgba(0, 209, 255, 0.3);
+  background: rgba(0, 209, 255, 0.08);
+  color: rgba(0, 209, 255, 0.9);
+}
+
+.scorecard-tag--low {
+  border-color: rgba(255, 200, 0, 0.3);
+  background: rgba(255, 200, 0, 0.06);
+  color: rgba(255, 200, 0, 0.9);
+}
+
+.scorecard-tag--zero {
+  border-color: rgba(255, 0, 64, 0.25);
+  background: rgba(255, 0, 64, 0.06);
+  color: rgba(255, 0, 64, 0.7);
+}
+
 .section--accent {
   padding-top: 64px;
   padding-bottom: 64px;
