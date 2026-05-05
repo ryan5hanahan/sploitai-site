@@ -4,17 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>sploit.ai — autonomous security assessment</title>
+    <title>sploit.ai — autonomous penetration testing</title>
     <meta
       name="description"
-      content="sploit.ai — autonomous security assessment agent. Pre-finding flow engine, multi-step attack chaining, 87 peak findings, 21 vuln types. Sandboxed Kali, governance-first."
+      content="sploit.ai — AI-powered autonomous pentesting platform. 18 agent tools, 119 vuln types, 34K+ payloads, 14 OSINT sources. 80% L1, 67% L2, 100% L3 CTF pass rate. Sandboxed Kali, 2-layer governance."
     />
 
     <!-- Open Graph -->
     <meta property="og:title" content="sploit.ai" />
     <meta
       property="og:description"
-      content="Autonomous security assessment agent. Pre-finding flow engine, multi-step attack chaining, 87 peak findings, 21 vuln types. Sandboxed Kali, governance-first."
+      content="AI-powered autonomous pentesting. 119 vuln types, 34K+ payloads, 14 OSINT sources. 80% L1, 67% L2, 100% L3 CTF pass rate. Sandboxed Kali, 2-layer governance."
     />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="assets/sploitai_glitch.svg" />
@@ -24,7 +24,7 @@
     <meta name="twitter:title" content="sploit.ai" />
     <meta
       name="twitter:description"
-      content="Autonomous security assessment agent. Pre-finding flow engine, multi-step attack chaining, 87 peak findings, 21 vuln types. Sandboxed Kali, governance-first."
+      content="AI-powered autonomous pentesting. 119 vuln types, 34K+ payloads, 14 OSINT sources. 80% L1, 67% L2, 100% L3 CTF pass rate."
     />
     <meta name="twitter:image" content="assets/sploitai_glitch.svg" />
 
@@ -72,14 +72,15 @@
       <section id="top" class="hero" aria-label="Hero">
         <div class="hero__grid">
           <div class="hero__copy">
-            <p class="eyebrow">autonomous security assessment agent</p>
+            <p class="eyebrow">AI-powered autonomous penetration testing</p>
             <h1 class="hero__title">
               <span class="glitch" data-text="sploit.ai">sploit.ai</span>
             </h1>
             <p class="hero__subtitle">
-              Point it at a target. It discovers, tests, and exploits
-              vulnerabilities autonomously — then learns from every run.
-              Sandboxed in Kali containers, governed by immutable scope policies.
+              A single LLM-driven agent with 18 tools and a
+              KNOW/THINK/TEST/VALIDATE cognitive cycle. It discovers, tests,
+              and exploits vulnerabilities autonomously inside isolated
+              Kali containers — governed by immutable 2-layer scope policies.
             </p>
 
             <div class="hero__cta">
@@ -94,10 +95,10 @@
             </div>
 
             <div class="hero__badges" aria-label="Highlights">
-              <span class="badge">72 registered tools</span>
+              <span class="badge">119 vuln types</span>
               <span class="badge">6 LLM providers</span>
-              <span class="badge">3,800+ tests</span>
-              <span class="badge">104 CTF benchmarks</span>
+              <span class="badge">34K+ payloads</span>
+              <span class="badge">14 OSINT sources</span>
             </div>
           </div>
 
@@ -116,20 +117,18 @@
                 <pre class="terminal__code"><code><span class="muted">$</span> sploitagent run \
     --target http://localhost:3000 \
     --objective "Find OWASP Top 10 vulns" \
-    --profile vuln_lab
+    --profile full_auto
 
-<span class="ok">&#10004;</span> sandbox ready
-<span class="ok">&#10004;</span> tradecraft — 3 proven payloads loaded
-<span class="ok">&#10004;</span> recon: 47 endpoints, 3 technologies
-<span class="ok">&#10004;</span> flow: register &#8594; login &#8594; auth ok
-<span class="muted">&#8594;</span> dispatching sub-agents
-<span class="ok">&#10004;</span> enumerator: surface mapped
-<span class="ok">&#10004;</span> assessor: sqli, xss, ssrf, idor, ssti
-<span class="ok">&#10004;</span> chain: SSTI &#8594; RCE &#8594; flag captured
+<span class="ok">&#10004;</span> kali sandbox ready (66 tools)
+<span class="ok">&#10004;</span> governance: scope locked, phase gating on
+<span class="muted">&#8594;</span> KNOW: 47 endpoints, 3 technologies
+<span class="muted">&#8594;</span> THINK: 8 hypotheses, 3 high-confidence
+<span class="ok">&#10004;</span> spawning 3 sub-agents (FAST tier)
+<span class="ok">&#10004;</span> TEST: sqli, xss, ssrf, idor, ssti
 <span class="warn">!</span> CRIT — SQLi &#8594; cred dump &#8594; admin takeover
-<span class="ok">&#10004;</span> progress: 66 findings, 20 vuln types
-<span class="ok">&#10004;</span> dedup: 3 merged, graph: 70 nodes
-<span class="muted">&#8594;</span> report: findings + attack graph + evidence
+<span class="ok">&#10004;</span> VALIDATE: 60 findings, 21 vuln types
+<span class="ok">&#10004;</span> anti-hallucination: 4 rejected, 56 confirmed
+<span class="muted">&#8594;</span> report: findings + evidence + CVSS/CWE
 </code></pre>
               </div>
             </div>
@@ -140,69 +139,44 @@
       <section id="features" class="section" aria-label="Features">
         <div class="section__head">
           <h2>Capabilities</h2>
-          <p>Sandboxed execution, immutable scope, governance at every layer.</p>
+          <p>One autonomous agent, 18 tools, full cognitive reasoning loop.</p>
         </div>
 
         <div class="cards">
           <article class="card">
-            <h3>Orchestrator + sub-agents</h3>
+            <h3>LLM-driven agent</h3>
             <p>
-              An Opus orchestrator dispatches specialized sub-agents
-              (enumerator, assessor, exploiter, reporter) across 6 LLM
-              providers. Auto-hooks fire reactively on findings — no LLM
-              call needed for JWT decode, JS parsing, API discovery, or
-              CORS checks.
+              A single agent with 18 purpose-built tools controls execution
+              end-to-end using a KNOW/THINK/TEST/VALIDATE cognitive cycle.
+              3-tier model routing (Fast/Balanced/Deep) across 6 providers
+              with per-session cost tracking and budget enforcement.
             </p>
           </article>
           <article class="card">
-            <h3>Pre-finding flow engine</h3>
+            <h3>66 tools in Kali sandbox</h3>
             <p>
-              Deterministic register → login → discover → exploit chains
-              run inline before vuln type is even confirmed. Three
-              triggers — recon conditions, 401/403 heuristics, and
-              LLM-requested. Credential rotation across 6 sets, CSRF
-              extraction, and registration fallback. Unlocks
-              vulnerabilities hidden behind auth.
+              Per-scan isolated Kali Linux containers with 38 pre-installed
+              tools (nmap, sqlmap, nuclei, httpx, katana) and 28 on-demand.
+              119 vulnerability types, 34K+ payloads from PayloadsAllTheThings,
+              and 14 OSINT API clients for deep reconnaissance.
             </p>
           </article>
           <article class="card">
-            <h3>Multi-step attack chaining</h3>
+            <h3>2-layer governance</h3>
             <p>
-              Five deterministic kill chains restructured as phased
-              ATT&CK paths: SSTI → RCE, SSRF → localhost pivot,
-              SQLi → creds → auth bypass, file upload → webshell,
-              IDOR → enumeration → privesc. Adaptive thinking on the
-              orchestrator; chain phase tracking injected into every
-              continuation prompt.
-            </p>
-          </article>
-          <article class="card">
-            <h3>72 tools in Kali sandbox</h3>
-            <p>
-              Nmap, sqlmap, nuclei, ffuf, Burp Suite Pro, and 67 more —
-              all inside containers with OPSEC defaults. 30 payload
-              mutation transforms for WAF/filter evasion. Findings map to
-              ATT&CK and OWASP taxonomies automatically.
-            </p>
-          </article>
-          <article class="card">
-            <h3>Governance + coordination</h3>
-            <p>
-              Immutable scope, 5-stage command validation, credential
-              isolation. A git-backed progress repo tracks every tested
-              <code>(endpoint, method, vuln_type, technique)</code>
-              intent — blocking duplicates at 3 attempts, surfacing
-              coverage gaps to orchestrator and sub-agents alike.
+              Layer 1 enforces scope — domains, vuln types, phases — locked
+              immutably at scan creation. Layer 2 gates actions by phase,
+              preventing exploitation during recon. 6 profiles from
+              full_auto to bug_bounty. All violations audited.
             </p>
           </article>
           <article class="card">
             <h3>Learns across runs</h3>
             <p>
-              Three memory tiers — working, tradecraft, muscle — promote
-              payloads from NEW to LEARNING to PROVEN across runs.
-              Deterministic scanners and JS bundle analysis run before
-              the LLM session. Each run makes the next one faster and
-              deeper.
+              35 tradecraft TTP entries with MITRE ATT&CK mapping.
+              Per-target persistent memory with TF-IDF vector search.
+              Anti-hallucination pipeline validates every finding through
+              negative controls, proof-of-execution, and confidence scoring.
             </p>
           </article>
         </div>
@@ -226,14 +200,14 @@
             <span class="kpi__detail">12/18 challenges — first L2 run</span>
           </div>
           <div class="kpi">
+            <span class="kpi__value">100%</span>
+            <span class="kpi__label">L3 CTF pass rate</span>
+            <span class="kpi__detail">2/2 — deserialization + padding oracle</span>
+          </div>
+          <div class="kpi">
             <span class="kpi__value">87</span>
             <span class="kpi__label">Peak findings (one run)</span>
             <span class="kpi__detail">21 vuln types, 21 critical severity</span>
-          </div>
-          <div class="kpi">
-            <span class="kpi__value">100%</span>
-            <span class="kpi__label">L3 CTF pass rate</span>
-            <span class="kpi__detail">2/2 &mdash; deserialization + padding oracle</span>
           </div>
         </div>
 
@@ -242,38 +216,69 @@
         </p>
       </section>
 
+      <section id="progress" class="section" aria-label="Progress">
+        <div class="section__head">
+          <h2>Built from the ground up</h2>
+          <p>Fork of NeuroSploit v3.0 — every major system rewritten or replaced.</p>
+        </div>
+
+        <div class="kpi-grid kpi-grid--4">
+          <div class="kpi">
+            <span class="kpi__value">148</span>
+            <span class="kpi__label">Commits</span>
+            <span class="kpi__detail">25 pull requests merged</span>
+          </div>
+          <div class="kpi">
+            <span class="kpi__value">43K</span>
+            <span class="kpi__label">Net new lines</span>
+            <span class="kpi__detail">56,675 insertions, 13,503 deletions</span>
+          </div>
+          <div class="kpi">
+            <span class="kpi__value">18</span>
+            <span class="kpi__label">Agent tools</span>
+            <span class="kpi__detail">Replaced 34+ MCP tools with purpose-built set</span>
+          </div>
+          <div class="kpi">
+            <span class="kpi__value">21</span>
+            <span class="kpi__label">Dashboard pages</span>
+            <span class="kpi__detail">9 new pages, real-time WebSocket updates</span>
+          </div>
+        </div>
+      </section>
+
       <section id="how" class="section" aria-label="How it works">
         <div class="section__head">
           <h2>How it works</h2>
+          <p>Four-phase cognitive cycle with confidence-driven decisions.</p>
         </div>
 
         <ol class="steps">
           <li class="step">
-            <span class="step__num">01</span>
+            <span class="step__num">KNOW</span>
             <div class="step__body">
-              <h3>Define scope</h3>
-              <p>Set target, objective, and scope profile. The governance engine freezes scope — it cannot expand mid-operation.</p>
+              <h3>Discovery (0–25% budget)</h3>
+              <p>Port scan, service detection, tech fingerprinting, endpoint enumeration. Sub-agents run parallel recon at FAST tier. 14 OSINT sources enrich targets.</p>
             </div>
           </li>
           <li class="step">
-            <span class="step__num">02</span>
+            <span class="step__num">THINK</span>
             <div class="step__body">
-              <h3>Recon + auth</h3>
-              <p>Fast scanners map the surface while deferred scanners (nuclei, Burp) run async. JS bundles are analyzed for hidden endpoints and secrets. The pre-finding flow engine handles register/login/CSRF inline so authenticated surface is reachable before the orchestrator starts.</p>
+              <h3>Hypothesis (25–50%)</h3>
+              <p>Form explicit hypotheses with confidence scores. >75% confidence triggers direct exploitation; &lt;40% gathers more information first. Prioritize high-value targets.</p>
             </div>
           </li>
           <li class="step">
-            <span class="step__num">03</span>
+            <span class="step__num">TEST</span>
             <div class="step__body">
-              <h3>Test, chain, exploit</h3>
-              <p>Sub-agents test in parallel. Five deterministic kill chains fire on confirmed findings (SSTI→RCE, SSRF→pivot, SQLi→creds, file upload→shell, IDOR→privesc). A progress repo blocks duplicate intents and surfaces coverage gaps.</p>
+              <h3>Validation (50–80%)</h3>
+              <p>Test hypotheses with crafted requests from 34K+ payloads. Anti-hallucination pipeline verifies every finding: negative controls, proof-of-execution, confidence scoring, validation judge.</p>
             </div>
           </li>
           <li class="step">
-            <span class="step__num">04</span>
+            <span class="step__num">LEARN</span>
             <div class="step__body">
-              <h3>Report + learn</h3>
-              <p>Deduplicated findings with ATT&CK/OWASP mapping, attack graphs, and evidence. Proven payloads promote to tradecraft memory for future runs.</p>
+              <h3>Reporting (80–100%)</h3>
+              <p>Confirmed findings with CVSS scores, CWE references, and evidence. Quality evaluation across 5 dimensions. Tradecraft memory persists proven techniques for future runs.</p>
             </div>
           </li>
         </ol>

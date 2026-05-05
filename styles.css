@@ -444,7 +444,8 @@ code {
 .step__num {
   color: rgba(0, 255, 136, 0.9);
   font-weight: 700;
-  font-size: 1.1rem;
+  font-size: 0.95rem;
+  letter-spacing: 0.05em;
 }
 
 .step__body h3 {

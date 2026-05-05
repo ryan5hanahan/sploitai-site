@@ -8,6 +8,7 @@
     { id: "v80", findings: 55, yield: 0.16 },
     { id: "v0324", findings: 35, yield: 0.15 },
     { id: "v0325", findings: 66, yield: 0.15 },
+    { id: "v0330", findings: 60, yield: 0.16 },
   ];
 
   const canvas = document.getElementById("perf-chart");

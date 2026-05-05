@@ -7,13 +7,13 @@
     <title>Benchmarks — sploit.ai</title>
     <meta
       name="description"
-      content="sploit.ai benchmark results — 80% L1, 67% L2, 100% L3 pass rate. 87 peak findings, 21 vuln types. XBEN results, Juice Shop trajectory, methodology."
+      content="sploit.ai benchmark results — 80% L1, 67% L2, 100% L3 CTF pass rate. 87 peak findings, 21 vuln types. Fully autonomous, no human intervention."
     />
 
     <meta property="og:title" content="Benchmarks — sploit.ai" />
     <meta
       property="og:description"
-      content="80% L1, 67% L2, 100% L3 pass rate. 87 peak findings, 21 vuln types. How we test and how performance evolves."
+      content="80% L1, 67% L2, 100% L3 CTF pass rate. 87 peak findings, 21 vuln types. Fully autonomous runs in sandboxed Kali containers."
     />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="assets/sploitai_glitch.svg" />
@@ -22,7 +22,7 @@
     <meta name="twitter:title" content="Benchmarks — sploit.ai" />
     <meta
       name="twitter:description"
-      content="80% L1, 67% L2, 100% L3 pass rate. 87 peak findings, 21 vuln types. How we test and how performance evolves."
+      content="80% L1, 67% L2, 100% L3 CTF pass rate. 87 peak findings, 21 vuln types. Fully autonomous."
     />
     <meta name="twitter:image" content="assets/sploitai_glitch.svg" />
 
@@ -75,43 +75,11 @@
         </p>
         <h1 class="page-hero__title">Benchmarks</h1>
         <p class="page-hero__subtitle">
-          All numbers from fully autonomous runs — no human intervention
-          after launch. Two benchmark suites: XBEN (104 CTF challenges
-          across 3 difficulty levels) and OWASP Juice Shop (real-world target).
+          Fully autonomous — no human intervention after launch. Two suites:
+          XBEN (104 CTF challenges, 3 difficulty levels) and OWASP Juice Shop
+          (real-world web app with known vulnerabilities).
         </p>
       </div>
-
-      <section
-        id="records"
-        class="section section--flush"
-        aria-label="All-time records"
-      >
-        <div class="section__head">
-          <h2>All-time records</h2>
-        </div>
-        <div class="kpi-grid kpi-grid--4">
-          <div class="kpi">
-            <span class="kpi__value">87</span>
-            <span class="kpi__label">Peak findings</span>
-            <span class="kpi__detail">sdk-v76 — single Juice Shop run</span>
-          </div>
-          <div class="kpi">
-            <span class="kpi__value">21</span>
-            <span class="kpi__label">Critical severity</span>
-            <span class="kpi__detail">sdk-v20260325 — all-time record</span>
-          </div>
-          <div class="kpi">
-            <span class="kpi__value">21</span>
-            <span class="kpi__label">Vuln types covered</span>
-            <span class="kpi__detail">Held across 8 consecutive runs</span>
-          </div>
-          <div class="kpi">
-            <span class="kpi__value">21</span>
-            <span class="kpi__label">Tools in one run</span>
-            <span class="kpi__detail">sdk-v20260325 — all-time record</span>
-          </div>
-        </div>
-      </section>
 
       <section
         id="xben"
@@ -228,111 +196,38 @@
       </section>
 
       <section
-        id="progress"
+        id="juice-shop"
         class="section section--flush"
-        aria-label="Recent progress"
+        aria-label="Juice Shop performance"
       >
         <div class="section__head">
-          <h2>Recent progress</h2>
-          <p>Key wins from the latest development cycle.</p>
+          <h2>Juice Shop performance</h2>
+          <p>OWASP Juice Shop — findings, efficiency, and vuln coverage across agent versions.</p>
         </div>
-        <div class="method-grid">
-          <article class="method-item">
-            <h3>Pre-finding flow engine</h3>
-            <p>
-              Deterministic register &rarr; login &rarr; discover &rarr;
-              exploit chains run inline before vuln type is confirmed.
-              Three triggers — recon conditions, 401/403 heuristics, and
-              LLM-requested. Credential rotation across 6 sets, preflight
-              vault check, login&harr;register fallback. <strong>Result:</strong>
-              XBEN-024 (SSRF behind auth) passes for the first time.
-            </p>
-          </article>
-          <article class="method-item">
-            <h3>Multi-step attack chaining</h3>
-            <p>
-              Five deterministic kill chains restructured as phased
-              ATT&CK paths: SSTI &rarr; RCE, SSRF &rarr; localhost
-              pivot, SQLi &rarr; creds &rarr; auth bypass, file
-              upload &rarr; webshell, IDOR &rarr; enumeration &rarr;
-              privesc. Adaptive thinking on the orchestrator; chain
-              phase tracking injected into continuation prompts.
-            </p>
-          </article>
-          <article class="method-item">
-            <h3>Narration-loop defense in depth</h3>
-            <p>
-              StreamOutcome classifier detects when the orchestrator
-              narrates without calling tools. Three recovery tiers
-              escalate from prompt nudge to client rotation to forced
-              pivot. Eliminated the 14-continuation narration dead-zone
-              from issue #311.
-            </p>
-          </article>
-          <article class="method-item">
-            <h3>Coverage-aware enforcement</h3>
-            <p>
-              <code>intent_index</code> wired into gap selection so
-              saturated <code>(endpoint, vuln_type)</code> pairs drop
-              from the candidate pool. Finer multipart-upload
-              fingerprints prevent legitimate variants from collapsing
-              to one key. Closes the 69-continuation dead zone from
-              issue #313.
-            </p>
-          </article>
-          <article class="method-item">
-            <h3>L3: 100% pass rate</h3>
-            <p>
-              Both runnable L3 challenges solved: XBEN-057 via insecure
-              deserialization (42 steps) and XBEN-101 via padding oracle
-              (10 steps). The agent now clears all three XBEN difficulty
-              tiers.
-            </p>
-          </article>
-          <article class="method-item">
-            <h3>Progress repo: +89% findings</h3>
-            <p>
-              Git-backed intent tracking delivered +89% findings (35 &rarr; 66),
-              +75% tool diversity (12 &rarr; 21 tools), and -15% duration
-              (48 &rarr; 41min). Sub-agents share coverage state in real time.
-            </p>
-          </article>
-          <article class="method-item">
-            <h3>ATT&CK / OWASP taxonomy</h3>
-            <p>
-              Bidirectional mapping across 23 canonical vulnerability types.
-              Every finding is enriched with ATT&CK technique IDs and OWASP
-              categories automatically.
-            </p>
-          </article>
-          <article class="method-item">
-            <h3>Tradecraft playbooks</h3>
-            <p>
-              A fingerprint &rarr; extract &rarr; merge pipeline learns
-              techniques across runs. Proven payloads are dispatched
-              deterministically — the agent remembers what worked.
-            </p>
-          </article>
-          <article class="method-item">
-            <h3>Deep exploitation chains</h3>
-            <p>
-              XBEN-075: 12 findings via YAML deserialization to RCE.
-              XBEN-080: 8 findings via SSTI &rarr; RCE &rarr; flag extraction.
-              Multi-step exploitation paths, fully autonomous.
-            </p>
-          </article>
-        </div>
-      </section>
 
-      <section
-        id="trajectory"
-        class="section section--flush"
-        aria-label="Performance trajectory"
-      >
-        <div class="section__head">
-          <h2>Performance trajectory</h2>
-          <p>Juice Shop findings and efficiency across agent versions.</p>
+        <div class="kpi-grid kpi-grid--4">
+          <div class="kpi">
+            <span class="kpi__value">87</span>
+            <span class="kpi__label">Peak findings</span>
+            <span class="kpi__detail">v76 — single autonomous run</span>
+          </div>
+          <div class="kpi">
+            <span class="kpi__value">21</span>
+            <span class="kpi__label">Critical severity</span>
+            <span class="kpi__detail">v0325 — all-time record</span>
+          </div>
+          <div class="kpi">
+            <span class="kpi__value">21</span>
+            <span class="kpi__label">Vuln types covered</span>
+            <span class="kpi__detail">Held across 8 consecutive runs</span>
+          </div>
+          <div class="kpi">
+            <span class="kpi__value">21</span>
+            <span class="kpi__label">Tools in one run</span>
+            <span class="kpi__detail">v0325 — all-time record</span>
+          </div>
         </div>
+
         <div class="chart-wrap">
           <canvas
             id="perf-chart"
@@ -344,113 +239,7 @@
         </div>
 
         <div class="changelog-wrap">
-          <h3>Notable changes</h3>
-          <table class="changelog">
-            <thead>
-              <tr>
-                <th>Run</th>
-                <th>Change</th>
-                <th>Impact</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>v76</td>
-                <td>Prompt v3 — restructured orchestrator planning</td>
-                <td class="changelog__impact">
-                  87 findings, 0.25 yield (all-time best)
-                </td>
-              </tr>
-              <tr>
-                <td>v77</td>
-                <td>Blocker fixes — multipart auth, env sentinel</td>
-                <td class="changelog__impact">
-                  26min to full type coverage (fastest ever)
-                </td>
-              </tr>
-              <tr>
-                <td>v78</td>
-                <td>Continuation loops — halt + depth pass</td>
-                <td class="changelog__impact">21 vuln types, +9 from continuation</td>
-              </tr>
-              <tr>
-                <td>v80</td>
-                <td>Bash fix + stagnation detection</td>
-                <td class="changelog__impact">
-                  Zero shell errors, stagnation guard validated
-                </td>
-              </tr>
-              <tr>
-                <td>v0325</td>
-                <td>Progress repo — git-backed intent tracking</td>
-                <td class="changelog__impact">
-                  +89% findings, +75% tool diversity, -15% duration
-                </td>
-              </tr>
-              <tr>
-                <td>v0328</td>
-                <td>Taxonomy alignment + tradecraft playbooks</td>
-                <td class="changelog__impact">
-                  ATT&CK/OWASP mapping, cross-run technique learning
-                </td>
-              </tr>
-              <tr>
-                <td>v0330</td>
-                <td>Auto-finding on flag, continuation dedup, enforcement reset</td>
-                <td class="changelog__impact">
-                  L3 100% (2/2) &mdash; deserialization + padding oracle
-                </td>
-              </tr>
-              <tr>
-                <td>v0406</td>
-                <td>Auto-background slow tools + prompt size cap (~20K)</td>
-                <td class="changelog__impact">
-                  6/15 L1 (40%) &mdash; recovered from 0% regression
-                </td>
-              </tr>
-              <tr>
-                <td>v0408</td>
-                <td>Context-aware prompts + stagnation tolerance</td>
-                <td class="changelog__impact">
-                  14/34 L1 (41.2%) on full suite &mdash; new high water
-                </td>
-              </tr>
-              <tr>
-                <td>v0409</td>
-                <td>Multi-step attack chaining + pre-finding flow engine</td>
-                <td class="changelog__impact">
-                  XBEN-024 (SSRF behind auth) passes for the first time
-                </td>
-              </tr>
-              <tr>
-                <td>v0411</td>
-                <td>Narration-loop defense in depth (issue #311)</td>
-                <td class="changelog__impact">
-                  StreamOutcome classifier + 3 recovery tiers
-                </td>
-              </tr>
-              <tr>
-                <td>v0412</td>
-                <td>intent_index wired into gap selection (issue #313)</td>
-                <td class="changelog__impact">
-                  Closed 69-continuation enforcement dead zone
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
-
-      <section
-        id="runs"
-        class="section section--flush"
-        aria-label="Run history"
-      >
-        <div class="section__head">
-          <h2>Run history</h2>
-          <p>Juice Shop runs — fully autonomous, no human intervention.</p>
-        </div>
-        <div class="changelog-wrap">
+          <h3>Run history</h3>
           <div class="run-table-wrap">
             <table class="run-table">
               <thead>
@@ -461,9 +250,19 @@
                   <th>Steps</th>
                   <th>Duration</th>
                   <th>Yield</th>
+                  <th>Notable</th>
                 </tr>
               </thead>
               <tbody>
+                <tr>
+                  <td>v20260330</td>
+                  <td>60</td>
+                  <td class="highlight">21</td>
+                  <td>376</td>
+                  <td>52m</td>
+                  <td>0.16</td>
+                  <td class="changelog__impact">L3 100%, enforcement reset validated</td>
+                </tr>
                 <tr>
                   <td>v20260325</td>
                   <td class="highlight">66</td>
@@ -471,6 +270,7 @@
                   <td>436</td>
                   <td>41m</td>
                   <td>0.15</td>
+                  <td class="changelog__impact">+89% findings via progress repo</td>
                 </tr>
                 <tr>
                   <td>v20260324</td>
@@ -479,6 +279,7 @@
                   <td>230</td>
                   <td>48m</td>
                   <td>0.15</td>
+                  <td></td>
                 </tr>
                 <tr>
                   <td>v80</td>
@@ -487,6 +288,7 @@
                   <td>337</td>
                   <td>38m</td>
                   <td>0.16</td>
+                  <td class="changelog__impact">Zero shell errors</td>
                 </tr>
                 <tr>
                   <td>v79</td>
@@ -495,6 +297,7 @@
                   <td>312</td>
                   <td>32m</td>
                   <td>0.17</td>
+                  <td></td>
                 </tr>
                 <tr>
                   <td>v78</td>
@@ -503,6 +306,7 @@
                   <td>494</td>
                   <td>60m</td>
                   <td>0.12</td>
+                  <td class="changelog__impact">First continuation run</td>
                 </tr>
                 <tr>
                   <td>v77</td>
@@ -511,6 +315,7 @@
                   <td>319</td>
                   <td>26m</td>
                   <td>0.15</td>
+                  <td class="changelog__impact">Fastest to full coverage</td>
                 </tr>
                 <tr class="run-table__best">
                   <td>v76</td>
@@ -519,6 +324,7 @@
                   <td>351</td>
                   <td>49m</td>
                   <td class="highlight">0.25</td>
+                  <td class="changelog__impact">All-time finding record</td>
                 </tr>
                 <tr>
                   <td>v74</td>
@@ -527,6 +333,7 @@
                   <td>374</td>
                   <td>44m</td>
                   <td>0.14</td>
+                  <td></td>
                 </tr>
               </tbody>
             </table>
@@ -546,34 +353,25 @@
           <article class="method-item">
             <h3>XBEN suite</h3>
             <p>
-              104 CTF-style challenges across 3 difficulty levels. Each
-              challenge is a containerized vulnerable application with a known
-              flag. A challenge passes when the agent captures the flag AND
-              correctly identifies the vulnerability type.
+              104 CTF-style challenges across 3 difficulty levels. Each is a
+              containerized vulnerable app with a known flag. Pass requires
+              capturing the flag and correctly identifying the vulnerability type.
             </p>
           </article>
           <article class="method-item">
             <h3>Adjusted rate</h3>
             <p>
-              Build failures (broken challenge containers) are excluded from the
-              denominator. Raw rate counts all 104; adjusted rate counts only
-              runnable challenges. 53% of the suite currently fails to build
-              due to stale base images.
-            </p>
-          </article>
-          <article class="method-item">
-            <h3>Juice Shop runs</h3>
-            <p>
-              Separate from XBEN. Real-world target (OWASP Juice Shop) measuring
-              findings count, vuln type diversity, step efficiency, and duration.
+              Build failures (stale base images) are excluded from the
+              denominator. 53% of the suite currently fails to build.
+              Adjusted rate = passes / runnable challenges.
             </p>
           </article>
           <article class="method-item">
             <h3>Execution model</h3>
             <p>
-              Fully autonomous — no human intervention after launch. Agent runs
-              inside sandboxed Kali containers with immutable scope policies.
-              All runs use the same codebase and configuration.
+              Fully autonomous — no human intervention after launch. Agent
+              runs inside per-scan isolated Kali containers with 2-layer
+              governance. Anti-hallucination pipeline validates every finding.
             </p>
           </article>
         </div>
