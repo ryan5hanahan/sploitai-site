@@ -7,14 +7,14 @@
     <title>sploit.ai — autonomous penetration testing</title>
     <meta
       name="description"
-      content="sploit.ai — AI-powered autonomous pentesting platform. 119 vuln types, 34K+ payloads, 14 OSINT sources. 80% L1, 67% L2, 100% L3 CTF pass rate. Sandboxed Kali, 2-layer governance."
+      content="sploit.ai — autonomous pentesting with hybrid intelligence. Deterministic recon + LLM-driven exploitation. 87.5% XBEN pass rate. Sandboxed Kali, 5-stage command validation, 3786+ tests."
     />
 
     <!-- Open Graph -->
     <meta property="og:title" content="sploit.ai" />
     <meta
       property="og:description"
-      content="AI-powered autonomous pentesting. 119 vuln types, 34K+ payloads, 14 OSINT sources. 80% L1, 67% L2, 100% L3 CTF pass rate. Sandboxed Kali, 2-layer governance."
+      content="Autonomous pentesting with hybrid intelligence. Deterministic recon + LLM-driven exploitation. 87.5% XBEN pass rate. Sandboxed Kali, immutable scope."
     />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="assets/sploitai_glitch.svg" />
@@ -24,7 +24,7 @@
     <meta name="twitter:title" content="sploit.ai" />
     <meta
       name="twitter:description"
-      content="AI-powered autonomous pentesting. 119 vuln types, 34K+ payloads, 14 OSINT sources. 80% L1, 67% L2, 100% L3 CTF pass rate."
+      content="Autonomous pentesting with hybrid intelligence. Deterministic recon + LLM-driven exploitation. 87.5% XBEN pass rate."
     />
     <meta name="twitter:image" content="assets/sploitai_glitch.svg" />
 
@@ -72,15 +72,15 @@
       <section id="top" class="hero" aria-label="Hero">
         <div class="hero__grid">
           <div class="hero__copy">
-            <p class="eyebrow">AI-powered autonomous penetration testing</p>
+            <p class="eyebrow">autonomous penetration testing</p>
             <h1 class="hero__title">
               <span class="glitch" data-text="sploit.ai">sploit.ai</span>
             </h1>
             <p class="hero__subtitle">
-              An autonomous agent that discovers, tests, and exploits
-              vulnerabilities using a KNOW/THINK/TEST/VALIDATE cognitive
-              cycle — all inside isolated Kali containers, governed by
-              immutable 2-layer scope policies.
+              Hybrid intelligence: deterministic recon and pattern-based
+              detection handle 70% of the work at zero LLM cost, then an
+              adaptive LLM agent chains findings like a human pentester.
+              All inside sandboxed Kali containers with immutable scope policies.
             </p>
 
             <div class="hero__cta">
@@ -95,10 +95,10 @@
             </div>
 
             <div class="hero__badges" aria-label="Highlights">
-              <span class="badge">119 vuln types</span>
+              <span class="badge">72 registered tools</span>
+              <span class="badge">14 deterministic vuln types</span>
+              <span class="badge">3,786+ tests</span>
               <span class="badge">6 LLM providers</span>
-              <span class="badge">34K+ payloads</span>
-              <span class="badge">14 OSINT sources</span>
             </div>
           </div>
 
@@ -108,7 +108,7 @@
                 <span class="dot dot--r"></span>
                 <span class="dot dot--y"></span>
                 <span class="dot dot--g"></span>
-                <span class="terminal__title">sploit.ai</span>
+                <span class="terminal__title">sploitagent</span>
               </div>
               <div class="terminal__body">
                 <div class="terminal__logo">
@@ -116,19 +116,18 @@
                 </div>
                 <pre class="terminal__code"><code><span class="muted">$</span> sploitagent run \
     --target http://localhost:3000 \
-    --objective "Find OWASP Top 10 vulns" \
-    --profile full_auto
+    --objective "Full security assessment" \
+    --engine v2 --profile vuln_lab
 
 <span class="ok">&#10004;</span> kali sandbox ready
-<span class="ok">&#10004;</span> governance: scope locked, phase gating on
-<span class="muted">&#8594;</span> KNOW: 47 endpoints, 3 technologies
-<span class="muted">&#8594;</span> THINK: 8 hypotheses, 3 high-confidence
-<span class="ok">&#10004;</span> spawning 3 sub-agents (FAST tier)
-<span class="ok">&#10004;</span> TEST: sqli, xss, ssrf, idor, ssti
+<span class="ok">&#10004;</span> scope locked: vuln_lab profile
+<span class="muted">&#8594;</span> recon: tech profiling, JS analysis, endpoints
+<span class="ok">&#10004;</span> deterministic: 8 vulns found (sqli, xss, idor)
+<span class="muted">&#8594;</span> planning: CVE mapping, exploit search
+<span class="ok">&#10004;</span> adaptive: LLM agent chaining findings
 <span class="warn">!</span> CRIT — SQLi &#8594; cred dump &#8594; admin takeover
-<span class="ok">&#10004;</span> VALIDATE: 60 findings, 21 vuln types
-<span class="ok">&#10004;</span> anti-hallucination: 4 rejected, 56 confirmed
-<span class="muted">&#8594;</span> report: findings + evidence + CVSS/CWE
+<span class="ok">&#10004;</span> 12 findings confirmed, evidence saved
+<span class="muted">&#8594;</span> report: PDF + JSON + attack graph
 </code></pre>
               </div>
             </div>
@@ -139,44 +138,45 @@
       <section id="features" class="section" aria-label="Features">
         <div class="section__head">
           <h2>Capabilities</h2>
-          <p>Autonomous end-to-end, from recon to report.</p>
+          <p>Deterministic recon + LLM-driven adaptive exploitation.</p>
         </div>
 
         <div class="cards">
           <article class="card">
-            <h3>Cognitive reasoning loop</h3>
+            <h3>Hybrid v2 engine</h3>
             <p>
-              A KNOW/THINK/TEST/VALIDATE cycle drives every decision.
-              3-tier model routing (Fast/Balanced/Deep) across 6 providers
-              with per-session cost tracking and budget enforcement.
-              Confidence scores determine when to gather, test, or exploit.
+              Deterministic detection handles 14 vulnerability types
+              (injection, file access, auth, client-side, config) via
+              pattern matching and behavioral analysis — zero LLM cost.
+              When findings are confirmed or budget allows, an LLM agent
+              takes over for adaptive multi-step exploitation.
             </p>
           </article>
           <article class="card">
             <h3>Sandboxed Kali execution</h3>
             <p>
-              Each scan runs in its own isolated Kali Linux container
-              with nmap, sqlmap, nuclei, httpx, katana, and dozens more.
-              119 vulnerability types, 34K+ payloads from PayloadsAllTheThings,
-              and 14 OSINT API clients for deep reconnaissance.
+              Each assessment runs in its own isolated Kali container.
+              35 security tools (nmap, sqlmap, nuclei, ffuf, nikto, hydra,
+              dalfox, and more) plus a persistent Playwright browser for
+              multi-session auth testing and DOM analysis.
             </p>
           </article>
           <article class="card">
-            <h3>2-layer governance</h3>
+            <h3>5-stage command validation</h3>
             <p>
-              Layer 1 enforces scope — domains, vuln types, phases — locked
-              immutably at scan creation. Layer 2 gates actions by phase,
-              preventing exploitation during recon. 6 profiles from
-              full_auto to bug_bounty. All violations audited.
+              Every shell command passes through allowlist, pattern block,
+              scope check, risk classification, and OPSEC default injection
+              before execution. Immutable scope, credential isolation,
+              output sanitization with secret redaction.
             </p>
           </article>
           <article class="card">
-            <h3>Learns across runs</h3>
+            <h3>Cross-run memory</h3>
             <p>
-              35 tradecraft TTP entries with MITRE ATT&CK mapping.
-              Per-target persistent memory with TF-IDF vector search.
-              Anti-hallucination pipeline validates every finding through
-              negative controls, proof-of-execution, and confidence scoring.
+              Three memory tiers — working, tradecraft, and muscle —
+              promote proven payloads from NEW to LEARNING to PROVEN
+              across runs. A git-backed progress repo tracks every tested
+              intent, blocking duplicates before they consume budget.
             </p>
           </article>
         </div>
@@ -185,29 +185,29 @@
       <section id="results" class="section section--results" aria-label="Results">
         <div class="section__head">
           <h2>Results</h2>
-          <p>All-time records from fully autonomous runs — no human in the loop.</p>
+          <p>Fully autonomous — no human in the loop.</p>
         </div>
 
         <div class="kpi-grid kpi-grid--4">
           <div class="kpi">
-            <span class="kpi__value">80%</span>
-            <span class="kpi__label">L1 CTF pass rate</span>
-            <span class="kpi__detail">20/25 challenges — up from 59% (+21pp)</span>
+            <span class="kpi__value">87.5%</span>
+            <span class="kpi__label">XBEN pass rate</span>
+            <span class="kpi__detail">Targeted CTF benchmarks</span>
           </div>
           <div class="kpi">
-            <span class="kpi__value">67%</span>
-            <span class="kpi__label">L2 CTF pass rate</span>
-            <span class="kpi__detail">12/18 challenges — first L2 run</span>
-          </div>
-          <div class="kpi">
-            <span class="kpi__value">100%</span>
-            <span class="kpi__label">L3 CTF pass rate</span>
-            <span class="kpi__detail">2/2 — deserialization + padding oracle</span>
+            <span class="kpi__value">12</span>
+            <span class="kpi__label">Juice Shop challenges</span>
+            <span class="kpi__detail">Solved in 10 minutes</span>
           </div>
           <div class="kpi">
             <span class="kpi__value">87</span>
             <span class="kpi__label">Peak findings (one run)</span>
             <span class="kpi__detail">21 vuln types, 21 critical severity</span>
+          </div>
+          <div class="kpi">
+            <span class="kpi__value">3,786+</span>
+            <span class="kpi__label">Tests</span>
+            <span class="kpi__detail">Across 203 test files</span>
           </div>
         </div>
 
@@ -219,36 +219,36 @@
       <section id="how" class="section" aria-label="How it works">
         <div class="section__head">
           <h2>How it works</h2>
-          <p>Four-phase cognitive cycle with confidence-driven decisions.</p>
+          <p>Four phases, deterministic first, LLM when it matters.</p>
         </div>
 
         <ol class="steps">
           <li class="step">
-            <span class="step__num">KNOW</span>
+            <span class="step__num">70%</span>
             <div class="step__body">
-              <h3>Discovery (0–25% budget)</h3>
-              <p>Port scan, service detection, tech fingerprinting, endpoint enumeration. Sub-agents run parallel recon at FAST tier. 14 OSINT sources enrich targets.</p>
+              <h3>Recon (deterministic)</h3>
+              <p>Tech profiling, JS bundle analysis, endpoint discovery, OSINT enrichment, sensitive path probing. Zero LLM cost — fast scanners block recon while deferred scanners (nuclei, Burp) run async.</p>
             </div>
           </li>
           <li class="step">
-            <span class="step__num">THINK</span>
+            <span class="step__num">10%</span>
             <div class="step__body">
-              <h3>Hypothesis (25–50%)</h3>
-              <p>Form explicit hypotheses with confidence scores. >75% confidence triggers direct exploitation; &lt;40% gathers more information first. Prioritize high-value targets.</p>
+              <h3>Planning (deterministic)</h3>
+              <p>CVE mapping via NVD, ExploitDB search, hypothesis generation from collected intelligence. Attack surface prioritization before any LLM involvement.</p>
             </div>
           </li>
           <li class="step">
-            <span class="step__num">TEST</span>
+            <span class="step__num">AUTO</span>
             <div class="step__body">
-              <h3>Validation (50–80%)</h3>
-              <p>Test hypotheses with crafted requests from 34K+ payloads. Anti-hallucination pipeline verifies every finding: negative controls, proof-of-execution, confidence scoring, validation judge.</p>
+              <h3>Exploitation (deterministic)</h3>
+              <p>14 vulnerability types detected via pattern matching and behavioral analysis — SQL injection, XSS, SSRF, IDOR, SSTI, command injection, LFI, XXE, open redirect, CORS, deserialization, and more.</p>
             </div>
           </li>
           <li class="step">
-            <span class="step__num">LEARN</span>
+            <span class="step__num">LLM</span>
             <div class="step__body">
-              <h3>Reporting (80–100%)</h3>
-              <p>Confirmed findings with CVSS scores, CWE references, and evidence. Quality evaluation across 5 dimensions. Tradecraft memory persists proven techniques for future runs.</p>
+              <h3>Adaptive exploitation</h3>
+              <p>Claude Agent SDK with Opus orchestrator and specialized sub-agents. Persistent Playwright browser, multi-session auth testing, attack chaining. Professional PDF reports with ATT&CK/OWASP mapping.</p>
             </div>
           </li>
         </ol>

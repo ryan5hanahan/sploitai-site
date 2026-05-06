@@ -7,13 +7,13 @@
     <title>Benchmarks — sploit.ai</title>
     <meta
       name="description"
-      content="sploit.ai benchmark results — 80% L1, 67% L2, 100% L3 CTF pass rate. 87 peak findings, 21 vuln types. Fully autonomous, no human intervention."
+      content="sploit.ai benchmark results — 87.5% targeted XBEN pass rate. 87 peak findings, 21 vuln types. Fully autonomous, no human intervention."
     />
 
     <meta property="og:title" content="Benchmarks — sploit.ai" />
     <meta
       property="og:description"
-      content="80% L1, 67% L2, 100% L3 CTF pass rate. 87 peak findings, 21 vuln types. Fully autonomous runs in sandboxed Kali containers."
+      content="87.5% targeted XBEN pass rate. 87 peak findings, 21 vuln types. Fully autonomous runs in sandboxed Kali containers."
     />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="assets/sploitai_glitch.svg" />
@@ -22,7 +22,7 @@
     <meta name="twitter:title" content="Benchmarks — sploit.ai" />
     <meta
       name="twitter:description"
-      content="80% L1, 67% L2, 100% L3 CTF pass rate. 87 peak findings, 21 vuln types. Fully autonomous."
+      content="87.5% targeted XBEN pass rate. 87 peak findings, 21 vuln types. Fully autonomous."
     />
     <meta name="twitter:image" content="assets/sploitai_glitch.svg" />
 
@@ -357,9 +357,10 @@
           <article class="method-item">
             <h3>Execution model</h3>
             <p>
-              Fully autonomous — no human intervention after launch. Agent
-              runs inside per-scan isolated Kali containers with 2-layer
-              governance. Anti-hallucination pipeline validates every finding.
+              Fully autonomous — no human intervention after launch. Hybrid
+              v2 engine: deterministic recon and detection first, then LLM
+              adaptive exploitation. All inside sandboxed Kali containers
+              with 5-stage command validation and immutable scope.
             </p>
           </article>
         </div>
